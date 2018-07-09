@@ -34,6 +34,19 @@ the jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 
 <br><br>
 
+## Features
+
+- i18n support, provide Chinese, English, Japanese languages
+- regular menu multiple level support
+- multiple group type support
+- advance menu mode with quick search
+- keyboard to quick navigate in advance menu mode
+- custom row content render
+- embedded to page
+- mouse right click(contextmenu) or mouse move to call menu
+
+<br><br>
+
 ## Vue plugin series
 
 | Plugin | Status | Description |
