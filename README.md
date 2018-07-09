@@ -101,7 +101,8 @@ template
 
 ```html
 <template>
-    <v-selectmenu :data="list" class="form-control" v-model="value"></v-selectmenu>
+    <v-selectmenu :data="list" class="form-control" v-model="value">
+    </v-selectmenu>
 </template>
 ```
 
