@@ -169,7 +169,7 @@
             },
             scroll: {
                 type: Boolean,
-                default: false
+                default: true
             }
         },
         provide(){
@@ -512,11 +512,7 @@
             cursor: default !important;
         }
         p {
-            padding: 0;
-            margin: 0;
-            font-weight: 600;
-            line-height: 26px;
-            font-size: 16px;
+            padding: 0;margin: 0;font-weight: 600;line-height: 26px;font-size: 16px;
         }
         button {
             float: left;
@@ -602,23 +598,9 @@
             -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
             box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 
-            /*
-            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-            -moz-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-            */
-            /*transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;*/
-            /*transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;*/
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
             &:focus {
-                border: 1px solid #bbbbbb;
-                /* 同时设置了内部和外部的阴影 */
-                /*
-                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 1px 8px rgba(90,90,90,0.35);
-                -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 1px 8px rgba(90,90,90,0.35);
-                box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 1px 8px rgba(90,90,90,0.35);
-                */
-                box-shadow: 0 0 0 3px rgba(150,150,150, 0.2);
+                border: 1px solid #bbbbbb;box-shadow: 0 0 0 3px rgba(150,150,150, 0.2);
             }
         }
     }
@@ -644,15 +626,9 @@
         top: 0;
         right: 0;
         span.caret {
-            position: absolute;
-            top: 50%;
-            right: 12px;
-            margin-top: -1px;
-            vertical-align: middle;
+            position: absolute;top: 50%;right: 12px;margin-top: -1px;vertical-align: middle;
         }
     }
-
-    .sm-container-open > .sm-button { border-bottom-right-radius: 0 !important; }
 
     div.sm-clear-btn {
         position: absolute;
@@ -742,11 +718,7 @@
 
     /* regular menu item style */
     ul.sm-results {
-        background-color: white;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
+        background-color: white;list-style: none;margin: 0;padding: 0;
         &.sm-regular {
             width: auto;min-width: 150px;padding: 5px 0;
             & > li {
@@ -762,11 +734,7 @@
                 &.sm-header,
                 &.sm-header:hover,
                 &.sm-header a {
-                    background-color: white;
-                    color: black;
-                    font-size: 16px;
-                    font-weight: 600;
-                    cursor: default;
+                    background-color: white;color: black;font-size: 16px;font-weight: 600;cursor: default;
                 }
             }
         }
@@ -786,21 +754,14 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             & > a { color: #333333;text-decoration: none;transition: none; }
             & > div.sm-selected-icon {
-                width: 16px;
-                margin-right: 10px;
-                float: left;
-                & > i {
-                    font-size: 16px;
-                    font-weight: bold;
-                    line-height: 1.5;
-                    visibility: hidden;
-                }
+                position: absolute;top: 6px;
+                & > i { font-size: 18px;visibility: hidden; }
             }
-            & > div.sm-item-text { font-size: 14px;display: block;line-height: 1.7; }
+            & > div.sm-item-text {
+                font-size: 14px;display: block;line-height: 1.7;position: relative;margin-left: 30px;
+            }
             &.sm-message-box {
-                position: relative;
-                cursor: default;
-                padding-left: 12px;
+                position: relative;cursor: default;padding-left: 12px;
                 i { font-size: 22px;position: absolute;top:6px; }
                 span { font-size: 16px;line-height: 1.7;margin-left: 28px; }
             }
@@ -822,7 +783,6 @@
     .sm-input-off { background: #eee;color: #333333; }
     .sm-hide { display: none; }
 
-    div.sm-container-open .sm-input::-ms-clear{display:none;}
     /* 移除微软浏览器，在输入框输入文本后，会出现X的问题，but it's look like not working */
     input::-ms-clear{display:none;}/*隐藏文本框叉子*/
     input::-ms-reveal{display:none;}/*隐藏密码框小眼睛*/
