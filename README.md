@@ -28,6 +28,9 @@ Explorer on
 - [English site](https://terryz.github.io/vue/#/selectmenu)
 - [国内站点](https://terryz.gitee.io/vue/#/selectmenu)
 
+the jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
+
+**If you think this project is helpful, please star it.**
 
 <br><br>
 
