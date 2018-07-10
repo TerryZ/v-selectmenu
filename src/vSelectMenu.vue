@@ -73,8 +73,7 @@
                     :style="listStyle"
                     ref="listUl" v-if="!regular">
                     <!-- advance menu list -->
-                    <li pkey="11" :title="item.name"
-                        v-for="item,index in results"
+                    <li pkey="11" v-for="item,index in results"
                         v-if="!regular && !message"
                         @click="selectItem(item)"
                         @mouseenter="highlight = index"
@@ -174,7 +173,8 @@
         },
         provide(){
             return {
-                parentInst: this.$parent
+                parentInst: this.$parent,
+                dropShow: this.show
             };
         },
         data(){
@@ -736,6 +736,7 @@
                 &.sm-header a {
                     background-color: white;color: black;font-size: 16px;font-weight: 600;cursor: default;
                 }
+                &.sm-divider { background-color: white; }
             }
         }
 
@@ -808,41 +809,4 @@
     .icon-selected:before { content: "\e72e"; }
     .icon-removeall:before { content: "\e74b"; }
     .icon-back:before { content: "\e627"; }
-
-    /* css animate */
-    .vivify {
-        -webkit-animation-duration: .1s;
-        -webkit-animation-fill-mode: both;
-        animation-duration: .1s;
-        animation-fill-mode: both; }
-    .fadeInRight {
-        -webkit-animation-name: fadeInRight;
-        animation-name: fadeInRight;
-        -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-        animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
-
-    @keyframes fadeInRight {
-        0% {
-            -webkit-transform: translate3d(100px, 0, 0);
-            transform: translate3d(100px, 0, 0);
-            opacity: 0; }
-        100% {
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-            opacity: 1; } }
-    .fadeInLeft {
-        -webkit-animation-name: fadeInLeft;
-        animation-name: fadeInLeft;
-        -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-        animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
-
-    @keyframes fadeInLeft {
-        0% {
-            -webkit-transform: translate3d(-100px, 0, 0);
-            transform: translate3d(-100px, 0, 0);
-            opacity: 0; }
-        100% {
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-            opacity: 1; } }
 </style>

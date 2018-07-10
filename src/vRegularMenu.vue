@@ -1,6 +1,6 @@
 <template>
     <div v-if="data && data.length">
-        <ul class="sm-results sm-regular sm-menu-root"
+        <ul :class="[baseClass, 'sm-menu-root', {fadeInLeft}]"
             v-show="currentMenu === 'root'" >
             <!-- regular menu items -->
             <v-menu-item :data="menu" is="v-menu-item"
@@ -9,12 +9,12 @@
                          v-for="menu,index in data"></v-menu-item>
         </ul>
         <!--<transition-group tag="span" name="vivify" enter-class="fadeInLeft" leave-class="fadeInRight">-->
-        <ul class="sm-results sm-regular sm-sub-menu vivify fadeInRight"
+        <ul :class="[baseClass, 'sm-sub-menu', subMenuSlide]"
             :key="'sub-menu-'+index"
             v-show="currentMenu === sub.mKey"
             v-for="sub,index in subMenus">
             <li class="sm-sub-header">
-                <button type="button" class="sm-sub-back" @click="switchSub(sub.pKey)">
+                <button type="button" class="sm-sub-back" @click="switchSub(sub, true)">
                     <i class="iconfont icon-back"></i>
                 </button>
                 <p v-html="sub.content"></p>
@@ -50,13 +50,24 @@
         data(){
             return {
                 subMenus: [],
-                currentMenu: 'root'
+                currentMenu: 'root',
+
+                fadeInLeft: false,
+                fadeInRight: true,
+                subMenuSlide: {
+                    fadeInLeft: false,
+                    fadeInRight: true
+                },
+                baseClass: 'sm-results sm-regular vivify'
             };
         },
         watch:{
             show(val){
                 this.$nextTick(()=>{
-                    if(!val) this.currentMenu = 'root';
+                    if(!val) {
+                        this.currentMenu = 'root';
+                        this.fadeInLeft = false;
+                    }
                 })
             },
             data(){
@@ -82,17 +93,32 @@
             },
             getSubs(){
                 if(this.data && this.data.length){
+                    this.subMenus.splice(0, this.subMenus.length);
                     let list = this.data.concat();
                     for(let i=0;i < list.length; i++){
                         this.pushMenu(list[i], null, i);
                     }
                 }
             },
-            switchSub(row){
-                if(row && row.mKey) this.currentMenu = row.mKey;
-                else{
-                    if(!row.disabled) this.$emit('close');
+            switchSub(row, parent){
+                if(row && Object.keys(row).length){
+                    if(!parent){
+                        if(row.mKey) this.currentMenu = row.mKey;
+                        if(row.menus){
+                            this.subMenuSlide.fadeInLeft = false;
+                            this.subMenuSlide.fadeInRight = true;
+                        }
+                    }else{
+                        if(row.pKey) this.currentMenu = row.pKey;
+                        if(row.pKey === 'root') this.fadeInLeft = true;
+                        else {
+                            this.subMenuSlide.fadeInLeft = true;
+                            this.subMenuSlide.fadeInRight = false;
+                        }
+                    }
+                    if(!row.disabled && !row.menus) this.$emit('close');
                 }
+
             }
         },
         mounted(){
@@ -100,3 +126,29 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    /* css animate */
+    .vivify {
+        -webkit-animation-duration: 80ms;-webkit-animation-fill-mode: both;
+        /*animation-duration: .1s;*/
+        animation-duration: 80ms;animation-fill-mode: both; }
+
+    .fadeInRight {
+        -webkit-animation-name: fadeInRight;animation-name: fadeInRight;
+        -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+    @keyframes fadeInRight {
+        0% { -webkit-transform: translate3d(50px, 0, 0);transform: translate3d(50px, 0, 0);opacity: 0; }
+        100% { -webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);opacity: 1; } }
+
+
+    .fadeInLeft {
+        -webkit-animation-name: fadeInLeft;animation-name: fadeInLeft;
+        -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+
+    @keyframes fadeInLeft {
+        0% { -webkit-transform: translate3d(-50px, 0, 0);transform: translate3d(-50px, 0, 0);opacity: 0; }
+        100% { -webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);opacity: 1; } }
+</style>
