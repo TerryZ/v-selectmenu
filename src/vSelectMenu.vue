@@ -336,7 +336,7 @@
             filter(){
                 let that = this;
                 let list = this.state.group ? this.data[this.tabIndex].list.concat() : this.data.concat();
-                return list.filter(val=>that.getRowText().toLowerCase().includes(that.search.toLowerCase()));
+                return list.filter(val=>that.getRowText(val).toLowerCase().includes(that.search.toLowerCase()));
             },
             searchList(){
                 let that = this, arr = [];
