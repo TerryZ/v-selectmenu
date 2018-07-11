@@ -92,7 +92,7 @@ Include plugin in your `main.js` file.
 ```js
 import Vue from 'vue'
 import vSelectMenu from 'v-selectmenu';
-Vue.use(vSelectMenu);
+Vue.use(vSelectMenu, { global config options... });
 ```
 
 ## Deploy on your component(default advance mode)
