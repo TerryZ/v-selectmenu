@@ -97,13 +97,13 @@ Vue.use(vSelectMenu, { global config options... });
 
 ## Deploy on your component(default advance mode)
 
-template
 
 ```vue
 <template>
     <v-selectmenu :data="list" class="form-control" v-model="value">
     </v-selectmenu>
 </template>
+
 <script>
 export default {
     data(){
@@ -118,23 +118,6 @@ export default {
     }
 };
 </script>
-```
-
-script
-
-```js
-export default {
-    data(){
-        return {
-            value: '',
-            list: [
-                {id:1 ,name:'Chicago Bulls',desc:'芝加哥公牛'},
-                {id:2 ,name:'Cleveland Cavaliers',desc:'克里夫兰骑士'},
-                {...}
-            ]
-        };
-    }
-};
 ```
 <br><br>
 
