@@ -105,18 +105,18 @@ Vue.use(vSelectMenu, { global config options... });
 </template>
 
 <script>
-export default {
-    data(){
-        return {
-            value: '',
-            list: [
-                {id:1 ,name:'Chicago Bulls',desc:'芝加哥公牛'},
-                {id:2 ,name:'Cleveland Cavaliers',desc:'克里夫兰骑士'},
-                {...}
-            ]
-        };
-    }
-};
+    export default {
+        data(){
+            return {
+                value: '',
+                list: [
+                    {id:1 ,name:'Chicago Bulls',desc:'芝加哥公牛'},
+                    {id:2 ,name:'Cleveland Cavaliers',desc:'克里夫兰骑士'},
+                    {...}
+                ]
+            };
+        }
+    };
 </script>
 ```
 <br><br>
