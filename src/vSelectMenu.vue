@@ -7,14 +7,21 @@
              @mouseleave="moveOut"
              @contextmenu="mouseRight"
              @click="click">
-            <slot></slot>
+            <slot :show="show">
+                <button type="button" :class="['sm-default-btn', {'sm-opened': show}]">
+                    {{btnText}}
+                    <span class="sm-caret-down"></span>
+                </button>
+            </slot>
         </div>
 
         <!-- drop down list -->
-        <v-dropdown ref="drop" @show-change="dropdownVisible"
+        <v-dropdown ref="drop"
+                    @show-change="dropdownVisible"
                     :position="position"
                     :embed="embed"
-                    :x="x" :y="y"
+                    :x="x"
+                    :y="y"
                     :right-click="rightClick" >
 
             <!-- header bar -->
@@ -103,8 +110,8 @@
 </template>
 
 <script>
+    import drop from 'v-dropdown';
     import regular from './vRegularMenu';
-    import drop from './Dropdown';
     import lang from './language';
     export default {
         name: "v-selectmenu",
@@ -207,11 +214,12 @@
         methods: {
             open(){
                 if(!this.show) {
-                    this.show = true;
+                    this.$refs.drop.$emit('show', true, this.$refs.caller);
                     this.$nextTick(()=>{
                         this.$emit('show');
                     });
-                } else this.inputFocus();
+                }
+                if(!this.regular) this.inputFocus();
             },
             close(){
                 this.$refs.drop.$emit('show', false);
@@ -278,7 +286,7 @@
                             if(this.highlight !== -1) this.selectItem(this.results[this.highlight]);
                             break;
                         case 27:// escape
-                            this.show = false;
+                            this.close();
                             break;
                     }
                 }
@@ -419,20 +427,19 @@
                 }
             }
         },
+        computed: {
+            btnText(){
+                let str = '', that = this;
+                if(this.selected.length){
+                    str = this.selected.concat().map(val=>val[that.showField]).join(',');
+                }else str = this.i18n.advance_default;
+                return str;
+            }
+        },
         watch:{
             tabIndex(val){
                 this.tabIndex = val;
                 this.searchList();
-            },
-            show: function(val){
-                let that = this;
-                if(val) {
-                    this.$refs.drop.$emit('show', true, this.$refs.caller);
-                    if(!that.regular) this.inputFocus();
-                    this.$nextTick(()=>{
-                        this.$emit('show');
-                    });
-                }
             },
             value(val){
                 this.init();
@@ -485,6 +492,35 @@
         box-shadow: inset 0 0.15em 0.3em rgba(27,31,35,0.15);
     }
 
+    .sm-default-btn {
+        position: relative;
+        padding: 10px 15px;
+        background-color: white;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        line-height: 1;
+        outline: 0 !important;
+        color: #666666;
+        transition: color .15s ease-in-out,
+            background-color .15s ease-in-out,
+            border-color .15s ease-in-out,
+            box-shadow .15s ease-in-out;
+        span.sm-caret-down { transition:transform .2s ease; }
+        &.sm-opened {
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+            border: 1px solid #aaa;
+            color: black;
+            background-color: #e0e0e0;
+            span.sm-caret-down { transform: rotate(180deg); }
+            &:hover { background-color: #e0e0e0;border: 1px solid #aaa; }
+        }
+        &:hover{
+            border: 1px solid #aaaaaa;
+            background-color: #e0e0e0;
+            color: black;
+        }
+    }
+
     .sm-caret {
         display: inline-block;
         width: 0;
@@ -500,6 +536,22 @@
         position: absolute;
         top: 7px;
         right: 10px;
+    }
+    .sm-caret-down {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 5px;
+        border-top: 4px solid;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        /*float: right;*/
+        /*margin-top: 3px;*/
+        vertical-align: middle;
+        content: "";
+/*        position: absolute;
+        top: 7px;
+        right: 10px;*/
     }
 
     /* Sub menus */
@@ -704,16 +756,6 @@
         &.sm-list-mode{ border-top: 1px solid #E6E7E7;}
         &.sm-advance { min-width: 260px; }
         &.sm-scroll-limit { max-height: 260px; }
-        &.shadowDown{
-            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
-            -moz-box-shadow: 0 3px 12px rgba(0,0,0,0.2);
-            -webkit-box-shadow: 0 3px 12px rgba(0,0,0,0.2);
-        }
-        &.shadowUp{
-            box-shadow: 0 -1px 12px rgba(0,0,0,0.2);
-            -moz-box-shadow: 0 -1px 12px rgba(0,0,0,0.2);
-            -webkit-box-shadow: 0 -1px 12px rgba(0,0,0,0.2);
-        }
     }
 
     /* regular menu item style */
@@ -722,7 +764,7 @@
         &.sm-regular {
             width: auto;min-width: 150px;padding: 5px 0;
             & > li {
-                padding: 0;
+                padding: 0;min-width: auto;
                 &:hover{
                     background-color: #53A4EA;color: white;
                     a { color: white; }
@@ -749,6 +791,7 @@
             position: relative;
             text-align: left;
             white-space: nowrap;
+            min-width: 260px;
             font-size: 14px;
             color: #333333;
             cursor : pointer;
