@@ -216,7 +216,7 @@
                 if(!this.show) {
                     this.$refs.drop.$emit('show', true, this.$refs.caller);
                     this.$nextTick(()=>{
-                        this.$emit('show');
+                        if(this.show) this.$emit('show');
                     });
                 }
                 if(!this.regular) this.inputFocus();
@@ -791,7 +791,7 @@
             position: relative;
             text-align: left;
             white-space: nowrap;
-            min-width: 260px;
+            min-width: 180px;
             font-size: 14px;
             color: #333333;
             cursor : pointer;
