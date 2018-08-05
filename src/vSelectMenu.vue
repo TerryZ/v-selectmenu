@@ -493,12 +493,14 @@
     }
 
     .sm-default-btn {
+        display: inline-block;
         position: relative;
-        padding: 10px 15px;
+        padding: 6px 12px;
         background-color: white;
         border: 1px solid #cccccc;
         border-radius: 4px;
-        line-height: 1;
+        font-size: 14px;
+        line-height: 1.42857143;
         outline: 0 !important;
         color: #666666;
         transition: color .15s ease-in-out,
