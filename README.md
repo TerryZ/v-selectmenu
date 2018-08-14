@@ -119,5 +119,3 @@ Vue.use(vSelectMenu, { global config options... });
     };
 </script>
 ```
-<br><br>
-
