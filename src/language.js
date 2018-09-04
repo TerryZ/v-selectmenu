@@ -19,6 +19,16 @@ const languages = {
         advance_default: 'Select an option',
         regular_group: 'Menus'
     },
+    // Persian
+    fa: {
+        select_all_btn: 'انتخاب تمام موارد',
+        remove_all_btn: 'حذف تمام موارد',
+        close_btn: 'بستن (دمنه Esc(',
+        not_found: 'موردی یافت نشد',
+        max_selected: 'شما تنها مجاز به انتخاب max_selected_limit items آیتم هستید',
+        advance_default: 'یک مورد را انتخاب کنید',
+        regular_group: 'منو ها'
+    },
     // Japanese
     ja: {
         select_all_btn: 'すべての （または現在のタブ） 項目を選択',
