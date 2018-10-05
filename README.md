@@ -95,6 +95,8 @@ import vSelectMenu from 'v-selectmenu';
 Vue.use(vSelectMenu, { global config options... });
 ```
 
+<a href="https://nodei.co/npm/v-selectmenu/"><img src="https://nodei.co/npm/v-selectmenu.png"></a>
+
 ## Deploy on your component(default advance mode)
 
 
