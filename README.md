@@ -16,10 +16,6 @@
   A simple, easier and highly customized menu solution for <strong>Vue2</strong>
 </p>
 
-<p align="center">
-  <a href="https://nodei.co/npm/v-selectmenu/"><img src="https://nodei.co/npm/v-selectmenu.png"></a>
-</p>
-
 <br><br><br><br><br>
 
 ## Demos and Documents
