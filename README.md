@@ -72,9 +72,9 @@ The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 
 ![regular-group](https://terryz.github.io/image/v-selectmenu/v-selectmenu-regular-group.png)
 
-*advance menu group type*
+*advanced menu group type*
 
-![advance](https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png)
+![advanced](https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png)
 
 <br><br>
 
@@ -94,7 +94,7 @@ Vue.use(vSelectMenu, { global config options... });
 
 <a href="https://nodei.co/npm/v-selectmenu/"><img src="https://nodei.co/npm/v-selectmenu.png"></a>
 
-## Deploy on your component(default advance mode)
+## Deploy on your component(default advanced mode)
 
 
 ```vue
