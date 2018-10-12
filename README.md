@@ -81,7 +81,7 @@ The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 ## Install
 
 ``` bash
-npm install v-selectmenu --save
+npm i v-selectmenu --save
 ```
 
 Include plugin in your `main.js` file.
@@ -93,6 +93,8 @@ Vue.use(vSelectMenu, { global config options... });
 ```
 
 <a href="https://nodei.co/npm/v-selectmenu/"><img src="https://nodei.co/npm/v-selectmenu.png"></a>
+
+<br><br>
 
 ## Deploy on your component(default advanced mode)
 
