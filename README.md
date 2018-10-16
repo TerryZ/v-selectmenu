@@ -7,15 +7,17 @@
 <p align="center"><img src="https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png" alt="v-selectmenu" ></p>
 
 <p align="center">
+  A simple, easier and highly customized menu solution for <strong>Vue2</strong>
+</p>
+
+<p align="center">
   <a href="https://www.npmjs.com/package/v-selectmenu"><img src="https://img.shields.io/npm/v/v-selectmenu.svg"></a>
   <a href="https://mit-license.org/"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg"></a>
   <a href="https://www.npmjs.com/package/v-selectmenu"><img src="https://img.shields.io/npm/dy/v-selectmenu.svg"></a>
   <a href="https://www.npmjs.com/package/v-selectmenu"><img src="https://img.shields.io/badge/language-javascript%20%2F%20vue-blue.svg"></a>
 </p>
 
-<p align="center">
-  A simple, easier and highly customized menu solution for <strong>Vue2</strong>
-</p>
+
 
 <br><br><br><br><br>
 
