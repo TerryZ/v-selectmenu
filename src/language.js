@@ -19,6 +19,16 @@ const languages = {
         advance_default: 'Select an option',
         regular_group: 'Menus'
     },
+    // Español
+    es: {
+        select_all_btn: 'Selecciona todos los elementos (Esta pestaña)',
+        remove_all_btn: 'Limpiar todos los elementos seleccionados',
+        close_btn: 'Cerrar menú (Tecla Esc)',
+        not_found: 'No encontrado',
+        max_selected: 'Solo puedes seleccionar un máximo de hasta max_selected_limit elementos',
+        advance_default: 'Seleccione una opción',
+        regular_group: 'Menús'
+    },
     // Persian
     fa: {
         select_all_btn: 'انتخاب تمام موارد',
