@@ -213,16 +213,14 @@
         },
         methods: {
             open(){
-                if(!this.show) {
-                    this.$refs.drop.$emit('show', true, this.$refs.caller);
-                    this.$nextTick(()=>{
-                        if(this.show) this.$emit('show');
-                    });
-                }
+                this.$refs.drop.$emit('show', this.$refs.caller);
+                this.$nextTick(()=>{
+                    if(this.show) this.$emit('show');
+                });
                 if(!this.regular) this.inputFocus();
             },
             close(){
-                this.$refs.drop.$emit('show', false);
+                this.$refs.drop.$emit('show');
                 this.reset();
                 this.$emit('hide');
             },
@@ -523,22 +521,6 @@
         }
     }
 
-    .sm-caret {
-        display: inline-block;
-        width: 0;
-        height: 0;
-        margin-left: 10px;
-        border-left: 4px solid;
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        /*float: right;*/
-        margin-top: 3px;
-        /*vertical-align: middle;*/
-        content: "";
-        position: absolute;
-        top: 7px;
-        right: 10px;
-    }
     .sm-caret-down {
         display: inline-block;
         width: 0;
