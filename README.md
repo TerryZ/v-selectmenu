@@ -122,3 +122,9 @@ Vue.use(vSelectMenu, { global config options... });
     };
 </script>
 ```
+
+<br><br>
+
+## Dependenics
+
+- [v-dropdown](https://github.com/TerryZ/v-dropdown)
