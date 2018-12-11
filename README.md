@@ -127,4 +127,4 @@ Vue.use(vSelectMenu, { global config options... });
 
 ## Dependenics
 
-- [v-dropdown](https://github.com/TerryZ/v-dropdown)
+- [v-dropdown](https://github.com/TerryZ/v-dropdown) - The dropdown container layer
