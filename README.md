@@ -1,10 +1,10 @@
 <br><br>
 
-<h3 align="center">v-selectmenu</h3>
+<p align="center"><img src="https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png" alt="v-selectmenu" ></p>
+
+<h3 align="center">SelectMenu for Vue</h3>
 
 <br>
-
-<p align="center"><img src="https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png" alt="v-selectmenu" ></p>
 
 <p align="center">
   A simple, easier and highly customized menu solution for <strong>Vue2</strong>
