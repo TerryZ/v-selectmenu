@@ -176,6 +176,10 @@
             scroll: {
                 type: Boolean,
                 default: true
+            },
+            activeIndex: {
+                type: Number,
+                default: -1
             }
         },
         provide(){
@@ -213,6 +217,9 @@
         },
         methods: {
             open(){
+                if (this.activeIndex > -1) {
+                  this.tabIndex = this.activeIndex
+                }
                 this.$refs.drop.$emit('show', this.$refs.caller);
                 this.$nextTick(()=>{
                     if(this.show) this.$emit('show');
