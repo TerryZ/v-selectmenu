@@ -80,7 +80,7 @@
                     :style="listStyle"
                     ref="listUl" v-if="!regular">
                     <!-- advance menu list -->
-                    <li pkey="11" v-for="item,index in results"
+                    <li pkey="11" v-for="item,index in data"
                         v-if="!regular && !message"
                         @click="selectItem(item)"
                         @mouseenter="highlight = index"
@@ -90,7 +90,7 @@
                         <div class="sm-item-text" v-html="getRowText(item)"></div>
                     </li>
                     <!-- no result message -->
-                    <li class="sm-message-box" v-if="!results.length && !regular">
+                    <li class="sm-message-box" v-if="!data.length && !regular">
                         <i class="iconfont icon-warn"></i>
                         <span v-text="i18n.not_found"></span>
                     </li>
@@ -101,7 +101,7 @@
                 </ul>
                 <v-regular-menu v-if="regular"
                                 :show="show"
-                                :data="results"
+                                :data="data"
                                 :parent-instance="$parent"
                                 @close="close"></v-regular-menu>
             </div>
@@ -190,7 +190,6 @@
         },
         data(){
             return {
-                results: [],
                 subMenus: [],
                 selected: [],
                 search: '',
@@ -261,19 +260,19 @@
                 }
             },
             selectAll(){
-                if(this.results.length && !this.message) {
+                if(this.data.length && !this.message) {
                     if(this.maxSelected){
                         let left = this.maxSelected - this.selected.length;
-                        let available = this.results.concat()
+                        let available = this.data.concat()
                             .filter(val=>!this.selected.includes(val))
                             .filter((val,idx)=>idx<left);
                         this.selected = [...this.selected, ...available];
-                    }else this.selected = this.results;
+                    }else this.selected = this.data;
                 }
             },
             processKey(){
                 let that = this;
-                this.results = this.filter();
+                this.data = this.filter();
             },
             processControl(e){
                 if (this.show &&
@@ -288,7 +287,7 @@
                             break;
                         case 9: // tab
                         case 13:// return
-                            if(this.highlight !== -1) this.selectItem(this.results[this.highlight]);
+                            if(this.highlight !== -1) this.selectItem(this.data[this.highlight]);
                             break;
                         case 27:// escape
                             this.close();
@@ -312,7 +311,7 @@
             },
             nextLine(){
                 let that = this;
-                if(this.highlight < this.results.length-1) this.highlight++;
+                if(this.highlight < this.data.length-1) this.highlight++;
 
                 this.$nextTick(()=>{
                     let cur = that.$refs.list.querySelectorAll('li.sm-over')[0],
@@ -327,7 +326,7 @@
             prevLine(){
                 let that = this;
                 if(this.highlight > 0) this.highlight--;
-                else if(this.highlight === -1 && this.results.length) this.highlight = this.results.length -1;
+                else if(this.highlight === -1 && this.data.length) this.highlight = this.data.length -1;
                 this.$nextTick(()=>{
                     let cur = that.$refs.list.querySelectorAll('li.sm-over')[0],
                         curPos = cur.getBoundingClientRect(),
@@ -336,7 +335,7 @@
                         dist = parseInt(that.$refs.list.scrollTop - curPos.height);
                     if(parseInt(relTop) < parseInt(that.$refs.list.scrollTop))
                         that.$refs.list.scrollTop = dist;
-                    if(relTop > listPos.height && this.highlight === this.results.length -1)
+                    if(relTop > listPos.height && this.highlight === this.data.length -1)
                         that.$refs.list.scrollTop = relTop - listPos.height + curPos.height;
                 });
             },
@@ -358,7 +357,7 @@
                 }else{
                     arr = this.search ? this.filter() : this.data[this.tabIndex].list;
                 }
-                this.results = arr;
+                this.data = arr;
             },
             checkDataType(){
                 if(this.data && Array.isArray(this.data) && this.data.length){
@@ -468,7 +467,7 @@
 
             if(this.data.length){
                 if(this.state.group) this.tabIndex = 0;
-                else this.results = this.data.concat();
+                // else this.data = this.data.concat();
             }
             if(this.regular) this.menuClass['sm-regular'] = true;
             else this.init();
