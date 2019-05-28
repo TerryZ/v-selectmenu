@@ -98,7 +98,7 @@ Vue.use(vSelectMenu, { global config options... });
 
 <br><br>
 
-## Deploy on your component(default advanced mode)
+## Deploy on your component(advanced mode by default)
 
 
 ```vue
