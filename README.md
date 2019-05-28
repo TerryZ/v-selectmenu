@@ -52,11 +52,11 @@ The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 
 ![regular](https://terryz.github.io/image/v-selectmenu/v-selectmenu-regular.png)
 
-*regular menu group type*
+*regular menu with group type*
 
 ![regular-group](https://terryz.github.io/image/v-selectmenu/v-selectmenu-regular-group.png)
 
-*advanced menu group type*
+*advanced menu with group type*
 
 ![advanced](https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png)
 
