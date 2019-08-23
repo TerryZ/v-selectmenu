@@ -21,17 +21,13 @@
 
 <br><br><br><br><br>
 
-## Demos and Documents
+## Examples and Documentation
 Explorer on
 
 - [English site](https://terryz.github.io/vue/#/selectmenu)
 - [国内站点](https://terryz.gitee.io/vue/#/selectmenu)
 
 The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
-
-**If you think this project is helpful, please star it.**
-
-<br><br>
 
 ## Features
 
@@ -43,8 +39,6 @@ The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 - custom row content render
 - embedded to page
 - mouse right click(contextmenu) or mouse move to call menu
-
-<br><br>
 
 ## Plugin preview
 
@@ -60,7 +54,50 @@ The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 
 ![advanced](https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png)
 
-<br><br>
+
+## Installation
+
+<a href="https://nodei.co/npm/v-selectmenu/"><img src="https://nodei.co/npm/v-selectmenu.png"></a>
+
+``` bash
+npm i v-selectmenu --save
+```
+
+Include plugin in your `main.js` file.
+
+```js
+import Vue from 'vue'
+import vSelectMenu from 'v-selectmenu';
+Vue.use(vSelectMenu, { global config options... });
+```
+
+## Deploy on your component(advanced menu mode by default)
+
+```vue
+<template>
+    <v-selectmenu :data="list" class="form-control" v-model="value">
+    </v-selectmenu>
+</template>
+
+<script>
+  export default {
+    data(){
+      return {
+        value: '',
+        list: [
+          { id: 1, name: 'Chicago Bulls', desc: '芝加哥公牛' },
+          { id: 2, name: 'Cleveland Cavaliers', desc: '克里夫兰骑士' },
+          { ... }
+        ]
+      }
+    }
+  }
+</script>
+```
+
+## Dependenics
+
+- [v-dropdown](https://github.com/TerryZ/v-dropdown) - The dropdown container layer
 
 ## Vue plugin series
 
@@ -77,54 +114,3 @@ The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 | [v-suggest](https://github.com/TerryZ/v-suggest) | [![npm version](https://img.shields.io/npm/v/v-suggest.svg)](https://www.npmjs.com/package/v-suggest) | A Vue2 plugin for input suggestions by autocomplete |
 | [v-playback](https://github.com/TerryZ/v-playback) | [![npm version](https://img.shields.io/npm/v/v-playback.svg)](https://www.npmjs.com/package/v-playback) | A Vue2 plugin to make video play easier |
 | [v-selectmenu](https://github.com/TerryZ/v-selectmenu) | [![npm version](https://img.shields.io/npm/v/v-selectmenu.svg)](https://www.npmjs.com/package/v-selectmenu) | A simple, easier and highly customized menu solution |
-
-<br><br>
-
-## Install
-
-``` bash
-npm i v-selectmenu --save
-```
-
-Include plugin in your `main.js` file.
-
-```js
-import Vue from 'vue'
-import vSelectMenu from 'v-selectmenu';
-Vue.use(vSelectMenu, { global config options... });
-```
-
-<a href="https://nodei.co/npm/v-selectmenu/"><img src="https://nodei.co/npm/v-selectmenu.png"></a>
-
-<br><br>
-
-## Deploy on your component(advanced mode by default)
-
-
-```vue
-<template>
-    <v-selectmenu :data="list" class="form-control" v-model="value">
-    </v-selectmenu>
-</template>
-
-<script>
-    export default {
-        data(){
-            return {
-                value: '',
-                list: [
-                    {id:1 ,name:'Chicago Bulls',desc:'芝加哥公牛'},
-                    {id:2 ,name:'Cleveland Cavaliers',desc:'克里夫兰骑士'},
-                    {...}
-                ]
-            };
-        }
-    };
-</script>
-```
-
-<br><br>
-
-## Dependenics
-
-- [v-dropdown](https://github.com/TerryZ/v-dropdown) - The dropdown container layer
