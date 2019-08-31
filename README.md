@@ -1,27 +1,9 @@
-<br><br>
+# [v-selectmenu](https://terryz.github.io/vue/#/selectpage) &middot; [![circle ci](https://circleci.com/gh/TerryZ/v-selectmenu.svg?style=svg)](https://circleci.com/gh/TerryZ/v-selectmenu) [![code coverage](https://codecov.io/gh/TerryZ/v-selectmenu/branch/master/graph/badge.svg)](https://codecov.io/gh/TerryZ/v-selectmenu) [![npm version](https://img.shields.io/npm/v/v-selectmenu.svg)](https://www.npmjs.com/package/v-selectmenu) [![npm download](https://img.shields.io/npm/dy/v-selectmenu.svg)](https://www.npmjs.com/package/v-selectmenu) [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://mit-license.org/) [![language](https://img.shields.io/badge/language-Vue2-brightgreen.svg)](https://www.npmjs.com/package/v-selectmenu)
 
-<p align="center"><img src="https://terryz.github.io/image/v-selectmenu/v-selectmenu-advanced.png" alt="v-selectmenu" ></p>
-
-<h3 align="center">SelectMenu for Vue</h3>
-
-<br>
-
-<p align="center">
-  A simple, easier and highly customized menu solution for <strong>Vue2</strong>
-</p>
-
-<p align="center">
-  <a href="https://www.npmjs.com/package/v-selectmenu"><img src="https://img.shields.io/npm/v/v-selectmenu.svg"></a>
-  <a href="https://mit-license.org/"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg"></a>
-  <a href="https://www.npmjs.com/package/v-selectmenu"><img src="https://img.shields.io/npm/dy/v-selectmenu.svg"></a>
-  <a href="https://www.npmjs.com/package/v-selectmenu"><img src="https://img.shields.io/badge/language-javascript%20%2F%20vue-blue.svg"></a>
-</p>
-
-
-
-<br><br><br><br><br>
+SelectMenu for Vuejs, A simple, easier and highly customized menu solution
 
 ## Examples and Documentation
+
 Explorer on
 
 - [English site](https://terryz.github.io/vue/#/selectmenu)
@@ -75,8 +57,8 @@ Vue.use(vSelectMenu, { global config options... });
 
 ```vue
 <template>
-    <v-selectmenu :data="list" class="form-control" v-model="value">
-    </v-selectmenu>
+  <v-selectmenu :data="list" v-model="value">
+  </v-selectmenu>
 </template>
 
 <script>
