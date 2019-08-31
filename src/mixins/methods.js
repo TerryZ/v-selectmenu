@@ -14,6 +14,7 @@ export default {
         if (this.activeGroup > -1 && this.group && this.data.length) {
           this.tabIndex = this.activeGroup
         }
+        this.$emit('show')
         if (this.type === ADVANCED) this.inputFocus()
       } else {
         this.reset()
