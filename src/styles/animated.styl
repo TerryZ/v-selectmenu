@@ -1,0 +1,28 @@
+/* css animate */
+.vivify
+    -webkit-animation-duration 80ms
+    animation-duration 80ms
+    -webkit-animation-fill-mode both
+    animation-fill-mode both
+    /*animation-duration: .1s;*/
+
+.fadeInRight
+    will-change: transform;
+    -webkit-animation-name: fadeInRight;animation-name: fadeInRight;
+    -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+@keyframes fadeInRight
+    0% { -webkit-transform: translate3d(50px, 0, 0);transform: translate3d(50px, 0, 0);opacity: 0; }
+    100% { -webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);opacity: 1; }
+
+
+.fadeInLeft
+    will-change: transform;
+    -webkit-animation-name: fadeInLeft;animation-name: fadeInLeft
+    -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955)
+
+@keyframes fadeInLeft
+    0% { -webkit-transform: translate3d(-50px, 0, 0);transform: translate3d(-50px, 0, 0);opacity: 0; }
+    100% { -webkit-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);opacity: 1; }

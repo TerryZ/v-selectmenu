@@ -1,0 +1,283 @@
+@import "./icons.styl"
+
+bg = white
+line = #eee
+
+font-size-set(size = 14px)
+  font-size size
+  line-height 1.42857143
+
+.sm-caller-container
+  display inline-block
+  &.sm-caller-container--full-width
+    display block
+.v-selectmenu
+  &.sm-advanced
+    min-width 160px
+
+.sm-default-btn
+  font-size-set()
+  display inline-block
+  position relative
+  padding 6px 12px
+  background-color white
+  border 1px solid #ccc
+  border-radius 4px
+  outline 0 !important
+  color #666
+  transition color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+  &:hover
+    border 1px solid #aaa
+    // background-color #f5f5f5
+    // background-color #e0e0e0
+    // color black
+  &.sm-default-btn--disabled
+    border 1px solid #ddd
+    background-color #f5f5f5
+    color #ccc
+  span.sm-caret-down
+    transition transform .2s ease
+  &.sm-opened
+    box-shadow 0 0 0 0.2rem rgba(0, 0, 0, 0.06)
+    border 1px solid #aaa
+    color black
+    // background-color #eee
+    span.sm-caret-down
+      transform rotate(180deg)
+    &:hover
+      // background-color #eee
+      border 1px solid #aaa
+
+.sm-caret
+  display inline-block
+  width 0
+  height 0
+  content ""
+  margin-left 8px
+
+.sm-caret-down
+  border-top 4px solid
+  border-left 4px solid transparent
+  border-right 4px solid transparent
+  margin-bottom 2px
+
+.sm-caret-right
+  border-left 4px solid
+  border-top 4px solid transparent
+  border-bottom 4px solid transparent
+  margin-top 3px
+  position absolute
+  top 10px
+  right 10px
+
+.sm-header
+  position relative
+  background-color bg
+  & > h3
+    font-size-set(16px)
+    padding 6px 80px 5px 10px
+    margin 0
+    text-align left
+    color #555
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+    font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+  .sm-control
+    position absolute
+    text-align right
+    top 0
+    right 0
+    padding 5px 10px
+    span
+      color #999
+      cursor pointer
+      line-height 1
+      font-size 20px
+      margin-left 5px
+      &:hover
+        color black
+
+.sm-search
+  padding 3px 10px 10px 10px
+  background-color bg
+  &.sm-search--no-header
+    padding 10px
+  input[type="text"]
+    font-size-set()
+    background-color #f5f5f5
+    margin 0 !important
+    width 100%
+    padding 4px 6px
+    box-sizing border-box
+    outline none !important
+    border-radius 2px
+    border 0
+
+.sm-message
+  padding 10px
+  background-color #ffffe1
+  color #333
+  span
+    font-size-set(15px)
+    margin-left 5px
+
+/* group type */
+.sm-tabs
+  padding 0 10px
+  background-color bg
+  border-bottom 1px solid line
+  &.sm-tabs--regular
+    padding 10px 10px 0
+  ul
+    padding 0
+    margin 0
+    overflow hidden
+    // fixed ul height greater than li
+    line-height 1
+    li
+      display inline-block
+      position relative
+      &.active
+        &:after
+          content ""
+          display block
+          position absolute
+          bottom 0
+          height 0.2rem
+          width 100%
+          background-color #ccc
+        a
+          color #24292e
+      a
+        font-size-set()
+        display block
+        padding 0 12px 8px
+        color #ccc
+        text-decoration none
+        cursor pointer
+        background transparent
+        font-family "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial
+
+/**
+ * Results
+ */
+.sm-result-area
+  margin 0
+  padding 5px 0
+  position relative
+  width 100%
+  overflow-y auto
+  overflow-x hidden
+  &:before, &:after
+    display table
+    content " "
+  &.sm-scroll-limit
+    max-height 260px
+
+/* regular menu item style */
+ul.sm-results
+  list-style none
+  margin 0
+  padding 0
+  &.sm-regular
+    width auto
+    min-width 150px
+    & > li
+      padding 0
+      min-width auto
+      &:not(.sm-disabled):not(.sm-divider):not(.sm-caption):hover
+        background-color #F6F8FA
+        color black
+        a
+          color black
+      & > a
+        width 100%
+        display block
+        padding 7px 15px
+      &.sm-disabled
+      &.sm-disabled a
+        color #ccc
+        cursor default
+      &.sm-caption
+      &.sm-caption a
+        color black
+        font-size 16px
+        font-weight 600
+        cursor default
+      &.sm-parent
+        padding-right 15px
+      &.sm-divider
+        margin 8px 0
+        cursor default
+        border-bottom 1px solid line
+      /* Sub menus */
+      &.sm-sub-header
+        padding 7px 15px 5px 0
+        &:hover
+          background-color transparent !important
+          color #666 !important
+          cursor default !important
+        .sm-sub-caption
+          font-size-set(16px)
+          font-weight 600
+        .sm-sub-back
+          display inline-block
+          font-weight 700
+          color #000
+          padding 0 10px
+          cursor pointer
+          -webkit-transition opacity .5s cubic-bezier(.175,.885,.32,1)
+          transition opacity .5s cubic-bezier(.175,.885,.32,1)
+          outline none !important
+          margin 0
+          opacity 0.5
+          font-size 14px !important
+          &:hover
+            opacity 1
+          i
+            font-size 14px
+
+  & > li
+    font-size-set()
+    margin 0
+    overflow hidden
+    padding 7px 0 7px 10px
+    position relative
+    text-align left
+    white-space nowrap
+    min-width 180px
+    color #666
+    cursor pointer
+    font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+    & > a
+      color #666
+      text-decoration none
+      transition none
+    & > div.sm-selected-icon
+      line-height 1
+      position absolute
+      top 10px
+      & > i
+        visibility hidden
+    & > div.sm-item-text
+      // font-size 14px
+      display block
+      position relative
+      margin-left 25px
+      overflow hidden
+      text-overflow ellipsis
+    &.sm-over
+      background-color #F6F8FA !important
+      color black !important
+    &.sm-message-box
+      cursor default
+      padding-left 12px
+      span
+        font-size-set(16px)
+        margin-left 10px
+    &.sm-selected
+      font-weight 600
+      color #666
+      & > div.sm-selected-icon > i
+        visibility visible

@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var isCoverage = process.env.NODE_ENV === 'coverage';
 
 module.exports = {
   entry: './src/index.js',
@@ -13,6 +14,11 @@ module.exports = {
   },
   module: {
     rules: [
+      isCoverage ? {
+          test: /\.(js|ts)/,
+          include: path.resolve('src'), // instrument only testing sources with Istanbul, after ts-loader runs
+          loader: 'istanbul-instrumenter-loader'
+      }: {},
       {
         test: /\.css$/,
         use: [
@@ -34,6 +40,14 @@ module.exports = {
           'vue-style-loader',
           'css-loader',
           'sass-loader?indentedSyntax'
+        ],
+      },
+      {
+        test: /\.styl$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
         ],
       },
       {
@@ -74,7 +88,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+	  '@': path.resolve(__dirname, 'src/'),
+	  '@test': path.resolve(__dirname, 'tests/')
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
@@ -86,7 +102,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: isCoverage?'inline-cheap-module-source-map':'#eval-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -105,7 +121,11 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
+      minimize: true,
+	  options: {
+	    productionGzip: true,
+		productionGzipExtensions: ['js', 'css']
+	  }
     })
   ])
 }
