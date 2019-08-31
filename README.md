@@ -1,6 +1,6 @@
 <br><br>
 
-<p align="center"><img src="https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png" alt="v-selectmenu" ></p>
+<p align="center"><img src="https://terryz.github.io/image/v-selectmenu/v-selectmenu-advanced.png" alt="v-selectmenu" ></p>
 
 <h3 align="center">SelectMenu for Vue</h3>
 
@@ -52,7 +52,7 @@ The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 
 *advanced menu with group type*
 
-![advanced](https://terryz.github.io/image/v-selectmenu/v-selectmenu-advance.png)
+![advanced](https://terryz.github.io/image/v-selectmenu/v-selectmenu-advanced.png)
 
 
 ## Installation
