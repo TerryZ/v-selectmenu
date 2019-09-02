@@ -4,7 +4,7 @@ SelectMenu for Vuejs, A simple, easier and highly customized menu solution
 
 ## Examples and Documentation
 
-Explorer on
+Live Examples on [CodePen](https://codepen.io/terry05/pen/WNeEZRd), more examples and documentation please visit below
 
 - [English site](https://terryz.github.io/vue/#/selectmenu)
 - [国内站点](https://terryz.gitee.io/vue/#/selectmenu)
