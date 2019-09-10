@@ -1,4 +1,4 @@
-# [v-selectmenu](https://terryz.github.io/vue/#/selectpage) [![circle ci](https://circleci.com/gh/TerryZ/v-selectmenu.svg?style=svg)](https://circleci.com/gh/TerryZ/v-selectmenu) [![code coverage](https://codecov.io/gh/TerryZ/v-selectmenu/branch/master/graph/badge.svg)](https://codecov.io/gh/TerryZ/v-selectmenu) [![npm version](https://img.shields.io/npm/v/v-selectmenu.svg)](https://www.npmjs.com/package/v-selectmenu) [![npm download](https://img.shields.io/npm/dy/v-selectmenu.svg)](https://www.npmjs.com/package/v-selectmenu) [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://mit-license.org/) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+# [v-selectmenu](https://terryz.github.io/vue/#/selectpage) [![circle ci](https://circleci.com/gh/TerryZ/v-selectmenu.svg?style=svg)](https://circleci.com/gh/TerryZ/v-selectmenu) [![code coverage](https://codecov.io/gh/TerryZ/v-selectmenu/branch/master/graph/badge.svg)](https://codecov.io/gh/TerryZ/v-selectmenu) [![npm version](https://img.shields.io/npm/v/v-selectmenu.svg)](https://www.npmjs.com/package/v-selectmenu) [![npm download](https://img.shields.io/npm/dy/v-selectmenu.svg)](https://www.npmjs.com/package/v-selectmenu) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 SelectMenu for Vuejs, A simple, easier and highly customized menu solution
 
@@ -53,7 +53,7 @@ import vSelectMenu from 'v-selectmenu';
 Vue.use(vSelectMenu, { global config options... });
 ```
 
-## Deploy on your component(advanced menu mode by default)
+## Usage (advanced menu mode by default)
 
 ```vue
 <template>
@@ -76,6 +76,10 @@ Vue.use(vSelectMenu, { global config options... });
   }
 </script>
 ```
+
+## License
+
+[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://mit-license.org/)
 
 ## Dependenics
 
