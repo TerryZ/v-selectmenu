@@ -5,7 +5,7 @@ export default {
     return {
       // dropdown container display status
       show: false,
-      i18n: languages[this.language] || languages['cn'],
+      i18n: languages[this.language] || languages.cn,
       // menu data or current group menu data
       results: [],
       tabIndex: -1,
@@ -34,13 +34,13 @@ export default {
      * caption display rule
      *
      * close header bar
-     *   set title option to false
+     *   set "title" prop to false
      *
      * Regular menu
-     *   set some text for the title option
+     *   set some text for the "title" prop
      * Advanced menu
-     *   no item selected: the title option content
-     *   one item selected: that item content(the data field specified by showField option)
+     *   no item selected: the "title" prop content
+     *   one item selected: that item content(the data field specified by showField prop)
      *   multiple items selected: display selected items length
      */
     caption () {

@@ -19,10 +19,9 @@ export default {
       if (this.type === ADVANCED) this.highlight = -1
     },
     clear () {
-      if (this.type === ADVANCED) {
-        this.picked = []
-        if (!this.multiple) this.close()
-      }
+      if (this.type !== ADVANCED) return
+      this.picked = []
+      if (!this.multiple) this.close()
     },
     close () {
       if (this.show && !this.embed) this.$refs.drop.visible()

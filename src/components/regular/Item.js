@@ -70,8 +70,8 @@ export default {
   methods: {
     click () {
       if (this.data && this.data.callback && typeof this.data.callback === 'function') {
-        this.data.callback()
         this.close()
+        this.data.callback()
       }
     }
   }
