@@ -45,6 +45,17 @@ export const languages = {
     regular_group: 'Menús',
     items_selected: 'selected_count items Seleccionado'
   },
+  // French (Français)
+  fr: {
+    select_all_btn: 'Sélectionner tous les éléments',
+    remove_all_btn: 'Désélectionner tous les éléments',
+    close_btn: 'Ferme le menu (touche Esc)',
+    not_found: 'non trouvé',
+    max_selected: 'Vous pouvez sélectionner au plus max_selected_limit éléments',
+    advanced_default: 'Sélectionner un élément',
+    regular_group: 'Menus',
+    items_selected: 'selected_count éléments sélectionnés'
+  },
   // Persian
   fa: {
     select_all_btn: 'انتخاب تمام موارد',
