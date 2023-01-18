@@ -77,5 +77,16 @@ export const languages = {
     advanced_default: '選択してください',
     regular_group: '複数のグループメニュー',
     items_selected: 'selected_count アイテムが選択されました'
+  },
+  // Portuguese
+  pt: {
+    select_all_btn: 'Selecionar todos os itens',
+    remove_all_btn: 'Deselecionar todos os itens',
+    close_btn: 'Fechar menu (Tecla Esc)',
+    not_found: 'Não encontrado',
+    max_selected: 'Você pode apenas selecionar um máximo de max_selected_limit itens',
+    advanced_default: 'Selecione uma opção',
+    regular_group: 'Menus',
+    items_selected: 'selected_count itens selecionados'    
   }
 }
