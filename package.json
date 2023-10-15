@@ -4,11 +4,6 @@
   "version": "3.0.0-beta.1",
   "author": "TerryZ <terry5@foxmail.com>",
   "license": "MIT",
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "type": "module",
   "files": [
     "/dist",
@@ -20,9 +15,9 @@
     ".": {
       "import": {
         "types": "./types/index.d.ts",
-        "default": "./dist/v-selectpage.js"
+        "default": "./dist/v-selectmenu.js"
       },
-      "require": "./dist/v-selectpage.umd.cjs"
+      "require": "./dist/v-selectmenu.umd.cjs"
     }
   },
   "typings": "types/index.d.ts",
