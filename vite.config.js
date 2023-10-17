@@ -16,9 +16,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
-      name: 'VSelectpage',
+      name: 'VSelectmenu',
       formats: ['es', 'umd'],
-      fileName: 'v-selectpage'
+      fileName: 'v-selectmenu'
     },
     rollupOptions: {
       external: ['vue'],
