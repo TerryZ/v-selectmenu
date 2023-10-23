@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "v-dropdown": "3.0.0",
-    "vue": "^3.3.4"
+    "vue": "^3.3.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.5.1",
@@ -63,13 +63,13 @@
     "@vue/test-utils": "^2.4.1",
     "autoprefixer": "^10.4.16",
     "bootstrap": "^5.3.2",
-    "eslint": "^8.51.0",
+    "eslint": "^8.52.0",
     "eslint-plugin-vue": "^9.17.0",
     "jsdom": "^22.1.0",
     "postcss": "^8.4.31",
-    "sass": "^1.69.3",
+    "sass": "^1.69.4",
     "typescript": "^5.2.2",
-    "vite": "^4.4.11",
+    "vite": "^4.5.0",
     "vite-plugin-css-injected-by-js": "^3.3.0",
     "vitest": "^0.34.6",
     "vue-router": "^4.2.5",
