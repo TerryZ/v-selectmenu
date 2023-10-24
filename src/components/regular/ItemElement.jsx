@@ -1,10 +1,12 @@
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
 
 export default defineComponent({
   props: {
-    data: { type: Object, default: undefined }
+    action: { type: String, default: '' }
   },
   setup (props, { slots }) {
+    const menuItemClick = inject('item-click')
+
     function generatePrepend () {
       if (slots.prepend) {
         return (
@@ -14,10 +16,13 @@ export default defineComponent({
         )
       }
     }
+    function menuClick () {
+      menuItemClick(props.action)
+    }
 
     return () => {
       return (
-        <div class="sm-regular-item">
+        <div class="sm-regular-item" onClick={menuClick}>
           { generatePrepend() }
 
           <div class="sm-regular-item-content">

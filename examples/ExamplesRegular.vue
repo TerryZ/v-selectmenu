@@ -2,12 +2,17 @@
   <div class="p-3">
     <h4>常规菜单</h4>
     <div class="mb-5">
-      <MenuBody class="border rounded-3 shadow-sm">
+      <MenuBody
+        class="border rounded-3 shadow-sm"
+        @action="menuAction"
+      >
         <MenuHeader>我是菜单标题</MenuHeader>
         <ItemHeader>我是子标题</ItemHeader>
-        <ItemElement>我是菜单项1</ItemElement>
+        <ItemElement action="item1">
+          我是菜单项1
+        </ItemElement>
         <ItemDivider />
-        <ItemElement>
+        <ItemElement action="item2">
           <template #prepend>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,4 +40,8 @@ import MenuHeader from '@/components/regular/MenuHeader'
 import ItemHeader from '@/components/regular/ItemHeader'
 import ItemElement from '@/components/regular/ItemElement'
 import ItemDivider from '@/components/regular/ItemDivider'
+
+function menuAction (key) {
+  console.log(key)
+}
 </script>

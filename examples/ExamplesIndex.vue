@@ -1,7 +1,9 @@
 <template>
   <div class="d-grid app-container vh-100">
     <LayoutHeader class="app-header" />
+
     <LayoutAside class="app-aside" />
+
     <div class="app-main overflow-auto">
       <router-view />
     </div>
