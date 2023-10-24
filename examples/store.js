@@ -2,9 +2,9 @@ import { ref } from 'vue'
 
 export const routers = [
   {
-    name: 'core-list',
-    path: '/core/list',
-    component: () => import('./ExamplesCoreList.vue')
+    name: 'regular',
+    path: '/regular',
+    component: () => import('./ExamplesRegular.vue')
   }, {
     name: 'core-table',
     path: '/core/table',
@@ -21,7 +21,7 @@ export const routers = [
 ]
 
 export const types = [
-  { name: 'Core', code: 'core' },
+  { name: 'Regular', code: 'regular' },
   { name: 'Dropdown', code: 'dropdown' }
 ]
 
@@ -32,7 +32,7 @@ export const forms = [
 
 const DEFAULT_FORM = 'list'
 
-export const type = ref('core')
+export const type = ref('regular')
 export const form = ref(DEFAULT_FORM)
 
 export function switchType (data, router) {
