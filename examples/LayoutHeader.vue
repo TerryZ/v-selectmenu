@@ -1,10 +1,10 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-secondary-subtle">
+  <nav class="navbar navbar-expand-lg border-bottom">
     <div class="container-fluid">
       <a
         class="navbar-brand fs-4 fw-bold ps-3"
         href="#"
-      >SelectPage</a>
+      >SelectMenu</a>
       <button
         class="navbar-toggler"
         type="button"

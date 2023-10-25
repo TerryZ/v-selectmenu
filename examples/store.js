@@ -22,7 +22,7 @@ export const routers = [
 
 export const types = [
   { name: 'Regular', code: 'regular' },
-  { name: 'Dropdown', code: 'dropdown' }
+  { name: 'Advanced', code: 'advanced' }
 ]
 
 export const forms = [

@@ -7,12 +7,24 @@
         @action="menuAction"
       >
         <MenuHeader>我是菜单标题</MenuHeader>
+        <ItemElement action="item11">
+          我是菜单项11
+        </ItemElement>
         <ItemHeader>我是子标题</ItemHeader>
         <ItemElement action="item1">
           我是菜单项1
         </ItemElement>
+        <ItemElement
+          action="disabled"
+          disabled
+        >
+          Disabled menu item
+        </ItemElement>
         <ItemDivider />
-        <ItemElement action="item2">
+        <ItemElement
+          action="item2"
+          @click="itemClick"
+        >
           <template #prepend>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,5 +55,8 @@ import ItemDivider from '@/components/regular/ItemDivider'
 
 function menuAction (key) {
   console.log(key)
+}
+function itemClick (e) {
+  console.log(e)
 }
 </script>

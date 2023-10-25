@@ -1,8 +1,9 @@
-import { defineComponent, inject } from 'vue'
+import { defineComponent, inject, computed } from 'vue'
 
 export default defineComponent({
   props: {
-    action: { type: String, default: '' }
+    action: { type: String, default: '' },
+    disabled: { type: Boolean, default: false }
   },
   setup (props, { slots }) {
     const menuItemClick = inject('item-click')
@@ -17,12 +18,22 @@ export default defineComponent({
       }
     }
     function menuClick () {
+      if (props.disabled) return
+
       menuItemClick(props.action)
     }
 
+    const classes = computed(() => {
+      const result = ['sm-regular-item']
+      if (props.disabled) {
+        result.push('disabled')
+      }
+      return result
+    })
+
     return () => {
       return (
-        <div class="sm-regular-item" onClick={menuClick}>
+        <div class={classes.value} onClick={menuClick}>
           { generatePrepend() }
 
           <div class="sm-regular-item-content">

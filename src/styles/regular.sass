@@ -1,20 +1,28 @@
 .sm-regular-container
   display: inline-flex
   flex-direction: column
-  padding: 1rem
+  padding: .5rem 0
   max-height: 400px
+  row-gap: .3rem
   .sm-regular-header
     display: flex
     font-size: 1.1rem
     color: #666
     font-weight: 600
-    margin-bottom: .6rem
+    // margin-bottom: .2rem
+    padding: .3rem 1rem
   .sm-regular-item
     display: flex
     align-items: center
-    line-height: 1.43
+    line-height: 1
     cursor: pointer
+    padding: .5rem 1rem
+    &.disabled
+      cursor: default
+      .sm-regular-item-content
+        color: #ccc
     .sm-regular-item-prepend
+      display: inline-flex
       margin-right: .5rem
       align-items: center
     .sm-regular-item-content
@@ -22,9 +30,10 @@
       font-size: 1rem
   .sm-regular-item-header
     font-size: 1rem
-    color: #666
-    margin-bottom: .5rem
+    color: #aaa
+    // margin-bottom: .5rem
     font-weight: 600
+    padding: .3rem 1rem
   .sm-regular-item-divider
     border-top: 1px solid #eee
-    margin: .5rem 0
+    margin: .2rem 0
