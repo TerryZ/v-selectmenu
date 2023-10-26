@@ -1,12 +1,15 @@
-import { defineComponent, provide } from 'vue'
+import { defineComponent, provide, toRef } from 'vue'
 import '../../styles/regular.sass'
 
 export default defineComponent({
   props: {
-    autoClose: { type: Boolean, default: true }
+    autoClose: { type: Boolean, default: true },
+    modelValue: { type: String, default: '' }
   },
-  emits: ['action', 'close'],
+  emits: ['action', 'close', 'update:modelValue'],
   setup (props, { slots, emit }) {
+    // const activeGroup = ref('')
+
     function menuItemClick (key) {
       emit('action', key)
 
@@ -14,10 +17,16 @@ export default defineComponent({
         emit('close')
       }
     }
+    function switchGroup (groupName) {
+      emit('update:modelValue', groupName)
+    }
 
     provide('item-click', menuItemClick)
+    provide('switch-group', switchGroup)
+    provide('active-group', toRef(props, 'modelValue'))
 
     return () => {
+      console.log(slots.default())
       return (
         <div class="sm-regular-container">
           {slots.default && slots.default()}
