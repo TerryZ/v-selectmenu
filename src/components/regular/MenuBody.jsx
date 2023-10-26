@@ -26,7 +26,6 @@ export default defineComponent({
     provide('active-group', toRef(props, 'modelValue'))
 
     return () => {
-      console.log(slots.default())
       return (
         <div class="sm-regular-container">
           {slots.default && slots.default()}

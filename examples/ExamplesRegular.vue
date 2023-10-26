@@ -46,11 +46,8 @@
 
       <div class="col-md-4">
         <h5>多分组</h5>
-        <MenuBody
-          class="border rounded-3 shadow-sm"
-          v-model="activeGroup"
-        >
-          <MenuGroup>
+        <MenuBody class="border rounded-3 shadow-sm">
+          <MenuGroup v-model="activeGroup">
             <MenuGroupItem
               name="group1"
               title="分组1"
