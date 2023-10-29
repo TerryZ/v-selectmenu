@@ -1,4 +1,4 @@
-import { defineComponent, toRef, provide, ref } from 'vue'
+import { defineComponent, toRef, provide } from 'vue'
 
 export default defineComponent({
   props: {
@@ -6,11 +6,26 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup (props, { slots, emit }) {
-    const content = ref()
+    function switchGroup (groupName) {
+      const items = slots?.default()
+      groupName = groupName || props.modelValue
 
-    function switchGroup (groupName, groupContent) {
-      emit('update:modelValue', groupName)
-      content.value = groupContent
+      if (!items || !items.length) return
+
+      const groupIndex = groupName
+        ? items.findIndex(val => val.props?.name === groupName)
+        : 0
+      if (groupIndex === -1) return
+
+      const targetGroupName = items[groupIndex].props.name
+
+      if (targetGroupName !== props.modelValue) {
+        // emit new group name and trigger component rerender
+        emit('update:modelValue', targetGroupName)
+        return
+      }
+
+      return items[groupIndex].children?.default()
     }
 
     provide('switch-group', switchGroup)
@@ -19,9 +34,11 @@ export default defineComponent({
     return () => {
       return (
         <div class="sm-regular-group">
+
           {slots.default && slots.default()}
-          <div>
-            {content.value && content.value()}
+
+          <div class="sm-regular-group-body" >
+            {switchGroup()}
           </div>
         </div>
       )

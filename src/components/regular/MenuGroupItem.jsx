@@ -10,19 +10,18 @@ export default defineComponent({
     const switchGroup = inject('switch-group')
 
     function changeActiveGroup () {
-      switchGroup(props.name, slots.default)
+      switchGroup(props.name)
     }
+
+    // withDirectives(
+    //   <div>{slots.default && slots.default()}</div>,
+    //   [[vShow, active.value]]
+    // )
 
     return () => {
       return (
         <div class="sm-regular-group-item">
           <div onClick={changeActiveGroup}>{props.title}</div>
-          {/* {
-            withDirectives(
-              <div>{slots.default && slots.default()}</div>,
-              [[vShow, active.value]]
-            )
-          } */}
         </div>
       )
     }

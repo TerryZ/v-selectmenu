@@ -12,6 +12,7 @@
           <ItemElement action="item11">
             我是菜单项11
           </ItemElement>
+          <ItemDivider />
           <ItemHeader>我是子标题</ItemHeader>
           <ItemElement action="item1">
             我是菜单项1
@@ -93,4 +94,3 @@ function itemClick (e) {
   console.log(e)
 }
 </script>
-@/components/regular/MenuGroupItem
