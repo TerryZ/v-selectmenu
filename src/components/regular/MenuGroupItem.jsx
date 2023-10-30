@@ -1,4 +1,4 @@
-import { defineComponent, inject } from 'vue'
+import { defineComponent, inject, computed } from 'vue'
 
 export default defineComponent({
   name: 'MenuGroup',
@@ -8,6 +8,15 @@ export default defineComponent({
   },
   setup (props, { slots }) {
     const switchGroup = inject('switch-group')
+    const activeGroup = inject('active-group')
+
+    const classes = computed(() => {
+      const value = ['sm-regular-group-item']
+      if (props.name === activeGroup.value) {
+        value.push('active')
+      }
+      return value
+    })
 
     function changeActiveGroup () {
       switchGroup(props.name)
@@ -20,8 +29,8 @@ export default defineComponent({
 
     return () => {
       return (
-        <div class="sm-regular-group-item">
-          <div onClick={changeActiveGroup}>{props.title}</div>
+        <div class={classes.value} onClick={changeActiveGroup}>
+          {props.title}
         </div>
       )
     }

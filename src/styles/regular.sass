@@ -14,12 +14,23 @@
   .sm-regular-group
     display: flex
     flex-direction: column
-    background-color: #f7f7f7
-    padding: 1rem 1rem 0
-    &-item
+    background-color: #F4F4F4
+    padding: 1rem 0 0
+    &-tabs
       display: flex
-      flex-direction: column
+      padding: 0 1rem
+    &-item
+      padding: .4rem .7rem .3rem
+      cursor: pointer
+      border-top-left-radius: .5rem
+      border-top-right-radius: .5rem
+      // transition: all .2s ease
+      &.active
+        background-color: white
+        font-weight: 600
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .3)
     &-body
+      padding-top: .5rem
       background-color: white
   .sm-regular-item
     display: flex
