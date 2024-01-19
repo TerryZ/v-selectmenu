@@ -28,7 +28,7 @@ onMounted(() => {
 
 <style lang="sass">
 .app-container
-  grid-template-columns: 300px auto
+  grid-template-columns: 250px auto
   grid-template-rows: 60px auto
   grid-template-areas: "header header" "aside main"
   .app-header
