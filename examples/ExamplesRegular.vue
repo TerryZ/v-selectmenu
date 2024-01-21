@@ -48,6 +48,7 @@
       <div class="col-md-4">
         <h5>多分组</h5>
         <MenuBody class="border rounded-3 shadow-sm">
+          <MenuHeader>我是菜单标题</MenuHeader>
           <MenuGroup v-model="activeGroup">
             <MenuGroupItem
               name="group1"
@@ -92,5 +93,6 @@ function menuAction (key) {
 }
 function itemClick (e) {
   console.log(e)
+  alert('你点击了 "我是菜单项2" 项目')
 }
 </script>
