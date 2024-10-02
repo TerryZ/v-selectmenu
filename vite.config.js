@@ -16,7 +16,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
-      name: 'VSelectmenu',
+      name: 'VSelectMenu',
       formats: ['es', 'umd'],
       fileName: 'v-selectmenu'
     },
