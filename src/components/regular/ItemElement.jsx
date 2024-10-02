@@ -8,14 +8,13 @@ export default defineComponent({
   setup (props, { slots }) {
     const menuItemClick = inject('item-click')
 
-    function generatePrepend () {
-      if (slots.prepend) {
-        return (
-          <div class="sm-regular-item-prepend">
-            {slots.prepend()}
-          </div>
-        )
-      }
+    function ItemPrepend () {
+      if (!slots.prepend) return null
+      return (
+        <div class="sm-regular-item-prepend">
+          {slots.prepend()}
+        </div>
+      )
     }
     function menuClick () {
       if (props.disabled) return
@@ -34,13 +33,13 @@ export default defineComponent({
     return () => {
       return (
         <div class={classes.value} onClick={menuClick}>
-          { generatePrepend() }
+          <ItemPrepend />
 
           <div class="sm-regular-item-content">
-            {slots.default && slots.default()}
+            {slots?.default?.()}
           </div>
 
-          { slots.append && slots.append() }
+          { slots?.append?.() }
         </div>
       )
     }

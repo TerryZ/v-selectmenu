@@ -5,7 +5,7 @@ export default defineComponent({
     return () => {
       return (
         <div class="sm-regular-item-header">
-          {slots.default && slots.default()}
+          {slots?.default?.()}
         </div>
       )
     }
