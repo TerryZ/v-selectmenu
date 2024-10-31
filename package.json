@@ -45,7 +45,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/TerryZ/v-selectmenu.git"
+    "url": "git+https://github.com/TerryZ/v-selectmenu.git"
   },
   "peerDependencies": {
     "vue": "^3.2.0"
@@ -58,21 +58,21 @@
     "@rushstack/eslint-patch": "^1.10.4",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
-    "@vitest/coverage-v8": "^2.1.1",
+    "@vitest/coverage-v8": "^2.1.4",
     "@vue/eslint-config-standard": "^8.0.1",
     "@vue/test-utils": "^2.4.6",
-    "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.3",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.26.0",
     "jsdom": "^25.0.1",
     "postcss": "^8.4.47",
+    "autoprefixer": "^10.4.20",
     "sass": "^1.70.0",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.8",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
     "vite-plugin-css-injected-by-js": "^3.5.2",
-    "vitest": "^2.1.1",
-    "vue-router": "^4.4.2",
-    "vue-tsc": "^2.0.29"
+    "vitest": "^2.1.4",
+    "vue-router": "^4.4.5",
+    "vue-tsc": "^2.1.10"
   }
 }

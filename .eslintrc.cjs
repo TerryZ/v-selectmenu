@@ -11,7 +11,10 @@ module.exports = {
     '@vue/eslint-config-standard'
   ],
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
+    ecmaFeatures: {
+      jsx: true
+    }
   },
   ignorePatterns: [
     'types/'

@@ -2,12 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./built",
-    "target": "es5",
+    "target": "ESNext",
     "strict": true,
-    "module": "es2015",
+    "module": "ESNext",
     "moduleResolution": "node",
     "allowJs": true,
     "jsx": "preserve",
+    "jsxImportSource": "vue",
     "paths": {
       "@/*": ["./src/*"]
     }
