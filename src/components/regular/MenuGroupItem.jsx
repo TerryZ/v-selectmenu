@@ -10,13 +10,10 @@ export default defineComponent({
     const switchGroup = inject('switch-group')
     const activeGroup = inject('active-group')
 
-    const classes = computed(() => {
-      const value = ['sm-regular-group-item']
-      if (props.name === activeGroup.value) {
-        value.push('active')
-      }
-      return value
-    })
+    const classes = computed(() => ({
+      'sm-regular-group-item': true,
+      active: props.name === activeGroup.value
+    }))
 
     function changeActiveGroup () {
       switchGroup(props.name)
