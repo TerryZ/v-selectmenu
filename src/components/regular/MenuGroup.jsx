@@ -1,10 +1,12 @@
 import { defineComponent, toRef, provide, ref, onBeforeMount } from 'vue'
 
+import { injectMenuGroup } from '../../constants'
+
 export default defineComponent({
   props: {
     modelValue: { type: String, default: '' }
   },
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'change'],
   setup (props, { slots, emit }) {
     const body = ref()
 
@@ -28,19 +30,19 @@ export default defineComponent({
       body.value = items[groupIndex].children?.default()
     }
 
-    provide('switch-group', switchGroup)
-    provide('active-group', toRef(props, 'modelValue'))
-
-    onBeforeMount(() => {
-      switchGroup()
+    provide(injectMenuGroup, {
+      active: toRef(props, 'modelValue'),
+      switchGroup
     })
+
+    onBeforeMount(switchGroup)
 
     return () => {
       return (
         <div class="sm-regular-group">
 
           <div class="sm-regular-group-tabs">
-            {slots.default && slots.default()}
+            {slots?.default?.()}
           </div>
 
           <div class="sm-regular-group-body" >

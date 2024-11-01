@@ -48,11 +48,11 @@
     "url": "git+https://github.com/TerryZ/v-selectmenu.git"
   },
   "peerDependencies": {
-    "vue": "^3.2.0"
+    "vue": "^3.4.0"
   },
   "dependencies": {
     "v-dropdown": "3.0.0",
-    "vue": "^3.4.35"
+    "vue": "^3.5.12"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.4",

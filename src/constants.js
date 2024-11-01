@@ -11,3 +11,4 @@ export const DIVIDER = 'sm-divider'
 export const REGULAR = 'regular'
 export const ADVANCED = 'advanced'
 
+export const injectMenuGroup = Symbol('menu-group')

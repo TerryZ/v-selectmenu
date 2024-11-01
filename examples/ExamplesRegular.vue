@@ -12,6 +12,12 @@
           <ItemElement action="item11">
             我是菜单项11
           </ItemElement>
+          <ItemElement action="item12">
+            我是菜单项12
+          </ItemElement>
+          <ItemElement action="item13">
+            我是菜单项13
+          </ItemElement>
           <ItemDivider />
           <ItemHeader>我是子标题</ItemHeader>
           <ItemElement action="item1">
@@ -48,7 +54,7 @@
       <div class="col-md-4">
         <h5>多分组</h5>
         <MenuBody class="border rounded-3 shadow-sm">
-          <MenuHeader>我是菜单标题</MenuHeader>
+          <!-- <MenuHeader>我是菜单标题</MenuHeader> -->
           <MenuGroup v-model="activeGroup">
             <MenuGroupItem
               name="group1"
@@ -65,6 +71,14 @@
               <ItemElement>项目2-1</ItemElement>
               <ItemElement>项目2-2</ItemElement>
               <ItemElement>项目2-3</ItemElement>
+            </MenuGroupItem>
+            <MenuGroupItem
+              name="group3"
+              title="分组3"
+            >
+              <ItemElement>项目3-1</ItemElement>
+              <ItemElement>项目3-2</ItemElement>
+              <ItemElement>项目3-3</ItemElement>
             </MenuGroupItem>
           </MenuGroup>
         </MenuBody>
