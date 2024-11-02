@@ -2,7 +2,7 @@
   <div class="p-3">
     <h4>常规菜单</h4>
     <div class="row mb-5">
-      <div class="col-md-4">
+      <div class="col-md-6">
         <h5>基础菜单</h5>
         <MenuBody
           class="border rounded-3 shadow-sm"
@@ -51,11 +51,14 @@
         </MenuBody>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-6">
         <h5>多分组</h5>
         <MenuBody class="border rounded-3 shadow-sm">
           <!-- <MenuHeader>我是菜单标题</MenuHeader> -->
-          <MenuGroup v-model="activeGroup">
+          <MenuGroup
+            v-model="activeGroup"
+            @change="groupChange"
+          >
             <MenuGroupItem
               name="group1"
               title="分组1"
@@ -108,5 +111,8 @@ function menuAction (key) {
 function itemClick (e) {
   console.log(e)
   alert('你点击了 "我是菜单项2" 项目')
+}
+function groupChange (group) {
+  console.log(group)
 }
 </script>

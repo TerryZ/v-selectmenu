@@ -3,34 +3,23 @@ import { defineComponent, inject, computed } from 'vue'
 import { injectMenuGroup } from '../../constants'
 
 export default defineComponent({
-  name: 'MenuGroup',
+  name: 'MenuGroupItem',
   props: {
     name: { type: String, default: '', required: true },
     title: { type: String, default: '', required: true }
   },
   setup (props, { slots }) {
-    const { active, switchGroup } = inject(injectMenuGroup)
+    const { active, addTab } = inject(injectMenuGroup)
 
-    const classes = computed(() => ({
-      'sm-regular-group-item': true,
-      active: props.name === active.value
-    }))
+    const isActive = computed(() => props.name === active.value)
 
-    function changeActiveGroup () {
-      switchGroup(props.name)
+    function GroupItemBody () {
+      if (!isActive.value) return null
+      return slots?.default?.()
     }
 
-    // withDirectives(
-    //   <div>{slots.default && slots.default()}</div>,
-    //   [[vShow, active.value]]
-    // )
+    addTab(props.name, props.title)
 
-    return () => {
-      return (
-        <div class={classes.value} onClick={changeActiveGroup}>
-          {props.title}
-        </div>
-      )
-    }
+    return () => <GroupItemBody />
   }
 })
