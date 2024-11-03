@@ -1,4 +1,4 @@
-import { defineComponent, toRef, provide, ref, onBeforeMount } from 'vue'
+import { defineComponent, toRef, provide, ref, onMounted } from 'vue'
 
 import { injectMenuGroup } from '../../constants'
 
@@ -41,7 +41,10 @@ export default defineComponent({
       addTab
     })
 
-    onBeforeMount(switchGroup)
+    onMounted(() => {
+      if (!tabs.value.length) return
+      switchGroup(props.modelValue || tabs.value.at(0).name)
+    })
 
     return () => (
       <div class="sm-regular-group">
