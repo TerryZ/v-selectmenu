@@ -5,6 +5,12 @@
   max-height: 400px
   min-width: 14rem
   row-gap: .3rem
+  .sm-regular-row
+    display: flex
+    flex-direction: row
+  .sm-regular-column
+    display: flex
+    flex-direction: column
   .sm-regular-header
     display: flex
     font-size: 1.1rem
@@ -40,6 +46,9 @@
         cursor: default
     &-body
       padding-top: .5rem
+      row-gap: .3rem
+      display: flex
+      flex-direction: column
   .sm-regular-item
     display: flex
     align-items: center
@@ -65,6 +74,9 @@
     // margin-bottom: .5rem
     font-weight: 600
     padding: .3rem 1rem
-  .sm-regular-item-divider
+  .sm-regular-divider
     border-top: 1px solid #eee
     margin: .2rem 0
+  .sm-regular-divider-vertical
+    border-right: 1px solid #eee
+    margin: 0 .2rem

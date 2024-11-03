@@ -2,6 +2,7 @@ import { defineComponent, provide, toRef } from 'vue'
 import '../../styles/regular.sass'
 
 export default defineComponent({
+  name: 'MenuBody',
   props: {
     autoClose: { type: Boolean, default: true },
     modelValue: { type: String, default: '' }
@@ -28,7 +29,7 @@ export default defineComponent({
     return () => {
       return (
         <div class="sm-regular-container">
-          {slots.default && slots.default()}
+          {slots?.default?.()}
         </div>
       )
     }

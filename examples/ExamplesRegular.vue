@@ -9,28 +9,28 @@
           @action="menuAction"
         >
           <MenuHeader>我是菜单标题</MenuHeader>
-          <ItemElement action="item11">
+          <MenuItem action="item11">
             我是菜单项11
-          </ItemElement>
-          <ItemElement action="item12">
+          </MenuItem>
+          <MenuItem action="item12">
             我是菜单项12
-          </ItemElement>
-          <ItemElement action="item13">
+          </MenuItem>
+          <MenuItem action="item13">
             我是菜单项13
-          </ItemElement>
-          <ItemDivider />
-          <ItemHeader>我是子标题</ItemHeader>
-          <ItemElement action="item1">
+          </MenuItem>
+          <MenuDivider />
+          <MenuItemHeader>我是子标题</MenuItemHeader>
+          <MenuItem action="item1">
             我是菜单项1
-          </ItemElement>
-          <ItemElement
+          </MenuItem>
+          <MenuItem
             action="disabled"
             disabled
           >
             Disabled menu item
-          </ItemElement>
-          <ItemDivider />
-          <ItemElement
+          </MenuItem>
+          <MenuDivider />
+          <MenuItem
             action="item2"
             @click="itemClick"
           >
@@ -47,7 +47,7 @@
               </svg>
             </template>
             我是菜单项2
-          </ItemElement>
+          </MenuItem>
         </MenuBody>
       </div>
 
@@ -63,30 +63,32 @@
               name="group1"
               title="分组1"
             >
-              <ItemElement>项目1-1</ItemElement>
-              <ItemElement>项目1-2</ItemElement>
-              <ItemElement>项目1-3</ItemElement>
+              <MenuItem>项目1-1</MenuItem>
+              <MenuItem>项目1-2</MenuItem>
+              <MenuItem>项目1-3</MenuItem>
             </MenuGroupItem>
             <MenuGroupItem
               name="group2"
               title="分组2"
             >
-              <ItemElement>项目2-1</ItemElement>
-              <ItemElement>项目2-2</ItemElement>
-              <ItemElement>项目2-3</ItemElement>
+              <MenuItem>项目2-1</MenuItem>
+              <MenuItem>项目2-2</MenuItem>
+              <MenuItem>项目2-3</MenuItem>
             </MenuGroupItem>
             <MenuGroupItem
               name="group3"
               title="分组3"
             >
-              <ItemElement>项目3-1</ItemElement>
-              <ItemElement>项目3-2</ItemElement>
-              <ItemElement>项目3-3</ItemElement>
+              <MenuItem>项目3-1</MenuItem>
+              <MenuItem>项目3-2</MenuItem>
+              <MenuItem>项目3-3</MenuItem>
             </MenuGroupItem>
           </MenuGroup>
         </MenuBody>
       </div>
     </div>
+
+    <RegularLayout />
 
     <div class="mb-5" />
   </div>
@@ -95,13 +97,16 @@
 <script setup>
 import { ref } from 'vue'
 
-import MenuBody from '@/components/regular/MenuBody'
-import MenuHeader from '@/components/regular/MenuHeader'
-import MenuGroup from '@/components/regular/MenuGroup'
-import MenuGroupItem from '@/components/regular/MenuGroupItem'
-import ItemHeader from '@/components/regular/ItemHeader'
-import ItemElement from '@/components/regular/ItemElement'
-import ItemDivider from '@/components/regular/ItemDivider'
+import {
+  MenuBody,
+  MenuHeader,
+  MenuGroup,
+  MenuGroupItem,
+  MenuItem,
+  MenuItemHeader,
+  MenuDivider
+} from '@/'
+import RegularLayout from './RegularLayout.vue'
 
 const activeGroup = ref('group2')
 
