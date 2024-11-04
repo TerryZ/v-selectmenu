@@ -12,3 +12,5 @@ export const REGULAR = 'regular'
 export const ADVANCED = 'advanced'
 
 export const injectMenuGroup = Symbol('menu-group')
+export const injectCheckboxGroup = Symbol('checkbox-group')
+export const injectRadioGroup = Symbol('radio-group')
