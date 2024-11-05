@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3">
+  <div class="">
     <h4>常规菜单</h4>
     <div class="row mb-5">
       <div class="col-md-6">
@@ -51,44 +51,8 @@
         </MenuBody>
       </div>
 
-      <div class="col-md-6">
-        <h5>多分组</h5>
-        <MenuBody class="border rounded-3 shadow-sm">
-          <!-- <MenuHeader>我是菜单标题</MenuHeader> -->
-          <MenuGroup
-            v-model="activeGroup"
-            @change="groupChange"
-          >
-            <MenuGroupItem
-              name="group1"
-              title="分组1"
-            >
-              <MenuItem>项目1-1</MenuItem>
-              <MenuItem>项目1-2</MenuItem>
-              <MenuItem>项目1-3</MenuItem>
-            </MenuGroupItem>
-            <MenuGroupItem
-              name="group2"
-              title="分组2"
-            >
-              <MenuItem>项目2-1</MenuItem>
-              <MenuItem>项目2-2</MenuItem>
-              <MenuItem>项目2-3</MenuItem>
-            </MenuGroupItem>
-            <MenuGroupItem
-              name="group3"
-              title="分组3"
-            >
-              <MenuItem>项目3-1</MenuItem>
-              <MenuItem>项目3-2</MenuItem>
-              <MenuItem>项目3-3</MenuItem>
-            </MenuGroupItem>
-          </MenuGroup>
-        </MenuBody>
-      </div>
+      <div class="col-md-6" />
     </div>
-
-    <RegularLayout />
 
     <div class="mb-5" />
   </div>
@@ -106,7 +70,6 @@ import {
   MenuItemHeader,
   MenuDivider
 } from '@/'
-import RegularLayout from './RegularLayout.vue'
 
 const activeGroup = ref('group2')
 

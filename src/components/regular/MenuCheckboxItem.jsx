@@ -2,33 +2,39 @@ import { defineComponent, inject, computed } from 'vue'
 
 import { injectCheckboxGroup } from '../../constants'
 
+import IconCheck from '../../icons/IconCheck.vue'
+
 export default defineComponent({
   name: 'MenuCheckboxItem',
   props: {
     value: { type: [String, Number], default: '' }
   },
   setup (props, { slots }) {
-    const { checked, changeChecked } = inject(injectCheckboxGroup)
+    const { checked, changeChecked, hasItemChecked } = inject(injectCheckboxGroup)
 
-    const isChecked = computed(() => props.value === checked.value)
+    // const isChecked = computed(() => checked.has(props.value))
 
-    function CheckedState () {
+    function ItemPrepend () {
       return (
-        <div>{ isChecked.value ? 'icon' : '' }</div>
+        <div class='sm-checkbox-item-prepend'>{ hasItemChecked(props.value) ? <IconCheck /> : '' }</div>
+      )
+    }
+    function ItemAppend () {
+      if (!Object.hasOwn(slots, 'append')) return null
+      return (
+        <div class='sm-checkbox-item-append'>{slots?.append?.()}</div>
       )
     }
 
     return () => {
       return (
         <div
-          class="sm-radio-item"
+          class="sm-checkbox-item"
           onClick={() => changeChecked(props.value)}
         >
-          <CheckedState />
-          <div>
-            <div>{slots?.default?.()}</div>
-            <div>{slots?.append?.()}</div>
-          </div>
+          <ItemPrepend />
+          <div class='sm-checkbox-item-body'>{slots?.default?.()}</div>
+          <ItemAppend />
         </div>
       )
     }

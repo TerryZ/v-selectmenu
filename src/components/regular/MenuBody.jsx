@@ -28,7 +28,7 @@ export default defineComponent({
 
     return () => {
       return (
-        <div class="sm-regular-container">
+        <div class="sm-container">
           {slots?.default?.()}
         </div>
       )

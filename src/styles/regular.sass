@@ -1,4 +1,4 @@
-.sm-regular-container
+.sm-container
   display: inline-flex
   flex-direction: column
   padding: .5rem 0
@@ -80,3 +80,36 @@
   .sm-regular-divider-vertical
     border-right: 1px solid #eee
     margin: 0 .2rem
+  .sm-radio-group
+    .sm-radio-item
+      display: flex
+      align-items: center
+      padding: .3rem 1rem
+      cursor: pointer
+      &-prepend
+        display: inline-flex
+        width: 1.5rem
+        font-size: 11.2px
+      &-body
+        flex-grow: 1
+      &-append
+        // justify-content: flex-end
+  .sm-checkbox-group
+    .sm-checkbox-item
+      display: flex
+      align-items: center
+      padding: .3rem 1rem
+      cursor: pointer
+      &-prepend
+        display: inline-flex
+        width: 1.5rem
+        font-size: 1.2rem
+      &-body
+        flex-grow: 1
+      &-append
+        // justify-content: flex-end
+
+.sm-icon
+  display: inline-flex
+  width: 1em
+  height: 1em

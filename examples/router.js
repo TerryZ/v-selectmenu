@@ -6,11 +6,11 @@ const routes = [
   {
     path: '/',
     component: () => import('./ExamplesIndex.vue'),
-    redirect: '/regular',
+    redirect: '/base',
     children: routers
   }, {
     path: '/:pathMatch(.*)*',
-    redirect: '/regular'
+    redirect: '/base'
   }
 ]
 

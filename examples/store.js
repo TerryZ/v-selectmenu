@@ -2,9 +2,25 @@ import { ref } from 'vue'
 
 export const routers = [
   {
-    name: 'regular',
-    path: '/regular',
-    component: () => import('./ExamplesRegular.vue')
+    name: 'base',
+    path: '/base',
+    component: () => import('./ExamplesBase.vue')
+  }, {
+    name: 'layout',
+    path: '/layout',
+    component: () => import('./ExamplesLayout.vue')
+  }, {
+    name: 'group',
+    path: '/group',
+    component: () => import('./ExamplesGroup.vue')
+  }, {
+    name: 'radio',
+    path: '/radio',
+    component: () => import('./ExamplesRadio.vue')
+  }, {
+    name: 'checkbox',
+    path: '/checkbox',
+    component: () => import('./ExamplesCheckbox.vue')
   }, {
     name: 'core-table',
     path: '/core/table',
@@ -25,27 +41,27 @@ export const types = [
   { name: 'Advanced', code: 'advanced' }
 ]
 
-export const forms = [
-  { name: 'List', code: 'list' },
-  { name: 'Table', code: 'table' }
+export const list = [
+  { name: 'Base', code: 'base' },
+  { name: 'Group', code: 'group' },
+  { name: 'Layout', code: 'layout' },
+  { name: 'Radio', code: 'radio' },
+  { name: 'Checkbox', code: 'checkbox' }
 ]
 
-const DEFAULT_FORM = 'list'
+const DEFAULT_ACTIVE = 'base'
+export const active = ref(DEFAULT_ACTIVE)
 
-export const type = ref('regular')
-export const form = ref(DEFAULT_FORM)
-
-export function switchType (data, router) {
-  type.value = data.code
-  form.value = DEFAULT_FORM
-  router.push({ name: `${data.code}-${DEFAULT_FORM}` }).catch(() => {})
-}
-export function switchForm (data, router) {
-  form.value = data.code
-  router.push({ name: `${type.value}-${data.code}` }).catch(() => {})
+export function setActive (data, router) {
+  active.value = data.code
+  router.push({ name: data.code }).catch(() => {})
 }
 export function detectActive (route) {
-  const [typeCode, formCode] = route.name.split('-')
-  type.value = typeCode
-  form.value = formCode
+  const routeName = route.name
+  if (routers.some(val => val.name === routeName)) {
+    active.value = routeName
+    return
+  }
+  // 如果路由不存在，则跳转到默认路由
+  active.value = DEFAULT_ACTIVE
 }

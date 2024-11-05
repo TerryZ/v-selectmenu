@@ -1,4 +1,4 @@
-import { defineComponent, provide, toRef } from 'vue'
+import { defineComponent, provide, ref, watch } from 'vue'
 
 import { injectCheckboxGroup } from '../../constants'
 
@@ -8,23 +8,30 @@ export default defineComponent({
     modelValue: { type: Array, default: undefined }
   },
   emits: ['update:modelValue', 'change'],
-  setup (props, { slots }) {
-    const checked = new Set()
+  setup (props, { emit, slots }) {
+    const checked = ref(props.modelValue || [])
+    console.log(checked.value)
 
-    function changeChecked (value, isChecked) {
-      if (isChecked) {
-        checked.add(value)
+    function changeChecked (value) {
+      if (checked.value.includes(value)) {
+        checked.value = checked.value.filter(item => item !== value)
       } else {
-        checked.delete(value)
+        checked.value.push(value)
       }
-      const checkedValues = Array.from(checked)
-      props.emit('update:modelValue', checkedValues)
-      props.emit('change', checkedValues)
+      console.log(checked.value)
+      emit('update:modelValue', checked.value)
+      emit('change', checked.value)
+    }
+    function hasItemChecked (value) {
+      return checked.value.includes(value)
     }
 
+    watch(() => props.modelValue, val => { checked.value = val })
+
     provide(injectCheckboxGroup, {
-      checked: toRef(props.modelValue),
-      changeChecked
+      checked,
+      changeChecked,
+      hasItemChecked
     })
 
     return () => {

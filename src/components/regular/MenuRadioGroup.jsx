@@ -1,4 +1,4 @@
-import { defineComponent, provide, toRef } from 'vue'
+import { defineComponent, provide, ref, watch } from 'vue'
 
 import { injectRadioGroup } from '../../constants'
 
@@ -8,14 +8,20 @@ export default defineComponent({
     modelValue: { type: [String, Number], default: '' }
   },
   emits: ['update:modelValue', 'change'],
-  setup (props, { slots }) {
+  setup (props, { slots, emit }) {
+    const checked = ref(props.modelValue)
+
     function changeChecked (value) {
-      props.emit('update:modelValue', value)
-      props.emit('change', value)
+      if (value === checked.value) return
+      checked.value = value
+      emit('update:modelValue', value)
+      emit('change', value)
     }
 
+    watch(() => props.modelValue, val => { checked.value = val })
+
     provide(injectRadioGroup, {
-      checked: toRef(props.modelValue),
+      checked,
       changeChecked
     })
 

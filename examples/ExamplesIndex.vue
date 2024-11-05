@@ -1,10 +1,10 @@
 <template>
   <div class="d-grid app-container vh-100">
-    <LayoutHeader class="app-header" />
+    <!-- <LayoutHeader class="app-header" /> -->
 
     <LayoutAside class="app-aside" />
 
-    <div class="app-main overflow-auto">
+    <div class="app-main overflow-auto p-3">
       <router-view />
     </div>
   </div>
@@ -16,7 +16,7 @@ import { useRoute } from 'vue-router'
 
 import { detectActive } from './store'
 
-import LayoutHeader from './LayoutHeader.vue'
+// import LayoutHeader from './LayoutHeader.vue'
 import LayoutAside from './LayoutAside.vue'
 
 const route = useRoute()
@@ -28,9 +28,10 @@ onMounted(() => {
 
 <style lang="sass">
 .app-container
-  grid-template-columns: 250px auto
-  grid-template-rows: 60px auto
-  grid-template-areas: "header header" "aside main"
+  grid-template-columns: 200px auto
+  // grid-template-rows: 60px auto
+  // grid-template-areas: "header header" "aside main"
+  grid-template-areas: "aside main"
   .app-header
     grid-area: header
   .app-aside
