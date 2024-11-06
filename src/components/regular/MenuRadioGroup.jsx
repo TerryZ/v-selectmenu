@@ -17,12 +17,15 @@ export default defineComponent({
       emit('update:modelValue', value)
       emit('change', value)
     }
+    function isItemChecked (value) {
+      return value === checked.value
+    }
 
     watch(() => props.modelValue, val => { checked.value = val })
 
     provide(injectRadioGroup, {
-      checked,
-      changeChecked
+      changeChecked,
+      isItemChecked
     })
 
     return () => {

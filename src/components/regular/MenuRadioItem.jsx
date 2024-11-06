@@ -11,13 +11,13 @@ export default defineComponent({
     value: { type: [String, Number], default: '' }
   },
   setup (props, { slots }) {
-    const { checked, changeChecked } = inject(injectRadioGroup)
-
-    const isChecked = computed(() => props.value === checked.value)
+    const { changeChecked, isItemChecked } = inject(injectRadioGroup)
 
     function ItemPrepend () {
       return (
-        <div class='sm-radio-item-prepend'>{ isChecked.value ? <IconDot /> : '' }</div>
+        <div class='sm-radio-item-prepend'>
+          { isItemChecked(props.value) ? <IconDot /> : '' }
+        </div>
       )
     }
     function ItemAppend () {

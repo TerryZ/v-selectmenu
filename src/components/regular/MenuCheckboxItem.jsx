@@ -1,4 +1,4 @@
-import { defineComponent, inject, computed } from 'vue'
+import { defineComponent, inject } from 'vue'
 
 import { injectCheckboxGroup } from '../../constants'
 
@@ -10,13 +10,13 @@ export default defineComponent({
     value: { type: [String, Number], default: '' }
   },
   setup (props, { slots }) {
-    const { checked, changeChecked, hasItemChecked } = inject(injectCheckboxGroup)
-
-    // const isChecked = computed(() => checked.has(props.value))
+    const { changeChecked, isItemChecked } = inject(injectCheckboxGroup)
 
     function ItemPrepend () {
       return (
-        <div class='sm-checkbox-item-prepend'>{ hasItemChecked(props.value) ? <IconCheck /> : '' }</div>
+        <div class='sm-checkbox-item-prepend'>
+          { isItemChecked(props.value) ? <IconCheck /> : '' }
+        </div>
       )
     }
     function ItemAppend () {

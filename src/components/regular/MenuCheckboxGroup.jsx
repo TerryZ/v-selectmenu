@@ -10,7 +10,6 @@ export default defineComponent({
   emits: ['update:modelValue', 'change'],
   setup (props, { emit, slots }) {
     const checked = ref(props.modelValue || [])
-    console.log(checked.value)
 
     function changeChecked (value) {
       if (checked.value.includes(value)) {
@@ -18,28 +17,24 @@ export default defineComponent({
       } else {
         checked.value.push(value)
       }
-      console.log(checked.value)
       emit('update:modelValue', checked.value)
       emit('change', checked.value)
     }
-    function hasItemChecked (value) {
+    function isItemChecked (value) {
       return checked.value.includes(value)
     }
 
     watch(() => props.modelValue, val => { checked.value = val })
 
     provide(injectCheckboxGroup, {
-      checked,
       changeChecked,
-      hasItemChecked
+      isItemChecked
     })
 
-    return () => {
-      return (
-        <div class="sm-checkbox-group">
-          {slots?.default?.()}
-        </div>
-      )
-    }
+    return () => (
+      <div class="sm-checkbox-group">
+        {slots?.default?.()}
+      </div>
+    )
   }
 })
