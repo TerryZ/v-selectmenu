@@ -22,17 +22,9 @@ export const routers = [
     path: '/checkbox',
     component: () => import('./ExamplesCheckbox.vue')
   }, {
-    name: 'core-table',
-    path: '/core/table',
-    component: () => import('./ExamplesCoreTable.vue')
-  }, {
-    name: 'dropdown-list',
-    path: '/dropdown/list',
-    component: () => import('./ExamplesDropdownList.vue')
-  }, {
-    name: 'dropdown-table',
-    path: '/dropdown/table',
-    component: () => import('./ExamplesDropdownTable.vue')
+    name: 'search',
+    path: '/search',
+    component: () => import('./ExamplesSearch.vue')
   }
 ]
 
@@ -46,7 +38,8 @@ export const list = [
   { name: 'Group', code: 'group' },
   { name: 'Layout', code: 'layout' },
   { name: 'Radio', code: 'radio' },
-  { name: 'Checkbox', code: 'checkbox' }
+  { name: 'Checkbox', code: 'checkbox' },
+  { name: 'Search', code: 'search' }
 ]
 
 const DEFAULT_ACTIVE = 'base'

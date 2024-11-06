@@ -1,3 +1,7 @@
+$header-font-size: 1.1rem
+$sub-header-font-size: 1rem
+$item-font-size: 14px
+
 .sm-container
   display: inline-flex
   flex-direction: column
@@ -11,9 +15,9 @@
   .sm-regular-column
     display: flex
     flex-direction: column
-  .sm-regular-header
+  .sm-header
     display: flex
-    font-size: 1.1rem
+    font-size: $header-font-size
     // color: #666
     color: #09090b
     font-weight: 600
@@ -49,28 +53,30 @@
       row-gap: .3rem
       display: flex
       flex-direction: column
-  .sm-regular-item
+  .sm-item
     display: flex
     align-items: center
-    line-height: 1
     cursor: pointer
-    padding: .5rem 1rem
+    padding: .35rem 1rem
+    font-size: $item-font-size
     &.disabled
       cursor: default
-      .sm-regular-item-content
+      .sm-item-body
         color: #ccc
-    .sm-regular-item-prepend
+    &-prepend
       display: inline-flex
       margin-right: .5rem
       align-items: center
-    .sm-regular-item-content
+    &-body
       // color: #666
       color: #09090b
-      font-size: 1rem
-  .sm-regular-item-header
-    font-size: 1rem
+      flex-grow: 1
+      line-height: 1.3
+  .sm-sub-header
+    font-size: $sub-header-font-size
     // color: #aaa
-    color: #09090b
+    // color: #09090b
+    color: #aaa
     // margin-bottom: .5rem
     font-weight: 600
     padding: .3rem 1rem
@@ -102,12 +108,44 @@
       cursor: pointer
       &-prepend
         display: inline-flex
-        width: 1.5rem
+        width: 1.2rem
         font-size: 1.2rem
+        margin-right: .6rem
       &-body
         flex-grow: 1
       &-append
         // justify-content: flex-end
+  .sm-search
+    display: flex
+    align-items: center
+    margin: .3rem 1rem
+    padding: .35rem .9rem
+    background-color: #f7f7f7
+    border-radius: 50rem
+    &-input
+      margin: 0 .5rem
+      input
+        border: 0
+        background-color: transparent
+        outline: 0
+        color: #666
+        font-size: 14px
+        line-height: 1.3
+    &-prepend,
+    &-append
+      display: inline-flex
+      align-items: center
+    &-prepend
+      color: #999
+      font-size: 0.9rem
+    &-append
+      color: #999
+      cursor: pointer
+      transition: all .3s
+      font-size: 1.1rem
+      &.disabled
+        cursor: default
+        color: #e3e3e3
 
 .sm-icon
   display: inline-flex

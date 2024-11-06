@@ -1,5 +1,14 @@
 import { MENU_ROOT } from './constants'
 
+export function useDebounce (time = 300) {
+  let timer
+
+  return callback => {
+    clearTimeout(timer)
+    timer = setTimeout(callback, time)
+  }
+}
+
 const generateKey = function (key, index) {
   const itemIndex = String(index + 1)
   return key === MENU_ROOT ? itemIndex : `${key}-${itemIndex}`
@@ -28,9 +37,9 @@ const transform = function (menu, key, parentKey) {
     ({ children, ...attrs } = menu)
   }
   return {
-    key: key,
+    key,
     parent: attrs,
-    parentKey: parentKey,
+    parentKey,
     data: children.map(({ children, ...attrs }, index) => {
       if (Array.isArray(children) && children.length) {
         attrs.children = generateKey(key, index)
