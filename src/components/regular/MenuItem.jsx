@@ -11,10 +11,14 @@ export default defineComponent({
     function ItemPrepend () {
       if (!slots.prepend) return null
       return (
-        <div class="sm-regular-item-prepend">
+        <div class="sm-item-prepend">
           {slots.prepend()}
         </div>
       )
+    }
+    function ItemAppend () {
+      if (!slots.append) return null
+      return slots.append()
     }
     function menuClick () {
       if (props.disabled) return
@@ -22,24 +26,20 @@ export default defineComponent({
       menuItemClick(props.action)
     }
 
-    const classes = computed(() => {
-      const result = ['sm-regular-item']
-      if (props.disabled) {
-        result.push('disabled')
-      }
-      return result
-    })
+    const classes = computed(() => (
+      ['sm-item', { disabled: props.disabled }]
+    ))
 
     return () => {
       return (
         <div class={classes.value} onClick={menuClick}>
           <ItemPrepend />
 
-          <div class="sm-regular-item-content">
+          <div class="sm-item-body">
             {slots?.default?.()}
           </div>
 
-          { slots?.append?.() }
+          <ItemAppend />
         </div>
       )
     }
