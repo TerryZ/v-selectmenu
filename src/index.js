@@ -15,4 +15,4 @@
 
 // export { selectMenu as SelectMenu }
 // export default Plugin
-export * from './components/regular'
+export * from './modules'
