@@ -4,7 +4,7 @@ export default defineComponent({
   setup (props, { slots }) {
     return () => {
       return (
-        <div class="sm-regular-item-header">
+        <div class="sm-sub-header">
           {slots?.default?.()}
         </div>
       )

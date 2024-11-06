@@ -19,7 +19,7 @@
             我是菜单项13
           </MenuItem>
           <MenuDivider />
-          <MenuItemHeader>我是子标题</MenuItemHeader>
+          <MenuSubHeader>我是子标题</MenuSubHeader>
           <MenuItem action="item1">
             我是菜单项1
           </MenuItem>
@@ -47,6 +47,11 @@
               </svg>
             </template>
             我是菜单项2
+            <template #append>
+              <div class="border rounded-pill shadow-sm px-2 py-1">
+                append
+              </div>
+            </template>
           </MenuItem>
         </MenuBody>
       </div>
@@ -59,19 +64,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+// import { ref } from 'vue'
 
 import {
   MenuBody,
   MenuHeader,
-  MenuGroup,
-  MenuGroupItem,
   MenuItem,
-  MenuItemHeader,
+  MenuSubHeader,
   MenuDivider
 } from '@/'
-
-const activeGroup = ref('group2')
 
 function menuAction (key) {
   console.log(key)
@@ -79,8 +80,5 @@ function menuAction (key) {
 function itemClick (e) {
   console.log(e)
   alert('你点击了 "我是菜单项2" 项目')
-}
-function groupChange (group) {
-  console.log(group)
 }
 </script>

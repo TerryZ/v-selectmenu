@@ -44,9 +44,7 @@ import {
   MenuHeader,
   MenuGroup,
   MenuGroupItem,
-  MenuItem,
-  MenuItemHeader,
-  MenuDivider
+  MenuItem
 } from '@/'
 
 const activeGroup = ref('group2')

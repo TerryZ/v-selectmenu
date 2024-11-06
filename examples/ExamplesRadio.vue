@@ -35,7 +35,6 @@ import {
   MenuGroup,
   MenuGroupItem,
   MenuItem,
-  MenuItemHeader,
   MenuDivider,
   MenuRadioGroup,
   MenuRadioItem
