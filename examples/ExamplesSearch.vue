@@ -4,7 +4,9 @@
     <div>
       <MenuBody class="border rounded-3 shadow-sm">
         <MenuHeader>搜索</MenuHeader>
+        <MenuDivider />
         <MenuSearch @search="search" />
+        <MenuDivider />
         <MenuItem
           v-for="item in items"
           :key="item.key"

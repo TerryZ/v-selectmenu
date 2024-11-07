@@ -51,7 +51,7 @@ export default defineComponent({
       )
     }
     function SearchAppend () {
-      const classes = ['sm-search-append', { disabled: !input.value }]
+      const classes = ['sm-search-append', { active: input.value }]
       return (
         <div
           class={classes}
