@@ -7,7 +7,7 @@ export default defineComponent({
   setup (props) {
     return () => {
       const direction = props.horizontal ? '' : '-vertical'
-      const className = `sm-regular-divider${direction}`
+      const className = `sm-divider${direction}`
       return (
         <div class={className} />
       )

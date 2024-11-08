@@ -1,5 +1,5 @@
 import { defineComponent, provide, toRef } from 'vue'
-import '../styles/regular.sass'
+import '../styles/select-menu.sass'
 
 export default defineComponent({
   name: 'MenuBody',

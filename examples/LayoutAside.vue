@@ -1,5 +1,5 @@
 <template>
-  <div class="px-2 pt-3 bg-light">
+  <div class="px-2 pt-3 bg-secondary bg-opacity-10">
     <div class="fs-4 fw-bold ps-3 pb-3">
       SelectMenu
     </div>
@@ -24,6 +24,6 @@ const router = useRouter()
 
 function itemClasses (item) {
   if (item.code !== active.value) return ''
-  return 'text-black text-opacity-100 bg-body-secondary bg-opacity-75 rounded-3'
+  return 'text-black text-opacity-100 bg-white rounded-3 shadow-sm'
 }
 </script>

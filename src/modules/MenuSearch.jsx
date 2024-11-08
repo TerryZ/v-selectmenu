@@ -13,16 +13,12 @@ export default defineComponent({
     const inputEl = ref(null)
     const inputDebounce = useDebounce()
 
-    function responseInput (value) {
-      emit('search', value)
-    }
+    const setInputFocus = () => inputEl.value.focus()
+    const responseInput = value => emit('search', value)
     function setInputValue (value) {
       if (value === input.value) return
       input.value = value
       responseInput(input.value)
-    }
-    function setInputFocus () {
-      inputEl.value.focus()
     }
     function clearInput () {
       if (!input.value) return
@@ -69,24 +65,22 @@ export default defineComponent({
       )
     }
 
-    return () => {
-      return (
-        <div class="sm-search">
-          <SearchPrepend />
-          <div class="sm-search-input">
-            <input
-              type="text"
-              ref={inputEl}
-              value={input.value}
-              onInput={onInput}
-              onKeydown={onKeyDown}
-              onCompositionstart={onCompositionStart}
-              onCompositionend={onCompositionEnd}
-            />
-          </div>
-          <SearchAppend />
+    return () => (
+      <div class="sm-search">
+        <SearchPrepend />
+        <div class="sm-search-input">
+          <input
+            type="text"
+            ref={inputEl}
+            value={input.value}
+            onInput={onInput}
+            onKeydown={onKeyDown}
+            onCompositionstart={onCompositionStart}
+            onCompositionend={onCompositionEnd}
+          />
         </div>
-      )
-    }
+        <SearchAppend />
+      </div>
+    )
   }
 })

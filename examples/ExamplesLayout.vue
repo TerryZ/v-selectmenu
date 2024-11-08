@@ -1,7 +1,6 @@
 <template>
   <h5>菜单布局</h5>
   <div>
-    layout
     <div>
       <MenuBody class="border rounded-3 shadow-sm">
         <MenuHeader>Header</MenuHeader>

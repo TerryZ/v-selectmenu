@@ -22,13 +22,12 @@
 import { ref } from 'vue'
 import {
   MenuItem,
-  MenuRow,
-  MenuColumn,
   MenuHeader,
   MenuBody,
   MenuDivider,
   MenuSearch
 } from '@/'
+
 const list = [
   { key: '1', name: '我是菜单项1' },
   { key: '2', name: '我是菜单项2' },

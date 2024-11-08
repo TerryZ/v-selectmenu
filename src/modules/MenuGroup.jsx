@@ -28,7 +28,7 @@ export default defineComponent({
       return tabs.value.map(tab => (
         <div
           key={tab.name}
-          class={['sm-regular-group-tab', { active: tab.name === props.modelValue }]}
+          class={['sm-group-tab', { active: tab.name === props.modelValue }]}
           onClick={() => switchGroup(tab.name)}
         >
           {tab.title}
@@ -47,12 +47,12 @@ export default defineComponent({
     })
 
     return () => (
-      <div class="sm-regular-group">
-        <div class="sm-regular-group-tabs">
+      <div class="sm-group">
+        <div class="sm-group-tabs">
           <GroupTabs />
         </div>
 
-        <div class="sm-regular-group-body" >
+        <div class="sm-group-body" >
           {slots?.default?.()}
         </div>
       </div>

@@ -1,6 +1,7 @@
 $header-font-size: 1.1rem
 $sub-header-font-size: 1rem
 $item-font-size: 14px
+$divider-color: #e6e6e6
 
 .sm-container
   display: inline-flex
@@ -23,7 +24,7 @@ $item-font-size: 14px
     font-weight: 600
     // margin-bottom: .2rem
     padding: .3rem 1rem
-  .sm-regular-group
+  .sm-group
     display: flex
     flex-direction: column
     // background-color: #f7f7f7
@@ -80,11 +81,11 @@ $item-font-size: 14px
     // margin-bottom: .5rem
     font-weight: 600
     padding: .3rem 1rem
-  .sm-regular-divider
-    border-top: 1px solid #eee
+  .sm-divider
+    border-top: 1px solid $divider-color
     margin: .2rem 0
-  .sm-regular-divider-vertical
-    border-right: 1px solid #eee
+  .sm-divider-vertical
+    border-right: 1px solid $divider-color
     margin: 0 .2rem
   .sm-radio-group
     .sm-radio-item
@@ -141,6 +142,7 @@ $item-font-size: 14px
       color: #999
       font-size: 0.9rem
       padding: 0 .2rem
+      cursor: pointer
     &-append
       color: #ccc
       transition: all .3s
