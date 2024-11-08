@@ -10,7 +10,6 @@ export default defineComponent({
   emits: ['search'],
   setup (props, { emit }) {
     const input = ref('')
-    const IMETyping = ref(false)
     const inputDebounce = useDebounce()
 
     function responseInput (value) {
@@ -25,22 +24,23 @@ export default defineComponent({
       if (!input.value) return
       setInputValue('')
     }
-    function handleInput (e) {
-      if (IMETyping.value) return
+    function onInput (e) {
+      if (e.target.composing) return
       inputDebounce(() => setInputValue(e.target.value.trim()))
     }
-    function handleKeyDown (e) {
-      if (IMETyping.value) return
+    function onKeyDown (e) {
+      if (e.target.composing) return
       if (e.key === 'Escape') {
         clearInput()
       }
     }
-    function handleCompositionStart () {
-      IMETyping.value = true
+    function onCompositionStart (e) {
+      e.target.composing = true
     }
-    function handleCompositionEnd (e) {
-      IMETyping.value = false
-      setInputValue(e.target.value.trim())
+    function onCompositionEnd (e) {
+      if (!e.target.composing) return
+      e.target.composing = false
+      e.target.dispatchEvent(new Event('input'))
     }
 
     function SearchPrepend () {
@@ -70,10 +70,10 @@ export default defineComponent({
             <input
               type="text"
               value={input.value}
-              onInput={handleInput}
-              onKeydown={handleKeyDown}
-              onCompositionstart={handleCompositionStart}
-              onCompositionend={handleCompositionEnd}
+              onInput={onInput}
+              onKeydown={onKeyDown}
+              onCompositionstart={onCompositionStart}
+              onCompositionend={onCompositionEnd}
             />
           </div>
           <SearchAppend />
