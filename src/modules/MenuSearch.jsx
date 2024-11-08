@@ -10,6 +10,7 @@ export default defineComponent({
   emits: ['search'],
   setup (props, { emit }) {
     const input = ref('')
+    const inputEl = ref(null)
     const inputDebounce = useDebounce()
 
     function responseInput (value) {
@@ -19,6 +20,9 @@ export default defineComponent({
       if (value === input.value) return
       input.value = value
       responseInput(input.value)
+    }
+    function setInputFocus () {
+      inputEl.value.focus()
     }
     function clearInput () {
       if (!input.value) return
@@ -45,7 +49,10 @@ export default defineComponent({
 
     function SearchPrepend () {
       return (
-        <div class='sm-search-prepend'>
+        <div
+          class='sm-search-prepend'
+          onClick={setInputFocus}
+        >
           <IconSearch />
         </div>
       )
@@ -69,6 +76,7 @@ export default defineComponent({
           <div class="sm-search-input">
             <input
               type="text"
+              ref={inputEl}
               value={input.value}
               onInput={onInput}
               onKeydown={onKeyDown}
