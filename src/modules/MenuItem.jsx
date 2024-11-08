@@ -1,4 +1,6 @@
-import { defineComponent, inject, computed } from 'vue'
+import { defineComponent, provide, inject, computed } from 'vue'
+
+import { injectMenuItem } from '../constants'
 
 export default defineComponent({
   props: {
@@ -8,14 +10,14 @@ export default defineComponent({
   setup (props, { slots }) {
     const menuItemClick = inject('item-click')
 
-    function ItemPrepend () {
-      if (!slots.prepend) return null
-      return (
-        <div class="sm-item-prepend">
-          {slots.prepend()}
-        </div>
-      )
-    }
+    // function ItemPrepend () {
+    //   if (!slots.prepend) return null
+    //   return (
+    //     <div class="sm-item-prepend">
+    //       {slots.prepend()}
+    //     </div>
+    //   )
+    // }
     function ItemAppend () {
       if (!slots.append) return null
       return slots.append()
@@ -30,16 +32,24 @@ export default defineComponent({
       ['sm-item', { disabled: props.disabled }]
     ))
 
+    provide(injectMenuItem, {
+      slots
+    })
+
     return () => {
       return (
-        <div class={classes.value} onClick={menuClick}>
-          <ItemPrepend />
+        <div
+          class={classes.value}
+          onClick={menuClick}
+        >
+          {/* <ItemPrepend /> */}
 
-          <div class="sm-item-body">
+          {/* <div class="sm-item-body">
             {slots?.default?.()}
           </div>
 
-          <ItemAppend />
+          <ItemAppend /> */}
+          {slots?.default?.()}
         </div>
       )
     }
