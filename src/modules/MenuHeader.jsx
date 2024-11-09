@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import { useBaseMenuItem } from '../core/BaseItem'
 
 export default defineComponent({
+  name: 'MenuSubHeader',
   setup (props, { slots }) {
     const {
       ItemContainer,

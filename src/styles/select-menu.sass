@@ -28,6 +28,7 @@ $divider-color: #e6e6e6
     cursor: pointer
     padding: .35rem 1rem
     font-size: $item-font-size
+    color: #09090b
     &.disabled
       cursor: default
       .sm-item-body
@@ -36,8 +37,6 @@ $divider-color: #e6e6e6
       @include flex-center(true , false)
       margin-right: .5rem
     &-body
-      // color: #666
-      color: #09090b
       flex-grow: 1
       line-height: 1.3
     &-append
@@ -47,9 +46,14 @@ $divider-color: #e6e6e6
       cursor: default
       font-size: $header-font-size
       // color: #666
-      color: #09090b
+      // color: #09090b
       font-weight: 600
       // margin-bottom: .2rem
+      padding: .3rem 1rem
+    &.sm-sub-header
+      font-size: $sub-header-font-size
+      color: #aaa
+      font-weight: 600
       padding: .3rem 1rem
   .sm-group
     display: flex
@@ -81,14 +85,6 @@ $divider-color: #e6e6e6
       row-gap: .3rem
       display: flex
       flex-direction: column
-  .sm-sub-header
-    font-size: $sub-header-font-size
-    // color: #aaa
-    // color: #09090b
-    color: #aaa
-    // margin-bottom: .5rem
-    font-weight: 600
-    padding: .3rem 1rem
   .sm-divider
     border-top: 1px solid $divider-color
     margin: .2rem 0
