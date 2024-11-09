@@ -1,6 +1,7 @@
 import { defineComponent, inject } from 'vue'
 
 import { injectRadioGroup } from '../constants'
+import { useBaseMenuItem } from '../core/BaseItem'
 
 import IconDot from '../icons/IconDot.vue'
 
@@ -11,31 +12,38 @@ export default defineComponent({
   },
   setup (props, { slots }) {
     const { changeChecked, isItemChecked } = inject(injectRadioGroup)
+    const {
+      ItemContainer,
+      ItemPrepend,
+      ItemBody,
+      ItemAppend
+    } = useBaseMenuItem(props, slots)
 
-    function ItemPrepend () {
+    function RadioSelection () {
       return (
-        <div class='sm-radio-item-prepend'>
+        <div class='sm-radio-item-checked'>
           { isItemChecked(props.value) ? <IconDot /> : '' }
         </div>
       )
     }
-    function ItemAppend () {
-      if (!Object.hasOwn(slots, 'append')) return null
-      return (
-        <div class='sm-radio-item-append'>{slots?.append?.()}</div>
-      )
-    }
+    // function ItemAppend () {
+    //   if (!Object.hasOwn(slots, 'append')) return null
+    //   return (
+    //     <div class='sm-radio-item-append'>{slots?.append?.()}</div>
+    //   )
+    // }
 
     return () => {
       return (
-        <div
+        <ItemContainer
           class="sm-radio-item"
           onClick={() => changeChecked(props.value)}
         >
+          <RadioSelection />
           <ItemPrepend />
-          <div class='sm-radio-item-body'>{slots?.default?.()}</div>
+          <ItemBody />
           <ItemAppend />
-        </div>
+        </ItemContainer>
       )
     }
   }

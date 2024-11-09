@@ -11,8 +11,6 @@ export default defineComponent({
   },
   emits: ['action', 'close', 'update:modelValue'],
   setup (props, { slots, emit }) {
-    // const activeGroup = ref('')
-
     function menuItemTrigger (key) {
       emit('action', key)
 
@@ -25,12 +23,6 @@ export default defineComponent({
       menuItemTrigger
     })
 
-    return () => {
-      return (
-        <div class="sm-container">
-          {slots?.default?.()}
-        </div>
-      )
-    }
+    return () => <div class="sm-container">{slots?.default?.()}</div>
   }
 })

@@ -31,10 +31,6 @@ export default defineComponent({
       isItemChecked
     })
 
-    return () => (
-      <div class="sm-checkbox-group">
-        {slots?.default?.()}
-      </div>
-    )
+    return () => <div class="sm-checkbox-group">{slots?.default?.()}</div>
   }
 })

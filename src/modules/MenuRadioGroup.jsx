@@ -28,12 +28,6 @@ export default defineComponent({
       isItemChecked
     })
 
-    return () => {
-      return (
-        <div class="sm-radio-group">
-          {slots?.default?.()}
-        </div>
-      )
-    }
+    return () => <div class="sm-radio-group">{slots?.default?.()}</div>
   }
 })

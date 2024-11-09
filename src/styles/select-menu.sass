@@ -3,6 +3,13 @@ $sub-header-font-size: 1rem
 $item-font-size: 14px
 $divider-color: #e6e6e6
 
+@mixin flex-center($inline: false, $horizontal-center: false, $vertical-center: true)
+  display: if($inline, inline-flex, flex)
+  @if $vertical-center
+    align-items: center
+  @if $horizontal-center
+    justify-content: center
+
 .sm-container
   display: inline-flex
   flex-direction: column
@@ -16,14 +23,34 @@ $divider-color: #e6e6e6
   .sm-regular-column
     display: flex
     flex-direction: column
-  .sm-header
-    display: flex
-    font-size: $header-font-size
-    // color: #666
-    color: #09090b
-    font-weight: 600
-    // margin-bottom: .2rem
-    padding: .3rem 1rem
+  .sm-item
+    @include flex-center(false , false)
+    cursor: pointer
+    padding: .35rem 1rem
+    font-size: $item-font-size
+    &.disabled
+      cursor: default
+      .sm-item-body
+        color: #ccc
+    &-prepend
+      @include flex-center(true , false)
+      margin-right: .5rem
+    &-body
+      // color: #666
+      color: #09090b
+      flex-grow: 1
+      line-height: 1.3
+    &-append
+      @include flex-center(true , false)
+      margin-left: .5rem
+    &.sm-header
+      cursor: default
+      font-size: $header-font-size
+      // color: #666
+      color: #09090b
+      font-weight: 600
+      // margin-bottom: .2rem
+      padding: .3rem 1rem
   .sm-group
     display: flex
     flex-direction: column
@@ -54,25 +81,6 @@ $divider-color: #e6e6e6
       row-gap: .3rem
       display: flex
       flex-direction: column
-  .sm-item
-    display: flex
-    align-items: center
-    cursor: pointer
-    padding: .35rem 1rem
-    font-size: $item-font-size
-    &.disabled
-      cursor: default
-      .sm-item-body
-        color: #ccc
-    &-prepend
-      display: inline-flex
-      margin-right: .5rem
-      align-items: center
-    &-body
-      // color: #666
-      color: #09090b
-      flex-grow: 1
-      line-height: 1.3
   .sm-sub-header
     font-size: $sub-header-font-size
     // color: #aaa
@@ -87,38 +95,20 @@ $divider-color: #e6e6e6
   .sm-divider-vertical
     border-right: 1px solid $divider-color
     margin: 0 .2rem
-  .sm-radio-group
-    .sm-radio-item
-      display: flex
-      align-items: center
-      padding: .3rem 1rem
-      cursor: pointer
-      &-prepend
-        display: inline-flex
-        width: 1.5rem
-        font-size: 11.2px
-      &-body
-        flex-grow: 1
-      &-append
-        // justify-content: flex-end
-  .sm-checkbox-group
-    .sm-checkbox-item
-      display: flex
-      align-items: center
-      padding: .3rem 1rem
-      cursor: pointer
-      &-prepend
-        display: inline-flex
-        width: 1.2rem
-        font-size: 1.2rem
-        margin-right: .6rem
-      &-body
-        flex-grow: 1
-      &-append
-        // justify-content: flex-end
+  .sm-radio-item-checked
+    @include flex-center(true , false)
+    width: 1.5rem
+    font-size: 11.2px
+    height: 20px
+  .sm-checkbox-item-checked
+    display: inline-flex
+    align-items: flex-end
+    width: 1.2rem
+    font-size: 1rem
+    margin-right: .6rem
+    height: 20px
   .sm-search
-    display: flex
-    align-items: center
+    @include flex-center(false , false)
     margin: .3rem 1rem
     padding: .35rem .7rem
     background-color: #f7f7f7
@@ -136,8 +126,7 @@ $divider-color: #e6e6e6
         width: 100%
     &-prepend,
     &-append
-      display: inline-flex
-      align-items: center
+      @include flex-center(true , false)
     &-prepend
       color: #999
       font-size: 0.9rem

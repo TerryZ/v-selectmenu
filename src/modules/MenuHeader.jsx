@@ -1,13 +1,22 @@
 import { defineComponent } from 'vue'
 
+import { useBaseMenuItem } from '../core/BaseItem'
+
 export default defineComponent({
   setup (props, { slots }) {
-    return () => {
-      return (
-        <div class="sm-header">
-          {slots.default && slots.default()}
-        </div>
-      )
-    }
+    const {
+      ItemContainer,
+      ItemPrepend,
+      ItemBody,
+      ItemAppend
+    } = useBaseMenuItem(props, slots)
+
+    return () => (
+      <ItemContainer class="sm-header">
+        <ItemPrepend />
+        <ItemBody />
+        <ItemAppend />
+      </ItemContainer>
+    )
   }
 })

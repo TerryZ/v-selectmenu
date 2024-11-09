@@ -1,6 +1,7 @@
 import { defineComponent, inject } from 'vue'
 
 import { injectCheckboxGroup } from '../constants'
+import { useBaseMenuItem } from '../core/BaseItem'
 
 import IconCheck from '../icons/IconCheck.vue'
 
@@ -11,31 +12,32 @@ export default defineComponent({
   },
   setup (props, { slots }) {
     const { changeChecked, isItemChecked } = inject(injectCheckboxGroup)
+    const {
+      ItemContainer,
+      ItemPrepend,
+      ItemBody,
+      ItemAppend
+    } = useBaseMenuItem(props, slots)
 
-    function ItemPrepend () {
+    function CheckboxSelection () {
       return (
-        <div class='sm-checkbox-item-prepend'>
+        <div class='sm-checkbox-item-checked'>
           { isItemChecked(props.value) ? <IconCheck /> : '' }
         </div>
-      )
-    }
-    function ItemAppend () {
-      if (!Object.hasOwn(slots, 'append')) return null
-      return (
-        <div class='sm-checkbox-item-append'>{slots?.append?.()}</div>
       )
     }
 
     return () => {
       return (
-        <div
+        <ItemContainer
           class="sm-checkbox-item"
           onClick={() => changeChecked(props.value)}
         >
+          <CheckboxSelection />
           <ItemPrepend />
-          <div class='sm-checkbox-item-body'>{slots?.default?.()}</div>
+          <ItemBody />
           <ItemAppend />
-        </div>
+        </ItemContainer>
       )
     }
   }

@@ -9,7 +9,7 @@ export function useBaseMenuItem (props, slots) {
     ['sm-item', { disabled: props.disabled }]
   ))
 
-  function menuClick () {
+  function onMenuItemTrigger () {
     if (props.disabled) return
 
     menuItemTrigger(props.action)
@@ -17,15 +17,11 @@ export function useBaseMenuItem (props, slots) {
 
   function ItemPrepend () {
     if (!slots.prepend) return null
-    return (
-      <div class="sm-item-prepend">
-        {slots.prepend()}
-      </div>
-    )
+    return <div class="sm-item-prepend">{slots.prepend()}</div>
   }
   function ItemAppend () {
     if (!slots.append) return null
-    return slots.append()
+    return <div class="sm-item-append">{slots.append()}</div>
   }
   function ItemBody () {
     return (
@@ -38,7 +34,7 @@ export function useBaseMenuItem (props, slots) {
     return (
       <div
         class={classes.value}
-        onClick={menuClick}
+        onClick={onMenuItemTrigger}
       >
         {containerSlots?.default?.()}
       </div>
