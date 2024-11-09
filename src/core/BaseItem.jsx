@@ -1,7 +1,19 @@
 import { computed, inject } from 'vue'
 
+import { injectMenu } from '../constants'
+
 export function useBaseMenuItem (props, slots) {
-  const menuItemClick = inject('item-click')
+  const { menuItemTrigger } = inject(injectMenu)
+
+  const classes = computed(() => (
+    ['sm-item', { disabled: props.disabled }]
+  ))
+
+  function menuClick () {
+    if (props.disabled) return
+
+    menuItemTrigger(props.action)
+  }
 
   function ItemPrepend () {
     if (!slots.prepend) return null
@@ -15,30 +27,28 @@ export function useBaseMenuItem (props, slots) {
     if (!slots.append) return null
     return slots.append()
   }
-  function menuClick () {
-    if (props.disabled) return
-
-    menuItemClick(props.action)
+  function ItemBody () {
+    return (
+      <div class="sm-item-body">
+        {slots?.default?.()}
+      </div>
+    )
   }
-
-  const classes = computed(() => (
-    ['sm-item', { disabled: props.disabled }]
-  ))
-
-  return () => {
+  function ItemContainer (props, { slots: containerSlots }) {
     return (
       <div
         class={classes.value}
         onClick={menuClick}
       >
-        <ItemPrepend />
-
-        <div class="sm-item-body">
-          {slots?.default?.()}
-        </div>
-
-        <ItemAppend />
+        {containerSlots?.default?.()}
       </div>
     )
+  }
+
+  return {
+    ItemContainer,
+    ItemPrepend,
+    ItemBody,
+    ItemAppend
   }
 }

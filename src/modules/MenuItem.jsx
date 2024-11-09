@@ -1,57 +1,27 @@
-import { defineComponent, provide, inject, computed } from 'vue'
+import { defineComponent } from 'vue'
 
-import { injectMenuItem } from '../constants'
+import { useBaseMenuItem } from '../core/BaseItem'
 
 export default defineComponent({
+  name: 'MenuItem',
   props: {
     action: { type: String, default: '' },
     disabled: { type: Boolean, default: false }
   },
   setup (props, { slots }) {
-    const menuItemClick = inject('item-click')
+    const {
+      ItemContainer,
+      ItemPrepend,
+      ItemBody,
+      ItemAppend
+    } = useBaseMenuItem(props, slots)
 
-    // function ItemPrepend () {
-    //   if (!slots.prepend) return null
-    //   return (
-    //     <div class="sm-item-prepend">
-    //       {slots.prepend()}
-    //     </div>
-    //   )
-    // }
-    function ItemAppend () {
-      if (!slots.append) return null
-      return slots.append()
-    }
-    function menuClick () {
-      if (props.disabled) return
-
-      menuItemClick(props.action)
-    }
-
-    const classes = computed(() => (
-      ['sm-item', { disabled: props.disabled }]
-    ))
-
-    provide(injectMenuItem, {
-      slots
-    })
-
-    return () => {
-      return (
-        <div
-          class={classes.value}
-          onClick={menuClick}
-        >
-          {/* <ItemPrepend /> */}
-
-          {/* <div class="sm-item-body">
-            {slots?.default?.()}
-          </div>
-
-          <ItemAppend /> */}
-          {slots?.default?.()}
-        </div>
-      )
-    }
+    return () => (
+      <ItemContainer>
+        <ItemPrepend />
+        <ItemBody />
+        <ItemAppend />
+      </ItemContainer>
+    )
   }
 })

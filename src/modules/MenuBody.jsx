@@ -1,5 +1,7 @@
-import { defineComponent, provide, toRef } from 'vue'
+import { defineComponent, provide } from 'vue'
 import '../styles/select-menu.sass'
+
+import { injectMenu } from '../constants'
 
 export default defineComponent({
   name: 'MenuBody',
@@ -11,20 +13,17 @@ export default defineComponent({
   setup (props, { slots, emit }) {
     // const activeGroup = ref('')
 
-    function menuItemClick (key) {
+    function menuItemTrigger (key) {
       emit('action', key)
 
       if (props.autoClose) {
         emit('close')
       }
     }
-    function switchGroup (groupName) {
-      emit('update:modelValue', groupName)
-    }
 
-    provide('item-click', menuItemClick)
-    provide('switch-group', switchGroup)
-    provide('active-group', toRef(props, 'modelValue'))
+    provide(injectMenu, {
+      menuItemTrigger
+    })
 
     return () => {
       return (
