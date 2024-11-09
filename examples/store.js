@@ -25,6 +25,10 @@ export const routers = [
     name: 'search',
     path: '/search',
     component: () => import('./ExamplesSearch.vue')
+  }, {
+    name: 'multiple-level',
+    path: '/multiple-level',
+    component: () => import('./ExamplesMultipleLevel.vue')
   }
 ]
 
@@ -39,7 +43,8 @@ export const list = [
   { name: 'Layout', code: 'layout' },
   { name: 'Radio', code: 'radio' },
   { name: 'Checkbox', code: 'checkbox' },
-  { name: 'Search', code: 'search' }
+  { name: 'Search', code: 'search' },
+  { name: 'Multiple level', code: 'multiple-level' }
 ]
 
 const DEFAULT_ACTIVE = 'base'

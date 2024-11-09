@@ -17,6 +17,7 @@ $divider-color: #e6e6e6
   max-height: 400px
   min-width: 14rem
   row-gap: .3rem
+  overflow-y: auto
   .sm-regular-row
     display: flex
     flex-direction: row
@@ -94,7 +95,7 @@ $divider-color: #e6e6e6
   .sm-radio-item-checked
     @include flex-center(true , false)
     width: 1.5rem
-    font-size: 11.2px
+    font-size: 10px
     height: 20px
   .sm-checkbox-item-checked
     display: inline-flex
@@ -136,6 +137,8 @@ $divider-color: #e6e6e6
       &.active
         opacity: 1
         cursor: pointer
+  .sm-child-level-trigger
+    display: flex
 
 .sm-icon
   display: inline-flex
