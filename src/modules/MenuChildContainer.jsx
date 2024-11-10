@@ -34,7 +34,7 @@ export default defineComponent({
       )
     }
     function ChildContent () {
-      return menuLastLevel.value.render()
+      return menuLastLevel.value.render?.()
     }
 
     return () => {

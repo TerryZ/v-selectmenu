@@ -40,13 +40,13 @@
               </MenuItem>
             </template>
             <MenuItem action="item-grandson1">
-              我是孙菜单项1
+              我是孙菜单项11
             </MenuItem>
             <MenuItem action="item-grandson2">
               我是孙菜单项2
             </MenuItem>
             <MenuItem action="item-grandson3">
-              我是孙菜单项3
+              我是孙菜单项31
             </MenuItem>
           </MenuChildLevel>
           <MenuItem action="item-child3">

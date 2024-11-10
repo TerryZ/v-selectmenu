@@ -1,4 +1,4 @@
-import { defineComponent, ref, inject } from 'vue'
+import { defineComponent, ref, inject, Teleport } from 'vue'
 
 import { injectMenu } from '../constants'
 
@@ -7,7 +7,10 @@ import IconChevronRight from '../icons/IconChevronRight.vue'
 export default defineComponent({
   name: 'MenuChildLevel',
   setup (props, { slots }) {
-    const { multipleLevelBreadcrumbs } = inject(injectMenu)
+    const {
+      multipleLevelBreadcrumbs,
+      childContainer
+    } = inject(injectMenu)
     const root = ref(null)
 
     function openChildMenus () {
@@ -19,8 +22,9 @@ export default defineComponent({
 
       multipleLevelBreadcrumbs.value.push({
         title,
-        render: () => slots?.default?.()
+        render: slots?.default
       })
+      console.log(childContainer)
     }
 
     function LevelTrigger () {
@@ -35,6 +39,14 @@ export default defineComponent({
         </div>
       )
     }
+    function LevelContent () {
+      // if (!childContainer.value) return null
+      return (
+        <Teleport to={childContainer.value}>
+          {slots?.default?.()}
+        </Teleport>
+      )
+    }
 
     return () => {
       return (
@@ -43,6 +55,7 @@ export default defineComponent({
           ref={root}
         >
           <LevelTrigger />
+          <LevelContent />
         </div>
       )
     }

@@ -1,4 +1,4 @@
-import { defineComponent, provide, ref } from 'vue'
+import { defineComponent, provide, ref, computed } from 'vue'
 import '../styles/select-menu.sass'
 
 import { injectMenu } from '../constants'
@@ -14,6 +14,8 @@ export default defineComponent({
   emits: ['action', 'close', 'update:modelValue'],
   setup (props, { slots, emit }) {
     const multipleLevelBreadcrumbs = ref([])
+    const menuLastLevel = computed(() => multipleLevelBreadcrumbs.value.at(-1))
+    const childContainer = ref(null)
 
     function menuItemTrigger (key) {
       emit('action', key)
@@ -28,7 +30,13 @@ export default defineComponent({
     }
     function MenuContainer () {
       if (multipleLevelBreadcrumbs.value.length) {
-        return <MenuChildContainer />
+        // return <MenuChildContainer />
+        return (
+          <div>
+            <div>{menuLastLevel.value.title}</div>
+            <div ref={childContainer}></div>
+          </div>
+        )
       }
       return <div class="sm-container-root">{slots?.default?.()}</div>
     }
@@ -36,7 +44,8 @@ export default defineComponent({
     provide(injectMenu, {
       menuItemTrigger,
       multipleLevelBreadcrumbs,
-      backToPreviousLevel
+      backToPreviousLevel,
+      childContainer
     })
 
     return () => (
