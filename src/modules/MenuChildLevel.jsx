@@ -1,12 +1,26 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, inject } from 'vue'
+
+import { injectMenu } from '../constants'
+
+import IconChevronRight from '../icons/IconChevronRight.vue'
 
 export default defineComponent({
   name: 'MenuChildLevel',
   setup (props, { slots }) {
-    const visible = ref(false)
+    const { multipleLevelBreadcrumbs } = inject(injectMenu)
+    const root = ref(null)
 
-    function changeVisible () {
-      visible.value = !visible.value
+    function openChildMenus () {
+      // visible.value = !visible.value
+      const body = root.value.querySelector('.sm-child-level-trigger .sm-item-body')
+      const title = body.innerText.trim()
+
+      if (!title) return
+
+      multipleLevelBreadcrumbs.value.push({
+        title,
+        render: () => slots?.default?.()
+      })
     }
 
     function LevelTrigger () {
@@ -14,25 +28,21 @@ export default defineComponent({
       return (
         <div
           class="sm-child-level-trigger"
-          onClick={changeVisible}
+          onClick={openChildMenus}
         >
           {slots?.trigger?.()}
-          <div>ff</div>
+          <IconChevronRight />
         </div>
       )
     }
-    function LevelContent () {
-      return (
-        <div v-show={visible.value}>
-          {slots?.default?.()}
-        </div>
-      )
-    }
+
     return () => {
       return (
-        <div class="sm-child-level">
+        <div
+          class="sm-child-level"
+          ref={root}
+        >
           <LevelTrigger />
-          <LevelContent />
         </div>
       )
     }

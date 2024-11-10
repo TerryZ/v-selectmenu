@@ -33,10 +33,22 @@
           <MenuItem action="item-child1">
             我是子菜单项1
           </MenuItem>
-          <MenuItem action="item-child2">
-            我是子菜单项2
-          </MenuItem>
-
+          <MenuChildLevel>
+            <template #trigger>
+              <MenuItem action="item-child2">
+                我是子菜单项2
+              </MenuItem>
+            </template>
+            <MenuItem action="item-grandson1">
+              我是孙菜单项1
+            </MenuItem>
+            <MenuItem action="item-grandson2">
+              我是孙菜单项2
+            </MenuItem>
+            <MenuItem action="item-grandson3">
+              我是孙菜单项3
+            </MenuItem>
+          </MenuChildLevel>
           <MenuItem action="item-child3">
             我是子菜单项3
           </MenuItem>

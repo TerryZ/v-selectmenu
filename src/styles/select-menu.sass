@@ -12,12 +12,15 @@ $divider-color: #e6e6e6
 
 .sm-container
   display: inline-flex
-  flex-direction: column
-  padding: .5rem 0
-  max-height: 400px
-  min-width: 14rem
-  row-gap: .3rem
-  overflow-y: auto
+  .sm-container-root,
+  .sm-container-child
+    display: flex
+    flex-direction: column
+    padding: .5rem 0
+    max-height: 400px
+    min-width: 14rem
+    row-gap: .3rem
+    overflow-y: auto
   .sm-regular-row
     display: flex
     flex-direction: row
@@ -138,9 +141,50 @@ $divider-color: #e6e6e6
         opacity: 1
         cursor: pointer
   .sm-child-level-trigger
-    display: flex
+    @include flex-center(false , false)
+    cursor: pointer
+    .sm-item
+      flex-grow: 1
+    .sm-icon
+      margin: 0 .5rem
+      font-size: .9rem
+  .sm-container-child
+    .sm-child-header
+      @include flex-center(false , false)
+      .sm-item-body
+        font-weight: 600
+        font-size: 1rem
 
 .sm-icon
   display: inline-flex
   width: 1em
   height: 1em
+.sm-circle-btn
+  width: 20px
+  height: 20px
+  font-size: 14px
+  line-height: 1
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  color: #aaa
+  // background-color: transparent
+  transition: all .3s ease
+  border-radius: 50%
+  &:hover
+    color: black
+    // background-color: #f1f1f1
+  // .sp-circle-btn.sp-circle-btn-disabled
+  &#{&}--disabled,
+  &#{&}--disabled:hover
+    cursor: default
+    color: #eee
+  &#{&}--small
+    width: 16px
+    height: 16px
+    font-size: 12px
+  &#{&}--large
+    width: 28px
+    height: 28px
+    font-size: 16px
