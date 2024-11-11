@@ -29,7 +29,7 @@ export default defineComponent({
 
     return () => (
       <div class="sm-container">
-        <MenuLevelGroup v-show={hasLevels.value} />
+        <MenuLevelGroup />
         <div
           class="sm-container-root"
           v-show={!hasLevels.value}
