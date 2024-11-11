@@ -7,20 +7,16 @@ import IconChevronRight from '../icons/IconChevronRight.vue'
 export default defineComponent({
   name: 'MenuChildLevel',
   setup (props, { slots }) {
-    const {
-      openChildMenu
-    } = inject(injectMenu)
+    const { addChildLevel } = inject(injectMenu)
     const root = ref(null)
 
     function openChildMenus () {
-      console.dir(root.value.__vnode.ctx.uid)
       const body = root.value.querySelector('.sm-child-level-trigger .sm-item-body')
       const title = body.innerText.trim()
 
       if (!title) return
 
-      openChildMenu({
-        uid: root.value.__vnode.ctx.uid,
+      addChildLevel({
         title,
         render: slots?.default
       })

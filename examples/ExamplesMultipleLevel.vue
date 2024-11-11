@@ -39,18 +39,33 @@
                 我是子菜单项2
               </MenuItem>
             </template>
-            <MenuItem action="item-grandson1">
-              我是孙菜单项11
+            <MenuItem
+              action="item-grandson1"
+              v-if="visibleGrandson1"
+            >
+              我是孙菜单项1
             </MenuItem>
             <MenuItem action="item-grandson2">
               我是孙菜单项2
             </MenuItem>
-            <MenuItem action="item-grandson3">
-              我是孙菜单项31
+            <MenuItem
+              action="item-grandson3"
+              @click="visibleGrandson1 = !visibleGrandson1"
+            >
+              我是孙菜单项3
             </MenuItem>
           </MenuChildLevel>
-          <MenuItem action="item-child3">
+          <MenuItem
+            action="item-child3"
+            v-if="visibleChild3"
+          >
             我是子菜单项3
+          </MenuItem>
+          <MenuItem
+            action="item-child4"
+            @click="visibleChild3 = !visibleChild3"
+          >
+            我是子菜单项4
           </MenuItem>
         </MenuChildLevel>
 
@@ -66,7 +81,8 @@
 </template>
 
 <script setup>
-// import { ref } from 'vue'
+import { ref } from 'vue'
+
 import {
   MenuBody,
   MenuHeader,
@@ -76,7 +92,11 @@ import {
   MenuChildLevel
 } from '@/'
 
+const visibleChild3 = ref(true)
+const visibleGrandson1 = ref(true)
+
 function menuAction (key) {
   console.log(key)
 }
+
 </script>

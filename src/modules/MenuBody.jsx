@@ -1,9 +1,8 @@
-import { defineComponent, provide, ref } from 'vue'
+import { defineComponent, provide } from 'vue'
 import '../styles/select-menu.sass'
 
 import { injectMenu } from '../constants'
-
-import MenuChildContainer from './MenuChildContainer'
+import { useMultipleLevel } from '../core/MultipleLevel'
 
 export default defineComponent({
   name: 'MenuBody',
@@ -13,9 +12,7 @@ export default defineComponent({
   },
   emits: ['action', 'close', 'update:modelValue'],
   setup (props, { slots, emit }) {
-    const multipleLevelBreadcrumbs = ref([])
-    // const menuLastLevel = computed(() => multipleLevelBreadcrumbs.value.at(-1))
-    const childContainer = ref(null)
+    const { hasLevels, addChildLevel, MenuLevelGroup } = useMultipleLevel()
 
     function menuItemTrigger (key) {
       emit('action', key)
@@ -24,37 +21,21 @@ export default defineComponent({
         emit('close')
       }
     }
-    function openChildMenu (data) {
-      multipleLevelBreadcrumbs.value.push(data)
-    }
-    function backToPreviousLevel () {
-      if (!multipleLevelBreadcrumbs.value.length) return
-      multipleLevelBreadcrumbs.value.pop()
-    }
-    function MenuContainer () {
-      if (multipleLevelBreadcrumbs.value.length) {
-        return <MenuChildContainer />
-        // return (
-        //   <div>
-        //     <div>{menuLastLevel.value.title}</div>
-        //     <div ref={childContainer}></div>
-        //   </div>
-        // )
-      }
-      return <div class="sm-container-root">{slots?.default?.()}</div>
-    }
 
     provide(injectMenu, {
       menuItemTrigger,
-      multipleLevelBreadcrumbs,
-      openChildMenu,
-      backToPreviousLevel,
-      childContainer
+      addChildLevel
     })
 
     return () => (
       <div class="sm-container">
-        <MenuContainer />
+        <MenuLevelGroup v-show={hasLevels.value} />
+        <div
+          class="sm-container-root"
+          v-show={!hasLevels.value}
+        >
+          {slots?.default?.()}
+        </div>
       </div>
     )
   }
