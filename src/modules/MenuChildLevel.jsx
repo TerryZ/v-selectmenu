@@ -1,4 +1,4 @@
-import { defineComponent, ref, inject, Teleport } from 'vue'
+import { defineComponent, ref, inject } from 'vue'
 
 import { injectMenu } from '../constants'
 
@@ -8,23 +8,22 @@ export default defineComponent({
   name: 'MenuChildLevel',
   setup (props, { slots }) {
     const {
-      multipleLevelBreadcrumbs,
-      childContainer
+      openChildMenu
     } = inject(injectMenu)
     const root = ref(null)
 
     function openChildMenus () {
-      // visible.value = !visible.value
+      console.dir(root.value.__vnode.ctx.uid)
       const body = root.value.querySelector('.sm-child-level-trigger .sm-item-body')
       const title = body.innerText.trim()
 
       if (!title) return
 
-      multipleLevelBreadcrumbs.value.push({
+      openChildMenu({
+        uid: root.value.__vnode.ctx.uid,
         title,
         render: slots?.default
       })
-      console.log(childContainer)
     }
 
     function LevelTrigger () {
@@ -39,14 +38,6 @@ export default defineComponent({
         </div>
       )
     }
-    function LevelContent () {
-      // if (!childContainer.value) return null
-      return (
-        <Teleport to={childContainer.value}>
-          {slots?.default?.()}
-        </Teleport>
-      )
-    }
 
     return () => {
       return (
@@ -55,7 +46,6 @@ export default defineComponent({
           ref={root}
         >
           <LevelTrigger />
-          <LevelContent />
         </div>
       )
     }
