@@ -8,7 +8,7 @@ import IconCheck from '../icons/IconCheck.vue'
 export default defineComponent({
   name: 'MenuCheckboxItem',
   props: {
-    value: { type: [String, Number], default: '' }
+    value: { type: [String, Number], default: '', required: true }
   },
   setup (props, { slots }) {
     const { changeChecked, isItemChecked } = inject(injectCheckboxGroup)

@@ -1,4 +1,4 @@
-import { defineComponent, toRef, provide, ref, onMounted } from 'vue'
+import { defineComponent, provide, ref, onMounted, watch } from 'vue'
 
 import { injectMenuGroup } from '../constants'
 
@@ -10,12 +10,14 @@ export default defineComponent({
   emits: ['update:modelValue', 'change'],
   setup (props, { slots, emit }) {
     const tabs = ref([])
+    const active = ref(props.modelValue)
 
     function switchGroup (groupName) {
       if (!tabs.value.length) return
       if (!groupName) return
 
       if (groupName !== props.modelValue) {
+        active.value = groupName
         emit('update:modelValue', groupName)
         emit('change', tabs.value.find(tab => tab.name === groupName))
       }
@@ -28,7 +30,7 @@ export default defineComponent({
       return tabs.value.map(tab => (
         <div
           key={tab.name}
-          class={['sm-group-tab', { active: tab.name === props.modelValue }]}
+          class={['sm-group-tab', { active: tab.name === active.value }]}
           onClick={() => switchGroup(tab.name)}
         >
           {tab.title}
@@ -36,8 +38,10 @@ export default defineComponent({
       ))
     }
 
+    watch(() => props.modelValue, switchGroup)
+
     provide(injectMenuGroup, {
-      active: toRef(props, 'modelValue'),
+      active,
       addTab
     })
 

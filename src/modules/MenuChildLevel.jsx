@@ -35,15 +35,13 @@ export default defineComponent({
       )
     }
 
-    return () => {
-      return (
-        <div
-          class="sm-child-level"
-          ref={root}
-        >
-          <LevelTrigger />
-        </div>
-      )
-    }
+    return () => (
+      <div
+        class="sm-child-level"
+        ref={root}
+      >
+        <LevelTrigger />
+      </div>
+    )
   }
 })
