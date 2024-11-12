@@ -1,4 +1,4 @@
-import { defineComponent, provide } from 'vue'
+import { defineComponent, provide, computed } from 'vue'
 import '../styles/select-menu.sass'
 
 import { injectMenu } from '../constants'
@@ -8,11 +8,17 @@ export default defineComponent({
   name: 'MenuBody',
   props: {
     autoClose: { type: Boolean, default: true },
-    modelValue: { type: String, default: '' }
+    modelValue: { type: String, default: '' },
+    maxHeight: { type: String, default: '' }
   },
   emits: ['action', 'close', 'update:modelValue'],
   setup (props, { slots, emit }) {
-    const { hasLevels, addChildLevel, MenuLevelGroup } = useMultipleLevel()
+    const { hasLevels, addChildLevel, MenuLevelGroup } = useMultipleLevel(props)
+
+    const rootContainerStyles = computed(() => ({
+      maxHeight: props.maxHeight,
+      overflow: 'auto'
+    }))
 
     function menuItemTrigger (key) {
       emit('action', key)
@@ -32,6 +38,7 @@ export default defineComponent({
         <MenuLevelGroup />
         <div
           class="sm-container-root"
+          style={rootContainerStyles.value}
           v-show={!hasLevels.value}
         >
           {slots?.default?.()}

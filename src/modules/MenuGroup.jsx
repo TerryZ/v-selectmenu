@@ -1,16 +1,22 @@
-import { defineComponent, provide, ref, onMounted, watch } from 'vue'
+import { defineComponent, provide, ref, onMounted, watch, computed } from 'vue'
 
 import { injectMenuGroup } from '../constants'
 
 export default defineComponent({
   name: 'MenuGroup',
   props: {
-    modelValue: { type: String, default: '' }
+    modelValue: { type: String, default: '' },
+    maxHeight: { type: String, default: '' }
   },
   emits: ['update:modelValue', 'change'],
   setup (props, { slots, emit }) {
     const tabs = ref([])
     const active = ref(props.modelValue)
+
+    const groupBodyStyles = computed(() => ({
+      maxHeight: props.maxHeight,
+      overflow: 'auto'
+    }))
 
     function switchGroup (groupName) {
       if (!tabs.value.length) return
@@ -56,7 +62,10 @@ export default defineComponent({
           <GroupTabs />
         </div>
 
-        <div class="sm-group-body" >
+        <div
+          class="sm-group-body"
+          style={groupBodyStyles.value}
+        >
           {slots?.default?.()}
         </div>
       </div>

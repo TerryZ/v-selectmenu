@@ -4,10 +4,14 @@ import MenuDivider from '../modules/MenuDivider'
 import CircleButton from '../components/CircleButton'
 import IconChevronLeft from '../icons/IconChevronLeft.vue'
 
-export function useMultipleLevel () {
+export function useMultipleLevel (props) {
   const levels = ref([])
 
   const hasLevels = computed(() => levels.value.length)
+  const childBodyStyles = computed(() => ({
+    maxHeight: props.maxHeight,
+    overflow: 'auto'
+  }))
 
   function addChildLevel (data) {
     levels.value.push(data)
@@ -42,7 +46,9 @@ export function useMultipleLevel () {
       >
         <LevelHeader title={level.title} />
         <MenuDivider />
-        {level.render?.()}
+        <div style={childBodyStyles.value}>
+          {level.render?.()}
+        </div>
       </div>
     ))
   }
