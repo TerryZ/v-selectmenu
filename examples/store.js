@@ -6,10 +6,6 @@ export const routers = [
     path: '/base',
     component: () => import('./ExamplesBase.vue')
   }, {
-    name: 'layout',
-    path: '/layout',
-    component: () => import('./ExamplesLayout.vue')
-  }, {
     name: 'group',
     path: '/group',
     component: () => import('./ExamplesGroup.vue')
@@ -22,6 +18,10 @@ export const routers = [
     path: '/checkbox',
     component: () => import('./ExamplesCheckbox.vue')
   }, {
+    name: 'layout',
+    path: '/layout',
+    component: () => import('./ExamplesLayout.vue')
+  }, {
     name: 'search',
     path: '/search',
     component: () => import('./ExamplesSearch.vue')
@@ -29,22 +29,22 @@ export const routers = [
     name: 'multiple-level',
     path: '/multiple-level',
     component: () => import('./ExamplesMultipleLevel.vue')
+  }, {
+    name: 'combination',
+    path: '/combination',
+    component: () => import('./ExamplesCombination.vue')
   }
-]
-
-export const types = [
-  { name: 'Regular', code: 'regular' },
-  { name: 'Advanced', code: 'advanced' }
 ]
 
 export const list = [
   { name: 'Base', code: 'base' },
   { name: 'Group', code: 'group' },
-  { name: 'Layout', code: 'layout' },
   { name: 'Radio', code: 'radio' },
   { name: 'Checkbox', code: 'checkbox' },
+  { name: 'Layout', code: 'layout' },
   { name: 'Search', code: 'search' },
-  { name: 'Multiple level', code: 'multiple-level' }
+  { name: 'Multiple level', code: 'multiple-level' },
+  { name: 'Combination', code: 'combination' }
 ]
 
 const DEFAULT_ACTIVE = 'base'

@@ -4,6 +4,7 @@
     <div>
       <MenuBody
         class="border rounded-3 shadow-sm"
+        max-height="300px"
         @action="menuAction"
       >
         <MenuHeader>我是菜单标题</MenuHeader>
@@ -67,6 +68,17 @@
           >
             我是子菜单项4
           </MenuItem>
+          <MenuItem>我是子菜单项5</MenuItem>
+          <MenuItem>我是子菜单项6</MenuItem>
+          <MenuItem>我是子菜单项7</MenuItem>
+          <MenuItem>我是子菜单项8</MenuItem>
+          <MenuItem>我是子菜单项9</MenuItem>
+          <MenuItem>我是子菜单项10</MenuItem>
+          <MenuItem>我是子菜单项11</MenuItem>
+          <MenuItem>我是子菜单项12</MenuItem>
+          <MenuItem>我是子菜单项13</MenuItem>
+          <MenuItem>我是子菜单项14</MenuItem>
+          <MenuItem>我是子菜单项15</MenuItem>
         </MenuChildLevel>
 
         <MenuItem

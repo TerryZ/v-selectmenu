@@ -17,7 +17,7 @@ $divider-color: #e6e6e6
     display: flex
     flex-direction: column
     padding: .5rem 0
-    max-height: 400px
+    // max-height: 400px
     min-width: 14rem
     row-gap: .3rem
     overflow-y: auto
@@ -66,11 +66,12 @@ $divider-color: #e6e6e6
     // padding: .5rem 0 0
     &-tabs
       display: flex
-      margin: 0 .5rem
+      margin: 0 1rem
       background-color: #f7f7f7
       border-radius: 50rem
       padding: .3rem
     &-tab
+      font-size: 14px
       padding: .2rem 1rem
       cursor: pointer
       border-radius: 50rem
@@ -175,7 +176,6 @@ $divider-color: #e6e6e6
   &:hover
     color: black
     // background-color: #f1f1f1
-  // .sp-circle-btn.sp-circle-btn-disabled
   &#{&}--disabled,
   &#{&}--disabled:hover
     cursor: default
