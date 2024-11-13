@@ -33,6 +33,10 @@ export const routers = [
     name: 'combination',
     path: '/combination',
     component: () => import('./ExamplesCombination.vue')
+  }, {
+    name: 'complete',
+    path: '/complete',
+    component: () => import('./ExamplesComplete.vue')
   }
 ]
 
@@ -44,7 +48,8 @@ export const list = [
   { name: 'Layout', code: 'layout' },
   { name: 'Search', code: 'search' },
   { name: 'Multiple level', code: 'multiple-level' },
-  { name: 'Combination', code: 'combination' }
+  { name: 'Combination', code: 'combination' },
+  { name: 'Complete form', code: 'complete' }
 ]
 
 const DEFAULT_ACTIVE = 'base'
