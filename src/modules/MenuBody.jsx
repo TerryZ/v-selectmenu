@@ -1,7 +1,6 @@
-import { defineComponent, provide, computed } from 'vue'
-import '../styles/select-menu.sass'
+import { defineComponent, provide, computed, inject } from 'vue'
 
-import { injectMenu } from '../constants'
+import { injectMenu, injectDropdown } from '../constants'
 import { useMultipleLevel } from '../core/MultipleLevel'
 
 export default defineComponent({
@@ -14,6 +13,7 @@ export default defineComponent({
   emits: ['action', 'close', 'update:modelValue'],
   setup (props, { slots, emit }) {
     const { hasLevels, addChildLevel, MenuLevelGroup } = useMultipleLevel(props)
+    const { closeDropdown } = inject(injectDropdown)
 
     const rootContainerStyles = computed(() => ({
       maxHeight: props.maxHeight,
@@ -25,6 +25,7 @@ export default defineComponent({
 
       if (props.autoClose) {
         emit('close')
+        closeDropdown()
       }
     }
 

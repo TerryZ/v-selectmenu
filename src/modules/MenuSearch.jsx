@@ -7,11 +7,15 @@ import IconCloseCircle from '@/icons/IconCloseCircle.vue'
 
 export default defineComponent({
   name: 'MenuSearch',
+  props: {
+    /** debounce delay when typing, in milliseconds */
+    debounce: { type: Number, default: 300 }
+  },
   emits: ['search'],
   setup (props, { emit }) {
     const input = ref('')
     const inputEl = ref(null)
-    const inputDebounce = useDebounce()
+    const inputDebounce = useDebounce(props.debounce)
 
     const setInputFocus = () => inputEl.value.focus()
     const responseInput = value => emit('search', value)

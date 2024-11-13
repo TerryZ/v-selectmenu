@@ -1,3 +1,6 @@
+import '../styles/trigger.sass'
+import '../styles/select-menu.sass'
+
 export { default as MenuBody } from './MenuBody'
 export { default as MenuHeader } from './MenuHeader'
 export { default as MenuGroup } from './MenuGroup'
@@ -13,3 +16,6 @@ export { default as MenuCheckboxGroup } from './MenuCheckboxGroup'
 export { default as MenuCheckboxItem } from './MenuCheckboxItem'
 export { default as MenuSearch } from './MenuSearch'
 export { default as MenuChildLevel } from './MenuChildLevel'
+
+export { default as MenuTrigger } from './MenuTrigger'
+export { default as MenuDropdown } from './MenuDropdown'
