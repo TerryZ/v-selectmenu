@@ -4,7 +4,7 @@ export default defineComponent({
   setup (props, { slots }) {
     return () => {
       return (
-        <div class="sm-regular-row">
+        <div class="sm-row">
           {slots?.default?.()}
         </div>
       )
