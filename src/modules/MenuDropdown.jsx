@@ -8,10 +8,7 @@ export default defineComponent({
   name: 'MenuDropdown',
   setup (props, { slots, attrs }) {
     const visible = ref(false)
-    const regionModel = ref()
     const dropdownEl = ref()
-
-    console.log(attrs)
 
     function closeDropdown () {
       dropdownEl.value && dropdownEl.value.close()
@@ -19,17 +16,12 @@ export default defineComponent({
     function adjustDropdown () {
       dropdownEl.value && dropdownEl.value.adjust()
     }
-    function setRegionModel (model) {
-      regionModel.value = model
-    }
 
     provide(injectDropdown, {
       visible,
       disabled: toRef(attrs, 'disabled', false),
-      regionModel,
       closeDropdown,
-      adjustDropdown,
-      setRegionModel
+      adjustDropdown
     })
 
     // dropdown 参数直接应用透传
@@ -39,7 +31,7 @@ export default defineComponent({
         ref={dropdownEl}
         onVisibleChange={val => { visible.value = val }}
       >{{
-        trigger: () => slots.trigger?.(),
+        trigger: data => slots.trigger?.(data),
         default: () => slots.default?.()
       }}</Dropdown>
     )

@@ -6,9 +6,37 @@
         <MenuDropdown
           :align="align"
           :disabled="disabled"
+          class="me-3"
         >
           <template #trigger>
             <MenuTrigger />
+          </template>
+          <MenuBody>
+            <MenuHeader>Header</MenuHeader>
+            <MenuItem action="item11">
+              我是菜单项11
+            </MenuItem>
+            <MenuItem action="item12">
+              我是菜单项12
+            </MenuItem>
+            <MenuItem action="item13">
+              我是菜单项13
+            </MenuItem>
+          </MenuBody>
+        </MenuDropdown>
+
+        <MenuDropdown
+          class="me-3"
+          :disabled="disabled"
+        >
+          <template #trigger="{ visible, disabled: triggerDisabled }">
+            <button
+              type="button"
+              class="btn btn-dark"
+            >
+              visible: {{ visible }}
+              disabled: {{ triggerDisabled }}
+            </button>
           </template>
           <MenuBody>
             <MenuHeader>Header</MenuHeader>
