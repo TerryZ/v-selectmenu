@@ -13,7 +13,7 @@ export default defineComponent({
   emits: ['action', 'close', 'update:modelValue'],
   setup (props, { slots, emit }) {
     const { hasLevels, addChildLevel, MenuLevelGroup } = useMultipleLevel(props)
-    const { closeDropdown } = inject(injectDropdown)
+    const dropdown = inject(injectDropdown, undefined)
 
     const rootContainerStyles = computed(() => ({
       maxHeight: props.maxHeight,
@@ -25,7 +25,7 @@ export default defineComponent({
 
       if (props.autoClose) {
         emit('close')
-        closeDropdown()
+        dropdown?.closeDropdown?.()
       }
     }
 
