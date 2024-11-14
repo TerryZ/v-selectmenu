@@ -1,9 +1,9 @@
 import { defineComponent, ref } from 'vue'
 
-import { useDebounce } from '@/helper'
+import { useDebounce } from '../core/helper'
 
-import IconSearch from '@/icons/IconSearch.vue'
-import IconCloseCircle from '@/icons/IconCloseCircle.vue'
+import IconSearch from '../icons/IconSearch.vue'
+import IconCloseCircle from '../icons/IconCloseCircle.vue'
 
 export default defineComponent({
   name: 'MenuSearch',
