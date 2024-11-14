@@ -1,5 +1,12 @@
 .sm-trigger-container
   display: inline-block
+  &.sm-disabled,
+  &.sm-disabled:hover
+    .sm-default-trigger
+      border: 1px solid #eee
+      background-color: #eee
+      cursor: default
+      color: #aaa
   .sm-default-trigger
     display: inline-flex
     align-items: center

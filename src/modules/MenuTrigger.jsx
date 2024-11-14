@@ -1,23 +1,33 @@
-import { inject } from 'vue'
+import { computed, inject } from 'vue'
 
 import { injectDropdown } from '../constants'
 
 export default {
   name: 'MenuDropdownTrigger',
   props: {
-    language: { type: String, default: '' }
   },
   setup (props, { slots }) {
-    const { dropdownVisible } = inject(injectDropdown)
+    const { visible, disabled } = inject(injectDropdown)
+
+    const buttonClasses = computed(() => ({
+      'sm-default-trigger': true,
+      'sm-opened': visible.value
+    }))
+    const containerClasses = computed(() => ({
+      'sm-trigger-container': true,
+      'sm-disabled': disabled.value
+    }))
 
     const ButtonText = () => (
       slots.default ? slots.default() : 'Open'
     )
-    const ButtonIcon = () => <span class='sm-caret-down' />
+    const ButtonIcon = () => (
+      slots.append ? slots.append() : <span class='sm-caret-down' />
+    )
     const TriggerButton = () => (
       <button
         type='button'
-        class={['sm-default-trigger', { 'sm-opened': dropdownVisible.value }]}
+        class={buttonClasses.value}
       >
         <ButtonText />
         <ButtonIcon />
@@ -25,7 +35,7 @@ export default {
     )
 
     return () => (
-      <div class='sm-trigger-container'>
+      <div class={containerClasses.value}>
         <TriggerButton />
       </div>
     )

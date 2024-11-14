@@ -1,4 +1,4 @@
-import { ref, defineComponent, provide } from 'vue'
+import { ref, defineComponent, provide, toRef } from 'vue'
 
 import Dropdown from 'v-dropdown'
 
@@ -6,10 +6,12 @@ import { injectDropdown } from '../constants'
 
 export default defineComponent({
   name: 'MenuDropdown',
-  setup (props, { slots }) {
+  setup (props, { slots, attrs }) {
     const visible = ref(false)
     const regionModel = ref()
     const dropdownEl = ref()
+
+    console.log(attrs)
 
     function closeDropdown () {
       dropdownEl.value && dropdownEl.value.close()
@@ -22,7 +24,8 @@ export default defineComponent({
     }
 
     provide(injectDropdown, {
-      dropdownVisible: visible,
+      visible,
+      disabled: toRef(attrs, 'disabled', false),
       regionModel,
       closeDropdown,
       adjustDropdown,
