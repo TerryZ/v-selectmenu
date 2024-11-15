@@ -16,3 +16,5 @@
 // export { selectMenu as SelectMenu }
 // export default Plugin
 export * from './modules'
+
+export { useSelectMenuDropdown } from './core/helper'

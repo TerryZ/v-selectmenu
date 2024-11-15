@@ -3,54 +3,70 @@
     <h5>完整形态菜单</h5>
     <div class="d-flex">
       <div class="col-md-6">
-        <MenuDropdown
-          :align="align"
-          :disabled="disabled"
-          class="me-3"
-        >
-          <template #trigger>
-            <MenuTrigger />
-          </template>
-          <MenuBody>
-            <MenuHeader>Header</MenuHeader>
-            <MenuItem action="item11">
-              我是菜单项11
-            </MenuItem>
-            <MenuItem action="item12">
-              我是菜单项12
-            </MenuItem>
-            <MenuItem action="item13">
-              我是菜单项13
-            </MenuItem>
-          </MenuBody>
-        </MenuDropdown>
+        <h6>常规模式</h6>
+        <div class="mb-3">
+          <MenuDropdown
+            :align="align"
+            :disabled="disabled"
+          >
+            <template #trigger>
+              <MenuTrigger />
+            </template>
+            <MenuBody>
+              <MenuHeader>Header</MenuHeader>
+              <MenuItem action="item11">
+                我是菜单项11
+              </MenuItem>
+              <MenuItem action="item12">
+                我是菜单项12
+              </MenuItem>
+              <MenuItem action="item13">
+                我是菜单项13
+              </MenuItem>
+            </MenuBody>
+          </MenuDropdown>
+        </div>
 
-        <MenuDropdown
-          class="me-3"
-          :disabled="disabled"
-        >
-          <template #trigger="{ visible, disabled: triggerDisabled }">
-            <button
-              type="button"
-              class="btn btn-dark"
-            >
-              visible: {{ visible }}
-              disabled: {{ triggerDisabled }}
-            </button>
-          </template>
-          <MenuBody>
-            <MenuHeader>Header</MenuHeader>
-            <MenuItem action="item11">
-              我是菜单项11
-            </MenuItem>
-            <MenuItem action="item12">
-              我是菜单项12
-            </MenuItem>
-            <MenuItem action="item13">
-              我是菜单项13
-            </MenuItem>
-          </MenuBody>
-        </MenuDropdown>
+        <h6>自定义 Trigger</h6>
+        <div class="mb-3">
+          <MenuDropdown :disabled="disabled">
+            <template #trigger="{ visible, disabled: triggerDisabled }">
+              <button
+                type="button"
+                class="btn btn-dark"
+              >
+                visible: {{ visible }}
+                disabled: {{ triggerDisabled }}
+              </button>
+            </template>
+            <MenuBody>
+              <MenuHeader>Header</MenuHeader>
+              <MenuItem action="item11">
+                我是菜单项11
+              </MenuItem>
+              <MenuItem action="item12">
+                我是菜单项12
+              </MenuItem>
+              <MenuItem action="item13">
+                我是菜单项13
+              </MenuItem>
+            </MenuBody>
+          </MenuDropdown>
+        </div>
+
+        <h6>自定义内容</h6>
+        <div class="mb-3">
+          <MenuDropdown
+            :align="align"
+            :disabled="disabled"
+          >
+            <template #trigger>
+              <MenuTrigger />
+            </template>
+
+            <CustomDropdownContent />
+          </MenuDropdown>
+        </div>
       </div>
       <div class="col-md-6">
         <h5>Props</h5>
@@ -98,12 +114,11 @@ import { ref } from 'vue'
 import {
   MenuBody,
   MenuHeader,
-  MenuGroup,
-  MenuGroupItem,
   MenuItem,
   MenuTrigger,
   MenuDropdown
 } from '@/'
+import CustomDropdownContent from './CustomDropdownContent.vue'
 
 const align = ref('left')
 const disabled = ref(false)

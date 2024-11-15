@@ -1,21 +1,21 @@
-import { computed, inject } from 'vue'
+import { computed } from 'vue'
 
-import { injectDropdown } from '../constants'
+import { useSelectMenuDropdown } from '../core/helper'
 
 export default {
   name: 'MenuDropdownTrigger',
   props: {
   },
   setup (props, { slots }) {
-    const { visible, disabled } = inject(injectDropdown)
+    const dropdown = useSelectMenuDropdown()
 
     const buttonClasses = computed(() => ({
       'sm-default-trigger': true,
-      'sm-opened': visible.value
+      'sm-opened': dropdown?.visible?.value
     }))
     const containerClasses = computed(() => ({
       'sm-trigger-container': true,
-      'sm-disabled': disabled.value
+      'sm-disabled': dropdown?.disabled?.value
     }))
 
     const ButtonText = () => (
