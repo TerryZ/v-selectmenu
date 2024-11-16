@@ -17,12 +17,14 @@ export default defineComponent({
       dropdownEl.value && dropdownEl.value.adjust()
     }
 
-    provide(injectDropdown, {
+    const provideData = {
       visible,
       disabled: toRef(attrs, 'disabled', false),
       closeDropdown,
       adjustDropdown
-    })
+    }
+
+    provide(injectDropdown, provideData)
 
     // dropdown 参数直接应用透传
     return () => (
@@ -31,8 +33,8 @@ export default defineComponent({
         ref={dropdownEl}
         onVisibleChange={val => { visible.value = val }}
       >{{
-        trigger: data => slots.trigger?.(data),
-        default: () => slots.default?.()
+        trigger: () => slots.trigger?.(provideData),
+        default: () => slots.default?.(provideData)
       }}</Dropdown>
     )
   }

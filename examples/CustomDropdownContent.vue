@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3">
+  <div class="">
     Custom Content
 
     <div class="mt-3">
