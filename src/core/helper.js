@@ -12,12 +12,17 @@ export function useDebounce (time = 300) {
 }
 
 export function useSelectMenuDropdown () {
-  const dropdown = inject(injectDropdown)
+  const {
+    visible,
+    disabled,
+    closeDropdown,
+    adjustDropdown
+  } = inject(injectDropdown, {})
 
   return {
-    visible: dropdown?.visible,
-    disabled: dropdown?.disabled,
-    closeDropdown: dropdown?.closeDropdown,
-    adjustDropdown: dropdown?.adjustDropdown
+    visible,
+    disabled,
+    closeDropdown,
+    adjustDropdown
   }
 }
