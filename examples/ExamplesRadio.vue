@@ -1,24 +1,24 @@
 <template>
   <div>
     <h5>单选模块</h5>
-    <MenuBody
+    <SelectMenuBody
       class="border rounded-3 shadow-sm"
     >
-      <MenuHeader>单选模块</MenuHeader>
-      <MenuRadioGroup
+      <SelectMenuHeader>单选模块</SelectMenuHeader>
+      <SelectMenuRadioGroup
         v-model="checked"
         @change="change"
       >
-        <MenuRadioItem value="radio1">
+        <SelectMenuRadioItem value="radio1">
           radio1
-        </MenuRadioItem>
-        <MenuRadioItem value="radio2">
+        </SelectMenuRadioItem>
+        <SelectMenuRadioItem value="radio2">
           radio2
           <template #append>
             append
           </template>
-        </MenuRadioItem>
-        <MenuRadioItem value="radio3">
+        </SelectMenuRadioItem>
+        <SelectMenuRadioItem value="radio3">
           <template #prepend>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,9 +35,9 @@
             </svg>
           </template>
           radio3
-        </MenuRadioItem>
-      </MenuRadioGroup>
-    </MenuBody>
+        </SelectMenuRadioItem>
+      </SelectMenuRadioGroup>
+    </SelectMenuBody>
   </div>
 </template>
 
@@ -45,14 +45,10 @@
 import { ref } from 'vue'
 
 import {
-  MenuBody,
-  MenuHeader,
-  MenuGroup,
-  MenuGroupItem,
-  MenuItem,
-  MenuDivider,
-  MenuRadioGroup,
-  MenuRadioItem
+  SelectMenuBody,
+  SelectMenuHeader,
+  SelectMenuRadioGroup,
+  SelectMenuRadioItem
 } from '@/'
 
 const checked = ref('radio3')

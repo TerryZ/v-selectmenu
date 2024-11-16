@@ -2,18 +2,18 @@
   <div>
     <h5>搜索模块</h5>
     <div>
-      <MenuBody class="border rounded-3 shadow-sm">
-        <MenuHeader>搜索</MenuHeader>
-        <MenuDivider />
-        <MenuSearch @search="search" />
-        <MenuDivider />
-        <MenuItem
+      <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuHeader>搜索</SelectMenuHeader>
+        <SelectMenuDivider />
+        <SelectMenuSearch @search="search" />
+        <SelectMenuDivider />
+        <SelectMenuItem
           v-for="item in items"
           :key="item.key"
         >
           {{ item.name }}
-        </MenuItem>
-      </MenuBody>
+        </SelectMenuItem>
+      </SelectMenuBody>
     </div>
   </div>
 </template>
@@ -21,11 +21,11 @@
 <script setup>
 import { ref } from 'vue'
 import {
-  MenuItem,
-  MenuHeader,
-  MenuBody,
-  MenuDivider,
-  MenuSearch
+  SelectMenuItem,
+  SelectMenuHeader,
+  SelectMenuBody,
+  SelectMenuDivider,
+  SelectMenuSearch
 } from '@/'
 
 const list = [

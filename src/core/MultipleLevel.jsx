@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 
-import MenuDivider from '../modules/MenuDivider'
+import SelectMenuDivider from '../modules/SelectMenuDivider'
 import CircleButton from '../components/CircleButton'
 import IconChevronLeft from '../icons/IconChevronLeft.vue'
 
@@ -45,7 +45,7 @@ export function useMultipleLevel (props) {
         v-show={index === (levels.value.length - 1)}
       >
         <LevelHeader title={level.title} />
-        <MenuDivider />
+        <SelectMenuDivider />
         <div style={childBodyStyles.value}>
           {level.render?.()}
         </div>

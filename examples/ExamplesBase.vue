@@ -1,11 +1,11 @@
 <template>
   <div class="">
     <h5>基础菜单</h5>
-    <MenuBody
+    <SelectMenuBody
       class="border rounded-3 shadow-sm"
       @action="menuAction"
     >
-      <MenuHeader>
+      <SelectMenuHeader>
         <template #prepend>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,29 +26,29 @@
           消息
           <span class="badge rounded-pill bg-danger">20</span>
         </template>
-      </MenuHeader>
-      <MenuItem action="item11">
+      </SelectMenuHeader>
+      <SelectMenuItem action="item11">
         我是菜单项11
-      </MenuItem>
-      <MenuItem action="item12">
+      </SelectMenuItem>
+      <SelectMenuItem action="item12">
         我是菜单项12
-      </MenuItem>
-      <MenuItem action="item13">
+      </SelectMenuItem>
+      <SelectMenuItem action="item13">
         我是菜单项13
-      </MenuItem>
-      <MenuDivider />
-      <MenuSubHeader>我是子标题</MenuSubHeader>
-      <MenuItem action="item1">
+      </SelectMenuItem>
+      <SelectMenuDivider />
+      <SelectMenuSubHeader>我是子标题</SelectMenuSubHeader>
+      <SelectMenuItem action="item1">
         我是菜单项1
-      </MenuItem>
-      <MenuItem
+      </SelectMenuItem>
+      <SelectMenuItem
         action="disabled"
         disabled
       >
         Disabled menu item
-      </MenuItem>
-      <MenuDivider />
-      <MenuItem
+      </SelectMenuItem>
+      <SelectMenuDivider />
+      <SelectMenuItem
         action="item2"
         @click="itemClick"
       >
@@ -70,8 +70,8 @@
             append
           </div>
         </template>
-      </MenuItem>
-    </MenuBody>
+      </SelectMenuItem>
+    </SelectMenuBody>
   </div>
 </template>
 
@@ -79,11 +79,11 @@
 // import { ref } from 'vue'
 
 import {
-  MenuBody,
-  MenuHeader,
-  MenuItem,
-  MenuSubHeader,
-  MenuDivider
+  SelectMenuBody,
+  SelectMenuHeader,
+  SelectMenuItem,
+  SelectMenuSubHeader,
+  SelectMenuDivider
 } from '@/'
 
 function menuAction (key) {

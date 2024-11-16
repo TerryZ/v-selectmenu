@@ -3,98 +3,98 @@
   <div>
     <h5>行列组合应用</h5>
     <div class="mb-3">
-      <MenuBody class="border rounded-3 shadow-sm">
-        <MenuHeader>Header</MenuHeader>
-        <MenuItem>我是菜单项11</MenuItem>
-        <MenuItem>我是菜单项12</MenuItem>
-        <MenuItem>我是菜单项13</MenuItem>
-        <MenuDivider />
-        <MenuRow>
-          <MenuColumn style="width: 10rem;">
-            <MenuSubHeader>单选</MenuSubHeader>
-            <MenuRadioGroup>
-              <MenuRadioItem value="radio1">
+      <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuHeader>Header</SelectMenuHeader>
+        <SelectMenuItem>我是菜单项11</SelectMenuItem>
+        <SelectMenuItem>我是菜单项12</SelectMenuItem>
+        <SelectMenuItem>我是菜单项13</SelectMenuItem>
+        <SelectMenuDivider />
+        <SelectMenuRow>
+          <SelectMenuColumn style="width: 10rem;">
+            <SelectMenuSubHeader>单选</SelectMenuSubHeader>
+            <SelectMenuRadioGroup>
+              <SelectMenuRadioItem value="radio1">
                 选项1
-              </MenuRadioItem>
-              <MenuRadioItem value="radio2">
+              </SelectMenuRadioItem>
+              <SelectMenuRadioItem value="radio2">
                 选项2
-              </MenuRadioItem>
-              <MenuRadioItem value="radio3">
+              </SelectMenuRadioItem>
+              <SelectMenuRadioItem value="radio3">
                 选项3
-              </MenuRadioItem>
-            </MenuRadioGroup>
-          </MenuColumn>
-          <MenuDivider :horizontal="false" />
-          <MenuColumn style="width: 10rem;">
-            <MenuSubHeader>多选</MenuSubHeader>
-            <MenuCheckboxGroup>
-              <MenuCheckboxItem value="checkbox1">
+              </SelectMenuRadioItem>
+            </SelectMenuRadioGroup>
+          </SelectMenuColumn>
+          <SelectMenuDivider :horizontal="false" />
+          <SelectMenuColumn style="width: 10rem;">
+            <SelectMenuSubHeader>多选</SelectMenuSubHeader>
+            <SelectMenuCheckboxGroup>
+              <SelectMenuCheckboxItem value="checkbox1">
                 选项1
-              </MenuCheckboxItem>
-              <MenuCheckboxItem value="checkbox2">
+              </SelectMenuCheckboxItem>
+              <SelectMenuCheckboxItem value="checkbox2">
                 选项2
-              </MenuCheckboxItem>
-              <MenuCheckboxItem value="checkbox3">
+              </SelectMenuCheckboxItem>
+              <SelectMenuCheckboxItem value="checkbox3">
                 选项3
-              </MenuCheckboxItem>
-              <MenuCheckboxItem value="checkbox4">
+              </SelectMenuCheckboxItem>
+              <SelectMenuCheckboxItem value="checkbox4">
                 选项4
-              </MenuCheckboxItem>
-            </MenuCheckboxGroup>
-          </MenuColumn>
-        </MenuRow>
-        <MenuDivider />
-        <MenuItem>我是菜单项21</MenuItem>
-        <MenuItem>我是菜单项22</MenuItem>
-        <MenuItem>我是菜单项23</MenuItem>
-      </MenuBody>
+              </SelectMenuCheckboxItem>
+            </SelectMenuCheckboxGroup>
+          </SelectMenuColumn>
+        </SelectMenuRow>
+        <SelectMenuDivider />
+        <SelectMenuItem>我是菜单项21</SelectMenuItem>
+        <SelectMenuItem>我是菜单项22</SelectMenuItem>
+        <SelectMenuItem>我是菜单项23</SelectMenuItem>
+      </SelectMenuBody>
     </div>
 
     <h5>多列布局</h5>
     <div>
-      <MenuBody class="border rounded-3 shadow-sm">
-        <MenuRow>
-          <MenuColumn style="width: 10rem;">
-            <MenuSubHeader>单选</MenuSubHeader>
-            <MenuRadioGroup>
-              <MenuRadioItem value="radio1">
+      <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuRow>
+          <SelectMenuColumn style="width: 10rem;">
+            <SelectMenuSubHeader>单选</SelectMenuSubHeader>
+            <SelectMenuRadioGroup>
+              <SelectMenuRadioItem value="radio1">
                 选项1
-              </MenuRadioItem>
-              <MenuRadioItem value="radio2">
+              </SelectMenuRadioItem>
+              <SelectMenuRadioItem value="radio2">
                 选项2
-              </MenuRadioItem>
-              <MenuRadioItem value="radio3">
+              </SelectMenuRadioItem>
+              <SelectMenuRadioItem value="radio3">
                 选项3
-              </MenuRadioItem>
-            </MenuRadioGroup>
-          </MenuColumn>
-          <MenuDivider :horizontal="false" />
-          <MenuColumn style="width: 10rem;">
-            <MenuSubHeader>多选</MenuSubHeader>
-            <MenuCheckboxGroup>
-              <MenuCheckboxItem value="checkbox1">
+              </SelectMenuRadioItem>
+            </SelectMenuRadioGroup>
+          </SelectMenuColumn>
+          <SelectMenuDivider :horizontal="false" />
+          <SelectMenuColumn style="width: 10rem;">
+            <SelectMenuSubHeader>多选</SelectMenuSubHeader>
+            <SelectMenuCheckboxGroup>
+              <SelectMenuCheckboxItem value="checkbox1">
                 选项1
-              </MenuCheckboxItem>
-              <MenuCheckboxItem value="checkbox2">
+              </SelectMenuCheckboxItem>
+              <SelectMenuCheckboxItem value="checkbox2">
                 选项2
-              </MenuCheckboxItem>
-              <MenuCheckboxItem value="checkbox3">
+              </SelectMenuCheckboxItem>
+              <SelectMenuCheckboxItem value="checkbox3">
                 选项3
-              </MenuCheckboxItem>
-              <MenuCheckboxItem value="checkbox4">
+              </SelectMenuCheckboxItem>
+              <SelectMenuCheckboxItem value="checkbox4">
                 选项4
-              </MenuCheckboxItem>
-            </MenuCheckboxGroup>
-          </MenuColumn>
-          <MenuDivider :horizontal="false" />
-          <MenuColumn style="width: 10rem;">
-            <MenuSubHeader>菜单项</MenuSubHeader>
-            <MenuItem>我是菜单项11</MenuItem>
-            <MenuItem>我是菜单项12</MenuItem>
-            <MenuItem>我是菜单项13</MenuItem>
-          </MenuColumn>
-        </MenuRow>
-      </MenuBody>
+              </SelectMenuCheckboxItem>
+            </SelectMenuCheckboxGroup>
+          </SelectMenuColumn>
+          <SelectMenuDivider :horizontal="false" />
+          <SelectMenuColumn style="width: 10rem;">
+            <SelectMenuSubHeader>菜单项</SelectMenuSubHeader>
+            <SelectMenuItem>我是菜单项11</SelectMenuItem>
+            <SelectMenuItem>我是菜单项12</SelectMenuItem>
+            <SelectMenuItem>我是菜单项13</SelectMenuItem>
+          </SelectMenuColumn>
+        </SelectMenuRow>
+      </SelectMenuBody>
     </div>
   </div>
 </template>
@@ -102,16 +102,16 @@
 <script setup>
 // import { ref } from 'vue'
 import {
-  MenuItem,
-  MenuRow,
-  MenuColumn,
-  MenuHeader,
-  MenuBody,
-  MenuDivider,
-  MenuSubHeader,
-  MenuCheckboxGroup,
-  MenuCheckboxItem,
-  MenuRadioGroup,
-  MenuRadioItem
+  SelectMenuItem,
+  SelectMenuRow,
+  SelectMenuColumn,
+  SelectMenuHeader,
+  SelectMenuBody,
+  SelectMenuDivider,
+  SelectMenuSubHeader,
+  SelectMenuCheckboxGroup,
+  SelectMenuCheckboxItem,
+  SelectMenuRadioGroup,
+  SelectMenuRadioItem
 } from '@/'
 </script>

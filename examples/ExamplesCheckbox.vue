@@ -1,24 +1,24 @@
 <template>
   <div>
     <h5>多选模块</h5>
-    <MenuBody
+    <SelectMenuBody
       class="border rounded-3 shadow-sm"
     >
-      <MenuHeader>多选模块</MenuHeader>
-      <MenuCheckboxGroup
+      <SelectMenuHeader>多选模块</SelectMenuHeader>
+      <SelectMenuCheckboxGroup
         v-model="checked"
         @change="change"
       >
-        <MenuCheckboxItem value="checkbox1">
+        <SelectMenuCheckboxItem value="checkbox1">
           checkbox1
-        </MenuCheckboxItem>
-        <MenuCheckboxItem value="checkbox2">
+        </SelectMenuCheckboxItem>
+        <SelectMenuCheckboxItem value="checkbox2">
           checkbox2
           <template #append>
             append
           </template>
-        </MenuCheckboxItem>
-        <MenuCheckboxItem value="checkbox3">
+        </SelectMenuCheckboxItem>
+        <SelectMenuCheckboxItem value="checkbox3">
           <template #prepend>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,9 +35,9 @@
             </svg>
           </template>
           选项3
-        </MenuCheckboxItem>
-      </MenuCheckboxGroup>
-    </MenuBody>
+        </SelectMenuCheckboxItem>
+      </SelectMenuCheckboxGroup>
+    </SelectMenuBody>
   </div>
 </template>
 
@@ -45,14 +45,10 @@
 import { ref } from 'vue'
 
 import {
-  MenuBody,
-  MenuHeader,
-  MenuGroup,
-  MenuGroupItem,
-  MenuItem,
-  MenuDivider,
-  MenuCheckboxGroup,
-  MenuCheckboxItem
+  SelectMenuBody,
+  SelectMenuHeader,
+  SelectMenuCheckboxGroup,
+  SelectMenuCheckboxItem
 } from '@/'
 
 const checked = ref(['checkbox3'])

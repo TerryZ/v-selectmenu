@@ -2,92 +2,92 @@
   <div>
     <h5>多级别</h5>
     <div>
-      <MenuBody
+      <SelectMenuBody
         class="border rounded-3 shadow-sm"
         max-height="300px"
         @action="menuAction"
       >
-        <MenuHeader>我是菜单标题</MenuHeader>
-        <MenuItem action="item11">
+        <SelectMenuHeader>我是菜单标题</SelectMenuHeader>
+        <SelectMenuItem action="item11">
           我是菜单项11
-        </MenuItem>
-        <MenuItem action="item12">
+        </SelectMenuItem>
+        <SelectMenuItem action="item12">
           我是菜单项12
-        </MenuItem>
-        <MenuItem action="item13">
+        </SelectMenuItem>
+        <SelectMenuItem action="item13">
           我是菜单项13
-        </MenuItem>
-        <MenuDivider />
-        <MenuSubHeader>我是子标题</MenuSubHeader>
-        <MenuItem action="item1">
+        </SelectMenuItem>
+        <SelectMenuDivider />
+        <SelectMenuSubHeader>我是子标题</SelectMenuSubHeader>
+        <SelectMenuItem action="item1">
           我是菜单项1
-        </MenuItem>
-        <MenuItem action="item2">
+        </SelectMenuItem>
+        <SelectMenuItem action="item2">
           我是菜单项2
-        </MenuItem>
-        <MenuChildLevel>
+        </SelectMenuItem>
+        <SelectMenuChildLevel>
           <template #trigger>
-            <MenuItem action="item3">
+            <SelectMenuItem action="item3">
               我是菜单项3
-            </MenuItem>
+            </SelectMenuItem>
           </template>
-          <MenuItem action="item-child1">
+          <SelectMenuItem action="item-child1">
             我是子菜单项1
-          </MenuItem>
-          <MenuChildLevel>
+          </SelectMenuItem>
+          <SelectMenuChildLevel>
             <template #trigger>
-              <MenuItem action="item-child2">
+              <SelectMenuItem action="item-child2">
                 我是子菜单项2
-              </MenuItem>
+              </SelectMenuItem>
             </template>
-            <MenuItem
+            <SelectMenuItem
               action="item-grandson1"
               v-if="visibleGrandson1"
             >
               我是孙菜单项1
-            </MenuItem>
-            <MenuItem action="item-grandson2">
+            </SelectMenuItem>
+            <SelectMenuItem action="item-grandson2">
               我是孙菜单项2
-            </MenuItem>
-            <MenuItem
+            </SelectMenuItem>
+            <SelectMenuItem
               action="item-grandson3"
               @click="visibleGrandson1 = !visibleGrandson1"
             >
               我是孙菜单项3
-            </MenuItem>
-          </MenuChildLevel>
-          <MenuItem
+            </SelectMenuItem>
+          </SelectMenuChildLevel>
+          <SelectMenuItem
             action="item-child3"
             v-if="visibleChild3"
           >
             我是子菜单项3
-          </MenuItem>
-          <MenuItem
+          </SelectMenuItem>
+          <SelectMenuItem
             action="item-child4"
             @click="visibleChild3 = !visibleChild3"
           >
             我是子菜单项4
-          </MenuItem>
-          <MenuItem>我是子菜单项5</MenuItem>
-          <MenuItem>我是子菜单项6</MenuItem>
-          <MenuItem>我是子菜单项7</MenuItem>
-          <MenuItem>我是子菜单项8</MenuItem>
-          <MenuItem>我是子菜单项9</MenuItem>
-          <MenuItem>我是子菜单项10</MenuItem>
-          <MenuItem>我是子菜单项11</MenuItem>
-          <MenuItem>我是子菜单项12</MenuItem>
-          <MenuItem>我是子菜单项13</MenuItem>
-          <MenuItem>我是子菜单项14</MenuItem>
-          <MenuItem>我是子菜单项15</MenuItem>
-        </MenuChildLevel>
+          </SelectMenuItem>
+          <SelectMenuItem>我是子菜单项5</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项6</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项7</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项8</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项9</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项10</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项11</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项12</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项13</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项14</SelectMenuItem>
+          <SelectMenuItem>我是子菜单项15</SelectMenuItem>
+        </SelectMenuChildLevel>
 
-        <MenuItem
+        <SelectMenuItem
           action="disabled"
           disabled
         >
           Disabled menu item
-        </MenuItem>
-      </MenuBody>
+        </SelectMenuItem>
+      </SelectMenuBody>
     </div>
   </div>
 </template>
@@ -96,12 +96,12 @@
 import { ref } from 'vue'
 
 import {
-  MenuBody,
-  MenuHeader,
-  MenuItem,
-  MenuSubHeader,
-  MenuDivider,
-  MenuChildLevel
+  SelectMenuBody,
+  SelectMenuHeader,
+  SelectMenuItem,
+  SelectMenuSubHeader,
+  SelectMenuDivider,
+  SelectMenuChildLevel
 } from '@/'
 
 const visibleChild3 = ref(true)

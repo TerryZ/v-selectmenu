@@ -2,48 +2,45 @@
   <div>
     <h5>组合应用</h5>
     <div>
-      <MenuBody class="border rounded-3 shadow-sm">
-        <MenuHeader>Header</MenuHeader>
-        <MenuSearch @search="search" />
-        <MenuDivider />
-        <MenuCheckboxGroup>
-          <MenuGroup max-height="300px">
-            <MenuGroupItem
+      <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuHeader>Header</SelectMenuHeader>
+        <SelectMenuSearch @search="search" />
+        <SelectMenuDivider />
+        <SelectMenuCheckboxGroup>
+          <SelectMenuGroup max-height="300px">
+            <SelectMenuGroupItem
               v-for="group in groupItems"
               :key="group.name"
               :name="group.name"
               :title="group.title"
             >
-              <MenuCheckboxItem
+              <SelectMenuCheckboxItem
                 v-for="item in group.items"
                 :key="item.name"
                 :value="item.name"
               >
                 {{ item.title }}
-              </MenuCheckboxItem>
-            </MenuGroupItem>
-          </MenuGroup>
-        </MenuCheckboxGroup>
-      </MenuBody>
+              </SelectMenuCheckboxItem>
+            </SelectMenuGroupItem>
+          </SelectMenuGroup>
+        </SelectMenuCheckboxGroup>
+      </SelectMenuBody>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+// import { ref } from 'vue'
 
 import {
-  MenuBody,
-  MenuHeader,
-  MenuItem,
-  MenuSubHeader,
-  MenuDivider,
-  MenuChildLevel,
-  MenuCheckboxGroup,
-  MenuCheckboxItem,
-  MenuGroup,
-  MenuGroupItem,
-  MenuSearch
+  SelectMenuBody,
+  SelectMenuHeader,
+  SelectMenuDivider,
+  SelectMenuCheckboxGroup,
+  SelectMenuCheckboxItem,
+  SelectMenuGroup,
+  SelectMenuGroupItem,
+  SelectMenuSearch
 } from '@/'
 
 import { groupItems } from './data'

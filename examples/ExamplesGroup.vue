@@ -1,38 +1,38 @@
 <template>
   <div>
     <h5>多分组</h5>
-    <MenuBody class="border rounded-3 shadow-sm">
-      <MenuHeader>我是菜单标题</MenuHeader>
-      <MenuGroup
+    <SelectMenuBody class="border rounded-3 shadow-sm">
+      <SelectMenuHeader>我是菜单标题</SelectMenuHeader>
+      <SelectMenuGroup
         v-model="activeGroup"
         @change="groupChange"
       >
-        <MenuGroupItem
+        <SelectMenuGroupItem
           name="group1"
           title="分组1"
         >
-          <MenuItem>项目1-1</MenuItem>
-          <MenuItem>项目1-2</MenuItem>
-          <MenuItem>项目1-3</MenuItem>
-        </MenuGroupItem>
-        <MenuGroupItem
+          <SelectMenuItem>项目1-1</SelectMenuItem>
+          <SelectMenuItem>项目1-2</SelectMenuItem>
+          <SelectMenuItem>项目1-3</SelectMenuItem>
+        </SelectMenuGroupItem>
+        <SelectMenuGroupItem
           name="group2"
           title="分组2"
         >
-          <MenuItem>项目2-1</MenuItem>
-          <MenuItem>项目2-2</MenuItem>
-          <MenuItem>项目2-3</MenuItem>
-        </MenuGroupItem>
-        <MenuGroupItem
+          <SelectMenuItem>项目2-1</SelectMenuItem>
+          <SelectMenuItem>项目2-2</SelectMenuItem>
+          <SelectMenuItem>项目2-3</SelectMenuItem>
+        </SelectMenuGroupItem>
+        <SelectMenuGroupItem
           name="group3"
           title="分组3"
         >
-          <MenuItem>项目3-1</MenuItem>
-          <MenuItem>项目3-2</MenuItem>
-          <MenuItem>项目3-3</MenuItem>
-        </MenuGroupItem>
-      </MenuGroup>
-    </MenuBody>
+          <SelectMenuItem>项目3-1</SelectMenuItem>
+          <SelectMenuItem>项目3-2</SelectMenuItem>
+          <SelectMenuItem>项目3-3</SelectMenuItem>
+        </SelectMenuGroupItem>
+      </SelectMenuGroup>
+    </SelectMenuBody>
   </div>
 </template>
 
@@ -40,11 +40,11 @@
 import { ref } from 'vue'
 
 import {
-  MenuBody,
-  MenuHeader,
-  MenuGroup,
-  MenuGroupItem,
-  MenuItem
+  SelectMenuBody,
+  SelectMenuHeader,
+  SelectMenuGroup,
+  SelectMenuGroupItem,
+  SelectMenuItem
 } from '@/'
 
 const activeGroup = ref('group2')

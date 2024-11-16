@@ -5,31 +5,31 @@
       <div class="col-md-6">
         <h6>常规模式</h6>
         <div class="mb-3">
-          <MenuDropdown
+          <SelectMenuDropdown
             :align="align"
             :disabled="disabled"
           >
             <template #trigger>
-              <MenuTrigger />
+              <SelectMenuTrigger />
             </template>
-            <MenuBody>
-              <MenuHeader>Header</MenuHeader>
-              <MenuItem action="item11">
+            <SelectMenuBody>
+              <SelectMenuHeader>Header</SelectMenuHeader>
+              <SelectMenuItem action="item11">
                 我是菜单项11
-              </MenuItem>
-              <MenuItem action="item12">
+              </SelectMenuItem>
+              <SelectMenuItem action="item12">
                 我是菜单项12
-              </MenuItem>
-              <MenuItem action="item13">
+              </SelectMenuItem>
+              <SelectMenuItem action="item13">
                 我是菜单项13
-              </MenuItem>
-            </MenuBody>
-          </MenuDropdown>
+              </SelectMenuItem>
+            </SelectMenuBody>
+          </SelectMenuDropdown>
         </div>
 
         <h6>自定义 Trigger</h6>
         <div class="mb-3">
-          <MenuDropdown :disabled="disabled">
+          <SelectMenuDropdown :disabled="disabled">
             <template #trigger="{ visible, disabled: triggerDisabled }">
               <button
                 type="button"
@@ -39,29 +39,29 @@
                 disabled: {{ triggerDisabled }}
               </button>
             </template>
-            <MenuBody>
-              <MenuHeader>Header</MenuHeader>
-              <MenuItem action="item11">
+            <SelectMenuBody>
+              <SelectMenuHeader>Header</SelectMenuHeader>
+              <SelectMenuItem action="item11">
                 我是菜单项11
-              </MenuItem>
-              <MenuItem action="item12">
+              </SelectMenuItem>
+              <SelectMenuItem action="item12">
                 我是菜单项12
-              </MenuItem>
-              <MenuItem action="item13">
+              </SelectMenuItem>
+              <SelectMenuItem action="item13">
                 我是菜单项13
-              </MenuItem>
-            </MenuBody>
-          </MenuDropdown>
+              </SelectMenuItem>
+            </SelectMenuBody>
+          </SelectMenuDropdown>
         </div>
 
         <h6>自定义内容</h6>
         <div class="mb-3">
-          <MenuDropdown
+          <SelectMenuDropdown
             :align="align"
             :disabled="disabled"
           >
             <template #trigger>
-              <MenuTrigger />
+              <SelectMenuTrigger />
             </template>
 
             <template #default="{ visible, closeDropdown }">
@@ -88,7 +88,7 @@
                 </div>
               </div>
             </template>
-          </MenuDropdown>
+          </SelectMenuDropdown>
         </div>
       </div>
       <div class="col-md-6">
@@ -135,11 +135,11 @@
 import { ref } from 'vue'
 
 import {
-  MenuBody,
-  MenuHeader,
-  MenuItem,
-  MenuTrigger,
-  MenuDropdown
+  SelectMenuBody,
+  SelectMenuHeader,
+  SelectMenuItem,
+  SelectMenuTrigger,
+  SelectMenuDropdown
 } from '@/'
 import CustomDropdownContent from './CustomDropdownContent.vue'
 
