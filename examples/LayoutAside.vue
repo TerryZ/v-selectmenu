@@ -4,9 +4,10 @@
       SelectMenu
     </div>
     <div
-      class="text-secondary text-opacity-25 px-3 py-2 fw-bold"
+      class="text-secondary px-3 py-2 fw-bold"
       style="cursor: pointer;"
       :class="itemClasses(item)"
+      :style="itemStyles(item)"
       :key="item.name"
       v-for="item in list"
       v-text="item.name"
@@ -25,5 +26,9 @@ const router = useRouter()
 function itemClasses (item) {
   if (item.code !== active.value) return ''
   return 'text-black text-opacity-100 bg-white rounded-3 shadow-sm'
+}
+function itemStyles (item) {
+  const textOpacity = item.code === active.value ? '1' : '.4'
+  return `--bs-text-opacity: ${textOpacity};`
 }
 </script>
