@@ -5,7 +5,7 @@ import { injectMenu } from '../constants'
 import IconChevronRight from '../icons/IconChevronRight.vue'
 
 export default defineComponent({
-  name: 'MenuChildLevel',
+  name: 'SelectMenuChildLevel',
   setup (props, { slots }) {
     const { addChildLevel } = inject(injectMenu)
     const root = ref(null)

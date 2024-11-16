@@ -6,7 +6,7 @@ import { useBaseMenuItem } from '../core/BaseItem'
 import IconDot from '../icons/IconDot.vue'
 
 export default defineComponent({
-  name: 'MenuRadioItem',
+  name: 'SelectMenuRadioItem',
   props: {
     value: { type: [String, Number], default: '' }
   },

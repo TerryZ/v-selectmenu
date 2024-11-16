@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  name: 'SelectMenuDivider',
   props: {
     horizontal: { type: Boolean, default: true }
   },

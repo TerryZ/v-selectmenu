@@ -5,7 +5,7 @@ import { useMultipleLevel } from '../core/MultipleLevel'
 import { useSelectMenuDropdown } from '../core/helper'
 
 export default defineComponent({
-  name: 'MenuBody',
+  name: 'SelectMenuBody',
   props: {
     autoClose: { type: Boolean, default: true },
     modelValue: { type: String, default: '' },

@@ -6,7 +6,7 @@ import { useBaseMenuItem } from '../core/BaseItem'
 import IconCheck from '../icons/IconCheck.vue'
 
 export default defineComponent({
-  name: 'MenuCheckboxItem',
+  name: 'SelectMenuCheckboxItem',
   props: {
     value: { type: [String, Number], default: '', required: true }
   },

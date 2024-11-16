@@ -3,7 +3,7 @@ import { defineComponent, provide, ref, watch } from 'vue'
 import { injectCheckboxGroup } from '../constants'
 
 export default defineComponent({
-  name: 'MenuCheckboxGroup',
+  name: 'SelectMenuCheckboxGroup',
   props: {
     modelValue: { type: Array, default: undefined }
   },

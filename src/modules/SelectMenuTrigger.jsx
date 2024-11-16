@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useSelectMenuDropdown } from '../core/helper'
 
 export default {
-  name: 'MenuDropdownTrigger',
+  name: 'SelectMenuDropdownTrigger',
   props: {
   },
   setup (props, { slots }) {

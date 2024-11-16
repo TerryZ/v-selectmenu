@@ -3,7 +3,7 @@ import { defineComponent, provide, ref, onMounted, watch, computed } from 'vue'
 import { injectMenuGroup } from '../constants'
 
 export default defineComponent({
-  name: 'MenuGroup',
+  name: 'SelectMenuGroup',
   props: {
     modelValue: { type: String, default: '' },
     maxHeight: { type: String, default: '' }

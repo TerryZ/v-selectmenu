@@ -3,7 +3,7 @@ import { defineComponent, inject, computed } from 'vue'
 import { injectMenuGroup } from '../constants'
 
 export default defineComponent({
-  name: 'MenuGroupItem',
+  name: 'SelectMenuGroupItem',
   props: {
     name: { type: String, default: '', required: true },
     title: { type: String, default: '', required: true }

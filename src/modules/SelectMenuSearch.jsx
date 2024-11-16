@@ -6,7 +6,7 @@ import IconSearch from '../icons/IconSearch.vue'
 import IconCloseCircle from '../icons/IconCloseCircle.vue'
 
 export default defineComponent({
-  name: 'MenuSearch',
+  name: 'SelectMenuSearch',
   props: {
     /** debounce delay when typing, in milliseconds */
     debounce: { type: Number, default: 300 }

@@ -3,7 +3,7 @@ import { defineComponent } from 'vue'
 import { useBaseMenuItem } from '../core/BaseItem'
 
 export default defineComponent({
-  name: 'MenuSubHeader',
+  name: 'SelectMenuSubHeader',
   props: {
     action: { type: String, default: '' }
   },

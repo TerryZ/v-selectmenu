@@ -3,7 +3,7 @@ import { defineComponent, provide, ref, watch } from 'vue'
 import { injectRadioGroup } from '../constants'
 
 export default defineComponent({
-  name: 'MenuRadioGroup',
+  name: 'SelectMenuRadioGroup',
   props: {
     modelValue: { type: [String, Number], default: '' }
   },

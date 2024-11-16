@@ -3,7 +3,7 @@ import { defineComponent } from 'vue'
 import { useBaseMenuItem } from '../core/BaseItem'
 
 export default defineComponent({
-  name: 'MenuItem',
+  name: 'SelectMenuItem',
   props: {
     action: { type: String, default: '' },
     disabled: { type: Boolean, default: false }

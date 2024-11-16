@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  name: 'SelectMenuColumn',
   setup (props, { slots }) {
     return () => {
       return (
