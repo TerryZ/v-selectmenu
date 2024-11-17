@@ -1,12 +1,13 @@
 import { fileURLToPath, URL } from 'node:url'
 import { resolve } from 'path'
-// import { defineConfig } from 'vite'
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vite'
+// import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import cssInJs from 'vite-plugin-css-injected-by-js'
 
 // https://vitejs.dev/config/
+/// <reference types="vitest/config" />
 export default defineConfig({
   resolve: {
     alias: {
@@ -26,6 +27,13 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         }
+      }
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler'
       }
     }
   },
