@@ -19,7 +19,7 @@ $divider-color: #e6e6e6
     padding: .5rem 0
     // max-height: 400px
     min-width: 14rem
-    row-gap: .3rem
+    // row-gap: .3rem
     overflow-y: auto
   .sm-row
     display: flex
@@ -30,9 +30,13 @@ $divider-color: #e6e6e6
   .sm-item
     @include flex-center(false , false)
     cursor: pointer
-    padding: .35rem 1rem
+    padding: .5rem .5rem
+    margin: 0 .5rem
     font-size: $item-font-size
     color: #09090b
+    border-radius: .5rem
+    &:not(.sm-header, .sm-sub-header, .disabled, .sm-child-header):hover
+      background-color: #f7f7f7
     &.disabled
       cursor: default
       .sm-item-body
@@ -46,19 +50,20 @@ $divider-color: #e6e6e6
     &-append
       @include flex-center(true , false)
       margin-left: .5rem
-    &.sm-header
+    &.sm-header,
+    &.sm-sub-header
       cursor: default
+      font-weight: 600
+      padding: .5rem 1rem
+      margin: 0
+    &.sm-header
       font-size: $header-font-size
       // color: #666
       // color: #09090b
-      font-weight: 600
       // margin-bottom: .2rem
-      padding: .3rem 1rem
     &.sm-sub-header
       font-size: $sub-header-font-size
       color: #aaa
-      font-weight: 600
-      padding: .3rem 1rem
   .sm-group
     display: flex
     flex-direction: column
@@ -87,12 +92,12 @@ $divider-color: #e6e6e6
         cursor: default
     &-body
       padding-top: .5rem
-      row-gap: .3rem
+      // row-gap: .3rem
       display: flex
       flex-direction: column
   .sm-divider
     border-top: 1px solid $divider-color
-    margin: .2rem 0
+    margin: .5rem 0
   .sm-divider-vertical
     border-right: 1px solid $divider-color
     margin: -.5rem .2rem
@@ -144,8 +149,16 @@ $divider-color: #e6e6e6
   .sm-child-level-trigger
     @include flex-center(false , false)
     cursor: pointer
+    // padding: .5rem .5rem
+    margin: 0 .5rem
+    border-radius: .5rem
+    &:hover
+      background-color: #f7f7f7
+      .sm-item
+        background-color: transparent
     .sm-item
       flex-grow: 1
+      margin: 0
     .sm-icon
       margin: 0 .5rem
       font-size: .9rem
