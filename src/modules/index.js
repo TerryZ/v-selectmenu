@@ -2,6 +2,7 @@ import '../styles/trigger.sass'
 import '../styles/select-menu.sass'
 
 export { default as SelectMenuBody } from './SelectMenuBody'
+export { default as SelectMenuSection } from './SelectMenuSection'
 export { default as SelectMenuHeader } from './SelectMenuHeader'
 export { default as SelectMenuGroup } from './SelectMenuGroup'
 export { default as SelectMenuGroupItem } from './SelectMenuGroupItem'

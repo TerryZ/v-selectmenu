@@ -1,11 +1,8 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  name: 'SelectMenuSection',
   setup (props, { slots }) {
-    return () => (
-      <div class="sm-regular-section">
-        {slots?.default?.()}
-      </div>
-    )
+    return () => <div class="sm-section">{slots?.default?.()}</div>
   }
 })
