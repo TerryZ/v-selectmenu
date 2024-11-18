@@ -8,10 +8,14 @@ import IconDot from '../icons/IconDot.vue'
 export default defineComponent({
   name: 'SelectMenuRadioItem',
   props: {
-    value: { type: [String, Number], default: '' }
+    value: { type: [String, Number], default: '', required: true }
   },
   setup (props, { slots }) {
-    const { changeChecked, isItemChecked } = inject(injectRadioGroup)
+    const {
+      changeChecked,
+      isItemChecked,
+      hideOnSelection
+    } = inject(injectRadioGroup)
     const {
       ItemContainer,
       ItemPrepend,
@@ -26,25 +30,19 @@ export default defineComponent({
         </div>
       )
     }
-    // function ItemAppend () {
-    //   if (!Object.hasOwn(slots, 'append')) return null
-    //   return (
-    //     <div class='sm-radio-item-append'>{slots?.append?.()}</div>
-    //   )
-    // }
 
-    return () => {
-      return (
-        <ItemContainer
-          class="sm-radio-item"
-          onClick={() => changeChecked(props.value)}
-        >
-          <RadioSelection />
-          <ItemPrepend />
-          <ItemBody />
-          <ItemAppend />
-        </ItemContainer>
-      )
-    }
+    return () => (
+      <ItemContainer
+        class="sm-radio-item"
+        hideOnClick={hideOnSelection.value}
+        triggerAction={false}
+        onClick={() => changeChecked(props.value)}
+      >
+        <RadioSelection />
+        <ItemPrepend />
+        <ItemBody />
+        <ItemAppend />
+      </ItemContainer>
+    )
   }
 })

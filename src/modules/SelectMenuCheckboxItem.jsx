@@ -11,7 +11,11 @@ export default defineComponent({
     value: { type: [String, Number], default: '', required: true }
   },
   setup (props, { slots }) {
-    const { changeChecked, isItemChecked } = inject(injectCheckboxGroup)
+    const {
+      changeChecked,
+      isItemChecked,
+      hideOnSelection
+    } = inject(injectCheckboxGroup)
     const {
       ItemContainer,
       ItemPrepend,
@@ -31,6 +35,8 @@ export default defineComponent({
       return (
         <ItemContainer
           class="sm-checkbox-item"
+          hideOnClick={hideOnSelection.value}
+          triggerAction={false}
           onClick={() => changeChecked(props.value)}
         >
           <CheckboxSelection />

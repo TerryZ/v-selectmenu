@@ -1,19 +1,15 @@
 import { computed, inject } from 'vue'
 
 import { injectMenu } from '../constants'
+import { useSelectMenuDropdown } from '../core/helper'
 
 export function useBaseMenuItem (props, slots) {
-  const { menuItemTrigger } = inject(injectMenu)
+  const { menuItemTrigger, hideOnItemClick } = inject(injectMenu)
+  const { closeDropdown } = useSelectMenuDropdown()
 
   const classes = computed(() => (
     ['sm-item', { disabled: props.disabled }]
   ))
-
-  function onMenuItemTrigger () {
-    if (props.disabled) return
-
-    menuItemTrigger(props.action)
-  }
 
   function ItemPrepend () {
     if (!slots.prepend) return null
@@ -30,7 +26,25 @@ export function useBaseMenuItem (props, slots) {
       </div>
     )
   }
-  function ItemContainer (props, { slots: containerSlots }) {
+  function ItemContainer (
+    {
+      triggerAction = true,
+      hideOnClick = hideOnItemClick.value
+    },
+    { slots: containerSlots }
+  ) {
+    function onMenuItemTrigger () {
+      if (props.disabled) return
+
+      if (triggerAction) {
+        menuItemTrigger(props.action)
+      }
+
+      if (hideOnClick) {
+        closeDropdown?.()
+      }
+    }
+
     return (
       <div
         class={classes.value}

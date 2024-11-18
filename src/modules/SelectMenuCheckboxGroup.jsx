@@ -1,11 +1,12 @@
-import { defineComponent, provide, ref, watch } from 'vue'
+import { defineComponent, provide, ref, toRef, watch } from 'vue'
 
 import { injectCheckboxGroup } from '../constants'
 
 export default defineComponent({
   name: 'SelectMenuCheckboxGroup',
   props: {
-    modelValue: { type: Array, default: undefined }
+    modelValue: { type: Array, default: undefined },
+    hideOnSelection: { type: Boolean, default: true }
   },
   emits: ['update:modelValue', 'change'],
   setup (props, { emit, slots }) {
@@ -28,7 +29,8 @@ export default defineComponent({
 
     provide(injectCheckboxGroup, {
       changeChecked,
-      isItemChecked
+      isItemChecked,
+      hideOnSelection: toRef(props, 'hideOnSelection')
     })
 
     return () => <div class="sm-checkbox-group">{slots?.default?.()}</div>

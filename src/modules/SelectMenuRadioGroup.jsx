@@ -1,11 +1,12 @@
-import { defineComponent, provide, ref, watch } from 'vue'
+import { defineComponent, provide, ref, watch, toRef } from 'vue'
 
 import { injectRadioGroup } from '../constants'
 
 export default defineComponent({
   name: 'SelectMenuRadioGroup',
   props: {
-    modelValue: { type: [String, Number], default: '' }
+    modelValue: { type: [String, Number], default: '' },
+    hideOnSelection: { type: Boolean, default: true }
   },
   emits: ['update:modelValue', 'change'],
   setup (props, { slots, emit }) {
@@ -25,7 +26,8 @@ export default defineComponent({
 
     provide(injectRadioGroup, {
       changeChecked,
-      isItemChecked
+      isItemChecked,
+      hideOnSelection: toRef(props, 'hideOnSelection')
     })
 
     return () => <div class="sm-radio-group">{slots?.default?.()}</div>

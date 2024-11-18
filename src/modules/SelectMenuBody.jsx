@@ -1,20 +1,18 @@
-import { defineComponent, provide, computed } from 'vue'
+import { defineComponent, provide, computed, toRef } from 'vue'
 
 import { injectMenu } from '../constants'
 import { useMultipleLevel } from '../core/MultipleLevel'
-import { useSelectMenuDropdown } from '../core/helper'
 
 export default defineComponent({
   name: 'SelectMenuBody',
   props: {
-    autoClose: { type: Boolean, default: true },
     modelValue: { type: String, default: '' },
+    hideOnItemClick: { type: Boolean, default: true },
     maxHeight: { type: String, default: '' }
   },
-  emits: ['action', 'close', 'update:modelValue'],
+  emits: ['action', 'update:modelValue'],
   setup (props, { slots, emit }) {
     const { hasLevels, addChildLevel, MenuLevelGroup } = useMultipleLevel(props)
-    const { closeDropdown } = useSelectMenuDropdown()
 
     const rootContainerStyles = computed(() => ({
       maxHeight: props.maxHeight,
@@ -23,16 +21,12 @@ export default defineComponent({
 
     function menuItemTrigger (key) {
       emit('action', key)
-
-      if (props.autoClose) {
-        emit('close')
-        closeDropdown?.()
-      }
     }
 
     provide(injectMenu, {
       menuItemTrigger,
-      addChildLevel
+      addChildLevel,
+      hideOnItemClick: toRef(props, 'hideOnItemClick')
     })
 
     return () => (

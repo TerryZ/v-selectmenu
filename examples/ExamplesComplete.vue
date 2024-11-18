@@ -5,24 +5,97 @@
       <div class="col-md-6">
         <h6>常规模式</h6>
         <div class="mb-3">
+          单项选项：{{ radio }}
+        </div>
+        <div class="mb-3 d-flex align-items-center">
+          单选选择关闭菜单：
+          <div class="form-check form-switch m-0">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              v-model="hideOnRadioSelection"
+            >
+          </div>
+        </div>
+        <div class="mb-3 d-flex align-items-center">
+          多选选择关闭菜单：
+          <div class="form-check form-switch m-0">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              v-model="hideOnCheckboxSelection"
+            >
+          </div>
+        </div>
+        <div class="mb-3">
           <SelectMenuDropdown
             :align="align"
             :disabled="disabled"
           >
             <template #trigger>
-              <SelectMenuTrigger />
+              <SelectMenuTrigger>{{ radio || '打开' }}</SelectMenuTrigger>
             </template>
-            <SelectMenuBody>
-              <SelectMenuHeader>Header</SelectMenuHeader>
-              <SelectMenuItem action="item11">
-                我是菜单项11
-              </SelectMenuItem>
-              <SelectMenuItem action="item12">
-                我是菜单项12
-              </SelectMenuItem>
-              <SelectMenuItem action="item13">
-                我是菜单项13
-              </SelectMenuItem>
+            <SelectMenuBody @action="handleAction">
+              <SelectMenuHeader>SelectMenu</SelectMenuHeader>
+              <SelectMenuSection>
+                <SelectMenuItem action="item11">
+                  我是菜单项11
+                </SelectMenuItem>
+                <SelectMenuItem action="item12">
+                  我是菜单项12
+                </SelectMenuItem>
+                <SelectMenuItem action="item13">
+                  我是菜单项13
+                </SelectMenuItem>
+              </SelectMenuSection>
+              <SelectMenuDivider />
+              <SelectMenuSection>
+                <SelectMenuSubHeader>
+                  单选
+                  <template #append>
+                    <button
+                      class="btn btn-sm btn-outline-dark rounded-pill"
+                      @click.stop="clearRadio"
+                    >
+                      清除选择
+                    </button>
+                  </template>
+                </SelectMenuSubHeader>
+                <SelectMenuRadioGroup
+                  v-model="radio"
+                  :hide-on-selection="hideOnRadioSelection"
+                >
+                  <SelectMenuRadioItem value="radio1">
+                    单选值1
+                  </SelectMenuRadioItem>
+                  <SelectMenuRadioItem value="radio2">
+                    单选值2
+                  </SelectMenuRadioItem>
+                  <SelectMenuRadioItem value="radio3">
+                    单选值3
+                  </SelectMenuRadioItem>
+                </SelectMenuRadioGroup>
+              </SelectMenuSection>
+              <SelectMenuDivider />
+              <SelectMenuSection>
+                <SelectMenuSubHeader>多选</SelectMenuSubHeader>
+                <SelectMenuCheckboxGroup
+                  v-model="checkbox"
+                  :hide-on-selection="hideOnCheckboxSelection"
+                >
+                  <SelectMenuCheckboxItem value="checkbox1">
+                    多选值1
+                  </SelectMenuCheckboxItem>
+                  <SelectMenuCheckboxItem value="checkbox2">
+                    多选值2
+                  </SelectMenuCheckboxItem>
+                  <SelectMenuCheckboxItem value="checkbox3">
+                    多选值3
+                  </SelectMenuCheckboxItem>
+                </SelectMenuCheckboxGroup>
+              </SelectMenuSection>
             </SelectMenuBody>
           </SelectMenuDropdown>
         </div>
@@ -136,13 +209,31 @@ import { ref } from 'vue'
 
 import {
   SelectMenuBody,
+  SelectMenuSection,
   SelectMenuHeader,
+  SelectMenuSubHeader,
   SelectMenuItem,
   SelectMenuTrigger,
-  SelectMenuDropdown
+  SelectMenuDropdown,
+  SelectMenuRadioGroup,
+  SelectMenuRadioItem,
+  SelectMenuCheckboxGroup,
+  SelectMenuCheckboxItem,
+  SelectMenuDivider
 } from '@/'
 import CustomDropdownContent from './CustomDropdownContent.vue'
 
 const align = ref('left')
 const disabled = ref(false)
+const radio = ref('radio3')
+const checkbox = ref(['checkbox2', 'checkbox3'])
+const hideOnRadioSelection = ref(true)
+const hideOnCheckboxSelection = ref(false)
+
+function handleAction (action) {
+  console.log(action)
+}
+function clearRadio () {
+  radio.value = ''
+}
 </script>
