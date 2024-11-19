@@ -4,7 +4,7 @@ import { injectMenu } from '../constants'
 import { useSelectMenuDropdown } from '../core/helper'
 
 export function useBaseMenuItem (props, slots) {
-  const { menuItemTrigger, hideOnItemClick } = inject(injectMenu)
+  const { menuItemTrigger, hideOnItemClick } = inject(injectMenu, {})
   const { closeDropdown } = useSelectMenuDropdown()
 
   const classes = computed(() => (
@@ -29,7 +29,7 @@ export function useBaseMenuItem (props, slots) {
   function ItemContainer (
     {
       triggerAction = true,
-      hideOnClick = hideOnItemClick.value
+      hideOnClick = hideOnItemClick?.value
     },
     { slots: containerSlots }
   ) {
@@ -37,7 +37,7 @@ export function useBaseMenuItem (props, slots) {
       if (props.disabled) return
 
       if (triggerAction) {
-        menuItemTrigger(props.action)
+        menuItemTrigger?.(props.action)
       }
 
       if (hideOnClick) {

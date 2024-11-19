@@ -6,11 +6,10 @@ import { useMultipleLevel } from '../core/MultipleLevel'
 export default defineComponent({
   name: 'SelectMenuBody',
   props: {
-    modelValue: { type: String, default: '' },
     hideOnItemClick: { type: Boolean, default: true },
     maxHeight: { type: String, default: '' }
   },
-  emits: ['action', 'update:modelValue'],
+  emits: ['action'],
   setup (props, { slots, emit }) {
     const { hasLevels, addChildLevel, MenuLevelGroup } = useMultipleLevel(props)
 
