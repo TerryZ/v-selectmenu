@@ -42,10 +42,10 @@
       </SelectMenuRadioGroup>
     </SelectMenuBody>
 
-    <div>
+    <div class="mt-3">
       <button
         type="button"
-        class="btn btn-dark mt-3"
+        class="btn btn-dark"
         @click="checked = ''"
       >
         clear

@@ -2,7 +2,9 @@ import {
   SelectMenuBody,
   SelectMenuItem,
   SelectMenuRadioGroup,
-  SelectMenuRadioItem
+  SelectMenuRadioItem,
+  SelectMenuCheckboxGroup,
+  SelectMenuCheckboxItem
 } from '@/'
 
 export function ItemWithBody (props, { emit }) {
@@ -16,16 +18,21 @@ export function ItemWithBody (props, { emit }) {
     </SelectMenuBody>
   )
 }
-export function RadioGroup (props, { emit }) {
-  const emitModelValue = val => emit('update:modelValue', val)
+export function RadioGroup (props, { attrs }) {
   return (
-    <SelectMenuRadioGroup
-      modelValue={props.modelValue}
-      {...{ 'onUpdate:modelValue': emitModelValue }}
-    >
+    <SelectMenuRadioGroup {...attrs}>
       <SelectMenuRadioItem value="radio1">radio1</SelectMenuRadioItem>
       <SelectMenuRadioItem value="radio2">radio2</SelectMenuRadioItem>
       <SelectMenuRadioItem value="radio3">radio3</SelectMenuRadioItem>
     </SelectMenuRadioGroup>
+  )
+}
+export function CheckboxGroup (props, { attrs }) {
+  return (
+    <SelectMenuCheckboxGroup {...attrs}>
+      <SelectMenuCheckboxItem value="checkbox1">checkbox1</SelectMenuCheckboxItem>
+      <SelectMenuCheckboxItem value="checkbox2">checkbox2</SelectMenuCheckboxItem>
+      <SelectMenuCheckboxItem value="checkbox3">checkbox3</SelectMenuCheckboxItem>
+    </SelectMenuCheckboxGroup>
   )
 }

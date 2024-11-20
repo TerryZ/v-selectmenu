@@ -22,7 +22,7 @@ export default defineComponent({
       return value === checked.value
     }
 
-    watch(() => props.modelValue, val => { checked.value = val })
+    watch(() => props.modelValue, changeChecked)
 
     provide(injectRadioGroup, {
       changeChecked,
