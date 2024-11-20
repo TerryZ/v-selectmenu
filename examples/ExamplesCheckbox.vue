@@ -1,6 +1,9 @@
 <template>
   <div>
     <h5>多选模块</h5>
+    <div class="mb-3">
+      已选：{{ checked }}
+    </div>
     <SelectMenuBody
       class="border rounded-3 shadow-sm"
     >
@@ -38,6 +41,23 @@
         </SelectMenuCheckboxItem>
       </SelectMenuCheckboxGroup>
     </SelectMenuBody>
+
+    <div class="mt-3">
+      <button
+        type="button"
+        class="btn btn-dark me-3"
+        @click="checked = ['checkbox3', 'checkbox3', 'checkbox3']"
+      >
+        clear
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark"
+        @click="checked = ['checkbox1', 'checkbox2', 'checkbox3']"
+      >
+        select all
+      </button>
+    </div>
   </div>
 </template>
 
