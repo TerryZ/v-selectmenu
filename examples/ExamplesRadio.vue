@@ -1,6 +1,9 @@
 <template>
   <div>
     <h5>单选模块</h5>
+    <div class="mb-3">
+      已选：{{ checked }}
+    </div>
     <SelectMenuBody
       class="border rounded-3 shadow-sm"
     >
@@ -38,6 +41,16 @@
         </SelectMenuRadioItem>
       </SelectMenuRadioGroup>
     </SelectMenuBody>
+
+    <div>
+      <button
+        type="button"
+        class="btn btn-dark mt-3"
+        @click="checked = ''"
+      >
+        clear
+      </button>
+    </div>
   </div>
 </template>
 
