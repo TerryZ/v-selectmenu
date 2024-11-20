@@ -57,14 +57,12 @@ describe('Menu selection', function () {
       expect(wrapper.findAll('.sm-icon')).toHaveLength(2)
       expect(wrapper.findAll('.sm-checkbox-item').at(0).find('.sm-icon').exists()).toBeTruthy()
       expect(wrapper.findAll('.sm-checkbox-item').at(2).find('.sm-icon').exists()).toBeTruthy()
-      console.log(wrapper.html())
     })
     test('设置 group 的 modelValue 为所有项目的值数组，所有项应被选中', async () => {
       await wrapper.setProps({ modelValue: ['checkbox1', 'checkbox2', 'checkbox3'] })
       expect(vModelFn).toHaveBeenCalledWith(['checkbox1', 'checkbox2', 'checkbox3'])
       expect(changeFn).toHaveBeenCalledWith(['checkbox1', 'checkbox2', 'checkbox3'])
       expect(wrapper.findAll('.sm-icon')).toHaveLength(3)
-      // expect(wrapper.findAll('.sm-checkbox-item').at(1).find('.sm-icon').exists()).toBeTruthy()
     })
     test('设置 group 的 modelValue 值为空，应清除选中项', async () => {
       await wrapper.setProps({ modelValue: [] })
