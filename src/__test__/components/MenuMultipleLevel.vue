@@ -46,6 +46,9 @@
     <SelectMenuItem disabled>
       Disabled menu item
     </SelectMenuItem>
+    <SelectMenuItem disabled>
+      Disabled menu item
+    </SelectMenuItem>
   </SelectMenuBody>
 </template>
 

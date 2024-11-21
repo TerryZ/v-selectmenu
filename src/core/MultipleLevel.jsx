@@ -46,7 +46,10 @@ export function useMultipleLevel (props) {
       >
         <LevelHeader title={level.title} />
         <SelectMenuDivider />
-        <div style={childBodyStyles.value}>
+        <div
+          class="sm-child-body"
+          style={childBodyStyles.value}
+        >
           {level.render?.()}
         </div>
       </div>
