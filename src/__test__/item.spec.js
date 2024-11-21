@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils'
 import {
   SelectMenuItem
 } from '@/'
-import { ItemWithBody } from './components/MenuItem'
+import { ItemWithBody, MenuDivider } from './components/MenuItem'
 
 describe('Menu item', function () {
   test('不提供任何内容，应至少包含一个空内容的主体', () => {
@@ -42,5 +42,20 @@ describe('Menu item', function () {
       await wrapper.find('.sm-item').trigger('click')
       expect(wrapper.emitted('action')).toHaveLength(1)
     })
+  })
+})
+
+describe('Menu divider', () => {
+  test('默认渲染水平分割线', () => {
+    const wrapper = mount(MenuDivider)
+    expect(wrapper.find('.sm-divider').exists()).toBeTruthy()
+  })
+  test('设置 horizontal prop 为 false 值，应渲染垂直分割线', () => {
+    const wrapper = mount(MenuDivider, {
+      props: {
+        horizontal: false
+      }
+    })
+    expect(wrapper.find('.sm-divider-vertical').exists()).toBeTruthy()
   })
 })

@@ -4,7 +4,8 @@ import {
   SelectMenuRadioGroup,
   SelectMenuRadioItem,
   SelectMenuCheckboxGroup,
-  SelectMenuCheckboxItem
+  SelectMenuCheckboxItem,
+  SelectMenuDivider
 } from '@/'
 
 export function ItemWithBody (props, { emit }) {
@@ -34,5 +35,10 @@ export function CheckboxGroup (props, { attrs }) {
       <SelectMenuCheckboxItem value="checkbox2">checkbox2</SelectMenuCheckboxItem>
       <SelectMenuCheckboxItem value="checkbox3">checkbox3</SelectMenuCheckboxItem>
     </SelectMenuCheckboxGroup>
+  )
+}
+export function MenuDivider (props, { attrs }) {
+  return (
+    <SelectMenuDivider {...attrs}/>
   )
 }
