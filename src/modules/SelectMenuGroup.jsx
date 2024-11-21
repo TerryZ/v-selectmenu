@@ -21,12 +21,11 @@ export default defineComponent({
     function switchGroup (groupName) {
       if (!tabs.value.length) return
       if (!groupName) return
+      if (groupName === active.value) return
 
-      if (groupName !== props.modelValue) {
-        active.value = groupName
-        emit('update:modelValue', groupName)
-        emit('change', tabs.value.find(tab => tab.name === groupName))
-      }
+      active.value = groupName
+      emit('update:modelValue', groupName)
+      emit('change', tabs.value.find(tab => tab.name === groupName))
     }
     function addTab (name, title) {
       tabs.value.push({ name, title })
