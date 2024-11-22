@@ -6,7 +6,7 @@ export default defineComponent({
   name: 'SelectMenuCheckboxGroup',
   props: {
     modelValue: { type: Array, default: undefined },
-    hideOnSelection: { type: Boolean, default: true }
+    hideOnSelection: { type: Boolean, default: false }
   },
   emits: ['update:modelValue', 'change'],
   setup (props, { emit, slots }) {
