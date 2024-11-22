@@ -8,7 +8,8 @@ import IconCheck from '../icons/IconCheck.vue'
 export default defineComponent({
   name: 'SelectMenuCheckboxItem',
   props: {
-    value: { type: [String, Number], default: '', required: true }
+    value: { type: [String, Number], default: '', required: true },
+    disabled: { type: Boolean, default: false }
   },
   setup (props, { slots }) {
     const {

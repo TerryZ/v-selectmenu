@@ -8,7 +8,8 @@ import IconDot from '../icons/IconDot.vue'
 export default defineComponent({
   name: 'SelectMenuRadioItem',
   props: {
-    value: { type: [String, Number], default: '', required: true }
+    value: { type: [String, Number], default: '', required: true },
+    disabled: { type: Boolean, default: false }
   },
   setup (props, { slots }) {
     const {
