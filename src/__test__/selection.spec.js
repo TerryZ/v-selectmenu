@@ -50,6 +50,12 @@ describe('Menu selection', function () {
       expect(wrapper.findAll('.sm-icon')).toHaveLength(1)
       expect(wrapper.findAll('.sm-checkbox-item').at(0).find('.sm-icon').exists()).toBeTruthy()
     })
+    test('设置 group 的 modelValue 为重复的值，内容应被过滤', async () => {
+      await wrapper.setProps({ modelValue: ['checkbox1', 'checkbox1'] })
+      // expect(vModelFn).toHaveBeenCalledWith(['checkbox1', 'checkbox2', 'checkbox3'])
+      // expect(changeFn).toHaveBeenCalledWith(['checkbox1', 'checkbox2', 'checkbox3'])
+      expect(wrapper.findAll('.sm-icon')).toHaveLength(1)
+    })
     test('点击第 3 项，该项目应处于选中状态', async () => {
       await wrapper.findAll('.sm-checkbox-item').at(2).trigger('click')
       expect(vModelFn).toHaveBeenCalledWith(['checkbox1', 'checkbox3'])
@@ -63,6 +69,14 @@ describe('Menu selection', function () {
       expect(vModelFn).toHaveBeenCalledWith(['checkbox1', 'checkbox2', 'checkbox3'])
       expect(changeFn).toHaveBeenCalledWith(['checkbox1', 'checkbox2', 'checkbox3'])
       expect(wrapper.findAll('.sm-icon')).toHaveLength(3)
+    })
+    test('点击第 2 项，该项目应取消选中状态', async () => {
+      await wrapper.findAll('.sm-checkbox-item').at(1).trigger('click')
+      expect(vModelFn).toHaveBeenCalledWith(['checkbox1', 'checkbox3'])
+      expect(changeFn).toHaveBeenCalledWith(['checkbox1', 'checkbox3'])
+      expect(wrapper.findAll('.sm-icon')).toHaveLength(2)
+      expect(wrapper.findAll('.sm-checkbox-item').at(0).find('.sm-icon').exists()).toBeTruthy()
+      expect(wrapper.findAll('.sm-checkbox-item').at(2).find('.sm-icon').exists()).toBeTruthy()
     })
     test('设置 group 的 modelValue 值为空，应清除选中项', async () => {
       await wrapper.setProps({ modelValue: [] })

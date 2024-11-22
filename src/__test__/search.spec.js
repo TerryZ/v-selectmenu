@@ -36,6 +36,19 @@ describe('Menu search', () => {
     expect(searchFn).toHaveBeenCalledWith('')
     expect(wrapper.find('.sm-search-append').classes('active')).toBeFalsy()
   })
+  test('输入框存在内容时，输出 esc 则可以快速清空', async () => {
+    vi.useFakeTimers()
+
+    const input = wrapper.find('input')
+    await input.setValue('123')
+
+    vi.runAllTimers()
+    await nextTick()
+
+    await input.trigger('keydown', { key: 'Escape' })
+    expect(wrapper.find('input').element.value).toBe('')
+    expect(searchFn).toHaveBeenCalledWith('')
+  })
   test('输入搜索内容，显示清除图标后，删除输入内容，清除图标应同时消失', async () => {
     vi.useFakeTimers()
 
