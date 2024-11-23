@@ -29,6 +29,10 @@ describe('Menu selection', function () {
       expect(changeFn).toHaveBeenCalledWith('radio2')
       expect(wrapper.findAll('.sm-radio-item').at(1).find('.sm-icon').exists()).toBeTruthy()
     })
+    test('设置禁用状态的第 1 项点击后，应不会被选中', async () => {
+      await wrapper.findAll('.sm-radio-item').at(0).trigger('click')
+      expect(wrapper.findAll('.sm-radio-item').at(0).find('.sm-icon').exists()).toBeFalsy()
+    })
     test('设置 group 的 modelValue 值为空，应清除选中项', async () => {
       await wrapper.setProps({ modelValue: '' })
       expect(vModelFn).toHaveBeenCalledWith('')
@@ -52,8 +56,6 @@ describe('Menu selection', function () {
     })
     test('设置 group 的 modelValue 为重复的值，内容应被过滤', async () => {
       await wrapper.setProps({ modelValue: ['checkbox1', 'checkbox1'] })
-      // expect(vModelFn).toHaveBeenCalledWith(['checkbox1', 'checkbox2', 'checkbox3'])
-      // expect(changeFn).toHaveBeenCalledWith(['checkbox1', 'checkbox2', 'checkbox3'])
       expect(wrapper.findAll('.sm-icon')).toHaveLength(1)
     })
     test('点击第 3 项，该项目应处于选中状态', async () => {
@@ -77,6 +79,10 @@ describe('Menu selection', function () {
       expect(wrapper.findAll('.sm-icon')).toHaveLength(2)
       expect(wrapper.findAll('.sm-checkbox-item').at(0).find('.sm-icon').exists()).toBeTruthy()
       expect(wrapper.findAll('.sm-checkbox-item').at(2).find('.sm-icon').exists()).toBeTruthy()
+    })
+    test('设置禁用状态的第 1 项点击后，应不会取消选中状态', async () => {
+      await wrapper.findAll('.sm-checkbox-item').at(0).trigger('click')
+      expect(wrapper.findAll('.sm-checkbox-item').at(0).find('.sm-icon').exists()).toBeTruthy()
     })
     test('设置 group 的 modelValue 值为空，应清除选中项', async () => {
       await wrapper.setProps({ modelValue: [] })

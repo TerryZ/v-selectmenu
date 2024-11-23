@@ -22,7 +22,7 @@ export function ItemWithBody (props, { emit }) {
 export function RadioGroup (props, { attrs }) {
   return (
     <SelectMenuRadioGroup {...attrs}>
-      <SelectMenuRadioItem value="radio1">radio1</SelectMenuRadioItem>
+      <SelectMenuRadioItem value="radio1" disabled>radio1</SelectMenuRadioItem>
       <SelectMenuRadioItem value="radio2">radio2</SelectMenuRadioItem>
       <SelectMenuRadioItem value="radio3">radio3</SelectMenuRadioItem>
     </SelectMenuRadioGroup>
@@ -31,7 +31,7 @@ export function RadioGroup (props, { attrs }) {
 export function CheckboxGroup (props, { attrs }) {
   return (
     <SelectMenuCheckboxGroup {...attrs}>
-      <SelectMenuCheckboxItem value="checkbox1">checkbox1</SelectMenuCheckboxItem>
+      <SelectMenuCheckboxItem value="checkbox1" disabled>checkbox1</SelectMenuCheckboxItem>
       <SelectMenuCheckboxItem value="checkbox2">checkbox2</SelectMenuCheckboxItem>
       <SelectMenuCheckboxItem value="checkbox3">checkbox3</SelectMenuCheckboxItem>
     </SelectMenuCheckboxGroup>
