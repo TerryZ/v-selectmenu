@@ -21,7 +21,10 @@
             append
           </template>
         </SelectMenuCheckboxItem>
-        <SelectMenuCheckboxItem value="checkbox3">
+        <SelectMenuCheckboxItem
+          value="checkbox3"
+          disabled
+        >
           <template #prepend>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -24,6 +24,10 @@ export default defineComponent({
       ItemAppend
     } = useBaseMenuItem(props, slots)
 
+    function selectItem () {
+      if (props.disabled) return
+      changeChecked(props.value)
+    }
     function CheckboxSelection () {
       return (
         <div class='sm-checkbox-item-checked'>
@@ -38,7 +42,7 @@ export default defineComponent({
           class="sm-checkbox-item"
           hideOnClick={hideOnSelection.value}
           triggerAction={false}
-          onClick={() => changeChecked(props.value)}
+          onClick={selectItem}
         >
           <CheckboxSelection />
           <ItemPrepend />

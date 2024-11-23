@@ -24,6 +24,10 @@ export default defineComponent({
       ItemAppend
     } = useBaseMenuItem(props, slots)
 
+    function selectItem () {
+      if (props.disabled) return
+      changeChecked(props.value)
+    }
     function RadioSelection () {
       return (
         <div class='sm-radio-item-checked'>
@@ -37,7 +41,7 @@ export default defineComponent({
         class="sm-radio-item"
         hideOnClick={hideOnSelection.value}
         triggerAction={false}
-        onClick={() => changeChecked(props.value)}
+        onClick={selectItem}
       >
         <RadioSelection />
         <ItemPrepend />

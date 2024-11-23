@@ -15,13 +15,18 @@
         <SelectMenuRadioItem value="radio1">
           radio1
         </SelectMenuRadioItem>
-        <SelectMenuRadioItem value="radio2">
+        <SelectMenuRadioItem
+          value="radio2"
+        >
           radio2
           <template #append>
             append
           </template>
         </SelectMenuRadioItem>
-        <SelectMenuRadioItem value="radio3">
+        <SelectMenuRadioItem
+          value="radio3"
+          disabled
+        >
           <template #prepend>
             <svg
               xmlns="http://www.w3.org/2000/svg"
