@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     branches:
-      only: main
+      only: master
 
     docker:
       # specify the version you desire here
