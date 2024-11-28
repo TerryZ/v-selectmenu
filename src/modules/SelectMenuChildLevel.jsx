@@ -1,6 +1,6 @@
-import { defineComponent, ref, inject } from 'vue'
+import { defineComponent, ref, inject, provide } from 'vue'
 
-import { injectMenu } from '../constants'
+import { injectMenu, injectMultipleLevel } from '../constants'
 
 import IconChevronRight from '../icons/IconChevronRight.vue'
 
@@ -24,6 +24,9 @@ export default defineComponent({
 
     function LevelTrigger () {
       if (!slots.trigger) return null
+      provide(injectMultipleLevel, {
+        hideOnClick: false
+      })
       return (
         <div
           class="sm-child-level-trigger"
