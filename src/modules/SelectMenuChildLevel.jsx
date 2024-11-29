@@ -1,8 +1,8 @@
-import { defineComponent, ref, inject, provide } from 'vue'
+import { defineComponent, ref, inject } from 'vue'
 
-import { injectMenu, injectMultipleLevel } from '../constants'
+import { injectMenu } from '../constants'
 
-import IconChevronRight from '../icons/IconChevronRight.vue'
+import SelectMenuChildTrigger from './SelectMenuChildTrigger'
 
 export default defineComponent({
   name: 'SelectMenuChildLevel',
@@ -24,17 +24,12 @@ export default defineComponent({
 
     function LevelTrigger () {
       if (!slots.trigger) return null
-      provide(injectMultipleLevel, {
-        hideOnClick: false
-      })
       return (
-        <div
-          class="sm-child-level-trigger"
+        <SelectMenuChildTrigger
           onClick={openChildMenus}
         >
-          {slots?.trigger?.()}
-          <IconChevronRight />
-        </div>
+          {() => slots?.trigger?.()}
+        </SelectMenuChildTrigger>
       )
     }
 

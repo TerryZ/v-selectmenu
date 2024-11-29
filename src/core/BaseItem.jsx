@@ -1,10 +1,11 @@
 import { computed, inject } from 'vue'
 
-import { injectMenu } from '../constants'
+import { injectMenu, injectMultipleLevel } from '../constants'
 import { useSelectMenuDropdown } from '../core/helper'
 
 export function useBaseMenuItem (props, slots) {
   const { menuItemTrigger, hideOnItemClick } = inject(injectMenu, {})
+  const { hideOnTriggerClick } = inject(injectMultipleLevel, {})
   const { closeDropdown } = useSelectMenuDropdown()
 
   const classes = computed(() => (
@@ -36,9 +37,12 @@ export function useBaseMenuItem (props, slots) {
     function onMenuItemTrigger () {
       if (props.disabled) return
 
-      if (triggerAction) {
+      if (triggerAction && props.action) {
         menuItemTrigger?.(props.action)
       }
+
+      // child level trigger click, do not close dropdown
+      if (hideOnTriggerClick === false) return
 
       if (hideOnClick) {
         closeDropdown?.()
