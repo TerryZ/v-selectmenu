@@ -1,10 +1,22 @@
 import { ComponentProps, DisabledProps, DefaultSlot, AppendSlot } from './common'
-import { VNode } from 'vue'
+import { VNode, Ref } from 'vue'
 
-declare interface DropdownSlotData {
-  visible?: boolean
-  disabled?: boolean
+export interface SelectMenuDropdownUtilities {
+  /**
+   * Dropdown opening state
+   */
+  visible?: Ref<boolean>
+  /**
+   * Disabled state
+   */
+  disabled?: Ref<boolean>
+  /**
+   * Close the dropdown menu when it is open
+   */
   closeDropdown?: () => void
+  /**
+   * Adjust the dropdown position
+   */
   adjustDropdown?: () => void
 }
 
@@ -18,14 +30,17 @@ declare interface Dropdown {
   new (): {
     $props: ComponentProps & DisabledProps
     $slots: {
-      trigger?: (data: DropdownSlotData) => VNode[]
-      default?: (data: DropdownSlotData) => VNode[]
+      trigger?: (data: SelectMenuDropdownUtilities) => VNode[]
+      default?: (data: SelectMenuDropdownUtilities) => VNode[]
     }
   }
 }
 
 declare const SelectMenuTrigger: DropdownTrigger
 declare const SelectMenuDropdown: Dropdown
+
+
+export declare function useSelectMenuDropdown (): SelectMenuDropdownUtilities
 
 export {
   SelectMenuTrigger,
