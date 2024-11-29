@@ -16,7 +16,10 @@ export default defineComponent({
     } = useBaseMenuItem(props, slots)
 
     return () => (
-      <ItemContainer class="sm-sub-header">
+      <ItemContainer
+        class="sm-sub-header"
+        hideOnClick={false}
+      >
         <ItemPrepend />
         <ItemBody />
         <ItemAppend />
