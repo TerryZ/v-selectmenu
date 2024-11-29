@@ -2,6 +2,12 @@
 
 Please refer to [CHANGELOG-CN](CHANGELOG-CN.md) for Chinese changelog
 
+## [3.0.2](https://github.com/TerryZ/v-selectmenu/compare/v3.0.1...v3.0.2) (2024-11-29)
+
+### Bug Fixes
+
+- Supplementary data type declarations for `SelectMenuDropdown` and utility functions
+
 ## [3.0.1](https://github.com/TerryZ/v-selectmenu/compare/v3.0.0...v3.0.1) (2024-11-29)
 
 ### Bug Fixes

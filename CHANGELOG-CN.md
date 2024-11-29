@@ -2,6 +2,12 @@
 
 英文 changelog 内容请访问 [CHANGELOG](CHANGELOG.md)
 
+## [3.0.2](https://github.com/TerryZ/v-selectmenu/compare/v3.0.1...v3.0.2) (2024-11-29)
+
+### 问题修复
+
+- `SelectMenuDropdown` 下拉菜单相关的数据类型与工具函数的类型声明补充
+
 ## [3.0.1](https://github.com/TerryZ/v-selectmenu/compare/v3.0.0...v3.0.1) (2024-11-29)
 
 ### 问题修复
