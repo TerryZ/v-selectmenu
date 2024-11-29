@@ -2,6 +2,13 @@
 
 Please refer to [CHANGELOG-CN](CHANGELOG-CN.md) for Chinese changelog
 
+## [3.0.1](https://github.com/TerryZ/v-selectmenu/compare/v3.0.0...v3.0.1) (2024-11-29)
+
+### Bug Fixes
+
+- Fixed the issue that the menu will automatically close when the multi-level menu triggers object selection
+- Fixed the issue that the menu will automatically close when the title series component is clicked
+
 ## [3.0.0](https://github.com/TerryZ/v-selectmenu) (2024-11-24)
 
 ### Features
