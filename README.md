@@ -54,6 +54,38 @@ pnpm add v-selectmenu
 - **SelectMenuRadioGroup** Menu radio group
 - **SelectMenuRadioItem** Menu radio item
 
+## Usage
+
+```vue
+<template>
+  <SelectMenuDropdown>
+    <template #trigger>
+      <SelectMenuTrigger />
+    </template>
+    <SelectMenuBody @action="handleAction">
+      <SelectMenuHeader>SelectMenu</SelectMenuHeader>
+      <SelectMenuItem action="item1">Menu item 1</SelectMenuItem>
+      <SelectMenuItem action="item2" disabled>Menu item 2</SelectMenuItem>
+      <SelectMenuItem action="item3">Menu item 3</SelectMenuItem>
+    </SelectMenuBody>
+  </SelectMenuDropdown>
+</template>
+
+<script setup>
+import {
+  SelectMenuDropdown,
+  SelectMenuTrigger,
+  SelectMenuBody,
+  SelectMenuHeader,
+  SelectMenuItem
+} from 'v-selectmenu'
+
+function handleAction (action) {
+  console.log(action)
+}
+</script>
+```
+
 ## License
 
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://mit-license.org/)
