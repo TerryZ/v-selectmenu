@@ -6,7 +6,7 @@ SelectMenu for Vue3, A simple, easier and highly customized menu solution
 
 Documentation and examples please visit below sites
 
-- [github pages](https://terryz.github.io/docs-vue3/selectmenu/)
+- [github pages](https://terryz.github.io/docs-vue3/select-menu/)
 
 The jQuery version: [SelectMenu](https://github.com/TerryZ/SelectMenu)
 
