@@ -1,7 +1,7 @@
 {
   "name": "v-selectmenu",
   "description": "SelectMenu for Vue3, A simple, easier and highly customized menu solution",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "author": "TerryZ <terry5@foxmail.com>",
   "license": "MIT",
   "type": "module",
