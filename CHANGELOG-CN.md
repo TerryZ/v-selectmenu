@@ -2,6 +2,15 @@
 
 英文 changelog 内容请访问 [CHANGELOG](CHANGELOG.md)
 
+## [3.0.2](https://github.com/TerryZ/v-selectmenu/compare/v3.0.2...v3.0.3) (2024-12-02)
+
+### 功能改进
+
+- `SelectMenuSection` 滚动条适应改进
+- 多级菜单重新打开时，总是打开根菜单
+- 多级菜单切换时，对 dropdown 内容容器进行重定位
+- dropdown 内容容器样式调整
+
 ## [3.0.2](https://github.com/TerryZ/v-selectmenu/compare/v3.0.1...v3.0.2) (2024-11-29)
 
 ### 问题修复
