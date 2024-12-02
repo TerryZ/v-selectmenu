@@ -1,7 +1,8 @@
-import { defineComponent, provide, computed, toRef } from 'vue'
+import { defineComponent, provide, computed, toRef, watch } from 'vue'
 
 import { injectMenu } from '../constants'
 import { useMultipleLevel } from '../core/MultipleLevel'
+import { useSelectMenuDropdown } from '../core/helper'
 
 export default defineComponent({
   name: 'SelectMenuBody',
@@ -11,7 +12,13 @@ export default defineComponent({
   },
   emits: ['action'],
   setup (props, { slots, emit }) {
-    const { hasLevels, addChildLevel, MenuLevelGroup } = useMultipleLevel(props)
+    const {
+      hasLevels,
+      addChildLevel,
+      resetLevel,
+      MenuLevelGroup
+    } = useMultipleLevel(props)
+    const { visible } = useSelectMenuDropdown()
 
     const rootContainerStyles = computed(() => ({
       maxHeight: props.maxHeight,
@@ -27,6 +34,15 @@ export default defineComponent({
       addChildLevel,
       hideOnItemClick: toRef(props, 'hideOnItemClick')
     })
+
+    // reset menu level when dropdown close
+    if (typeof visible !== 'undefined') {
+      watch(visible, val => {
+        if (val) return
+        // TODO: v-dropdown 添加了关闭下拉层并完成动画的回调后，应用回调而不是使用 setTimeout
+        setTimeout(resetLevel, 500)
+      })
+    }
 
     return () => (
       <div class="sm-container">

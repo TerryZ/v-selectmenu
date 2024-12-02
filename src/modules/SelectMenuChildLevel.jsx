@@ -8,6 +8,7 @@ export default defineComponent({
   name: 'SelectMenuChildLevel',
   setup (props, { slots }) {
     const { addChildLevel } = inject(injectMenu)
+
     const root = ref(null)
 
     function openChildMenus () {
