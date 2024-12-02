@@ -2,7 +2,7 @@
 
 英文 changelog 内容请访问 [CHANGELOG](CHANGELOG.md)
 
-## [3.0.2](https://github.com/TerryZ/v-selectmenu/compare/v3.0.2...v3.0.3) (2024-12-02)
+## [3.0.3](https://github.com/TerryZ/v-selectmenu/compare/v3.0.2...v3.0.3) (2024-12-02)
 
 ### 功能改进
 
