@@ -29,7 +29,7 @@ export default defineComponent({
     // dropdown 参数直接应用透传
     return () => (
       <Dropdown
-        border
+        customContainerClass="sm-dropdown-container"
         ref={dropdownEl}
         onVisibleChange={val => { visible.value = val }}
       >{{
