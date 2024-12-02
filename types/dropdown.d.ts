@@ -5,19 +5,19 @@ export interface SelectMenuDropdownUtilities {
   /**
    * Dropdown opening state
    */
-  visible?: Ref<boolean>
+  readonly visible: Ref<boolean>
   /**
    * Disabled state
    */
-  disabled?: Ref<boolean>
+  readonly disabled: Ref<boolean>
   /**
    * Close the dropdown menu when it is open
    */
-  closeDropdown?: () => void
+  closeDropdown: () => void
   /**
    * Adjust the dropdown position
    */
-  adjustDropdown?: () => void
+  adjustDropdown: () => void
 }
 
 declare interface DropdownTrigger {
