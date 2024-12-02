@@ -2,7 +2,7 @@
   <div class="">
     <h5>基础菜单</h5>
     <SelectMenuBody
-      class="border rounded-3 shadow-sm"
+      class="border rounded-3 shadow-sm mb-3"
       @action="menuAction"
     >
       <SelectMenuHeader>
@@ -72,6 +72,44 @@
         </template>
       </SelectMenuItem>
     </SelectMenuBody>
+
+    <h5>应用 section</h5>
+    <SelectMenuBody
+      class="border shadow-sm"
+      style="border-radius: 12px;"
+    >
+      <SelectMenuHeader>Header</SelectMenuHeader>
+      <SelectMenuItem>Item 1</SelectMenuItem>
+      <SelectMenuItem>Item 1</SelectMenuItem>
+      <SelectMenuDivider />
+      <SelectMenuSubHeader>Section 1</SelectMenuSubHeader>
+      <SelectMenuSection style="max-height: 200px;">
+        <SelectMenuItem>Item 1</SelectMenuItem>
+        <SelectMenuItem>Item 2</SelectMenuItem>
+        <SelectMenuItem>Item 3</SelectMenuItem>
+        <SelectMenuItem>Item 4</SelectMenuItem>
+        <SelectMenuItem>Item 5</SelectMenuItem>
+        <SelectMenuItem>Item 6</SelectMenuItem>
+        <SelectMenuItem>Item 7</SelectMenuItem>
+        <SelectMenuItem>Item 8</SelectMenuItem>
+        <SelectMenuItem>Item 9</SelectMenuItem>
+        <SelectMenuItem>Item 10</SelectMenuItem>
+      </SelectMenuSection>
+      <SelectMenuDivider />
+      <SelectMenuSubHeader>Section 2</SelectMenuSubHeader>
+      <SelectMenuSection style="max-height: 100px;">
+        <SelectMenuItem>Item 11</SelectMenuItem>
+        <SelectMenuItem>Item 12</SelectMenuItem>
+        <SelectMenuItem>Item 13</SelectMenuItem>
+        <SelectMenuItem>Item 14</SelectMenuItem>
+        <SelectMenuItem>Item 15</SelectMenuItem>
+        <SelectMenuItem>Item 16</SelectMenuItem>
+        <SelectMenuItem>Item 17</SelectMenuItem>
+        <SelectMenuItem>Item 18</SelectMenuItem>
+        <SelectMenuItem>Item 19</SelectMenuItem>
+        <SelectMenuItem>Item 20</SelectMenuItem>
+      </SelectMenuSection>
+    </SelectMenuBody>
   </div>
 </template>
 
@@ -82,6 +120,7 @@ import {
   SelectMenuBody,
   SelectMenuHeader,
   SelectMenuItem,
+  SelectMenuSection,
   SelectMenuSubHeader,
   SelectMenuDivider
 } from '@/'
