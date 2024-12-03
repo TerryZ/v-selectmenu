@@ -14,8 +14,15 @@ export default defineComponent({
     const isActive = computed(() => props.name === active.value)
 
     function GroupItemBody () {
-      if (!isActive.value) return null
-      return slots?.default?.()
+      // if (!isActive.value) return null
+      return (
+        <div
+          class="sm-group-content"
+          v-show={isActive.value}
+        >
+          {slots?.default?.()}
+        </div>
+      )
     }
 
     addTab(props.name, props.title)

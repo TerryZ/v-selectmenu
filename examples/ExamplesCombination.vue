@@ -4,7 +4,7 @@
     <div>
       <SelectMenuBody class="border rounded-3 shadow-sm">
         <SelectMenuHeader>Header</SelectMenuHeader>
-        <SelectMenuSearch @search="search" />
+        <SelectMenuSearch @search="handleSearch" />
         <SelectMenuDivider />
         <SelectMenuCheckboxGroup>
           <SelectMenuGroup max-height="300px">
@@ -15,7 +15,7 @@
               :title="group.title"
             >
               <SelectMenuCheckboxItem
-                v-for="item in group.items"
+                v-for="item in filterItems(group.items)"
                 :key="item.name"
                 :value="item.name"
               >
@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-// import { ref } from 'vue'
+import { ref } from 'vue'
 
 import {
   SelectMenuBody,
@@ -45,7 +45,13 @@ import {
 
 import { groupItems } from './data'
 
-function search (data) {
+const search = ref('')
 
+function handleSearch (data) {
+  search.value = data
+}
+function filterItems (list) {
+  if (!search.value.trim()) return list
+  return list.filter(item => item.title.includes(search.value))
 }
 </script>
