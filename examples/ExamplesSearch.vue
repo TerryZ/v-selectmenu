@@ -1,12 +1,24 @@
 <template>
   <div>
     <h5>搜索模块</h5>
-    <div>
+    <div class="mb-3">
       <SelectMenuBody class="border rounded-3 shadow-sm">
         <SelectMenuHeader>搜索</SelectMenuHeader>
         <SelectMenuDivider />
         <SelectMenuSearch @search="search" />
         <SelectMenuDivider />
+        <SelectMenuItem
+          v-for="item in items"
+          :key="item.key"
+        >
+          {{ item.name }}
+        </SelectMenuItem>
+      </SelectMenuBody>
+    </div>
+    <div class="mb-3">
+      <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuHeader>搜索</SelectMenuHeader>
+        <SelectMenuSearch @search="search" />
         <SelectMenuItem
           v-for="item in items"
           :key="item.key"
