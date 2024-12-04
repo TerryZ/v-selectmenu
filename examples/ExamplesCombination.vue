@@ -4,7 +4,7 @@
     <div>
       <SelectMenuBody class="border rounded-3 shadow-sm">
         <SelectMenuHeader>Header</SelectMenuHeader>
-        <SelectMenuSearch @search="handleSearch" />
+        <SelectMenuInput @search="handleSearch" />
         <SelectMenuDivider />
         <SelectMenuCheckboxGroup>
           <SelectMenuGroup max-height="300px">
@@ -40,7 +40,7 @@ import {
   SelectMenuCheckboxItem,
   SelectMenuGroup,
   SelectMenuGroupItem,
-  SelectMenuSearch
+  SelectMenuInput
 } from '@/'
 
 import { groupItems } from './data'

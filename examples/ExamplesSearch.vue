@@ -54,8 +54,16 @@
         </SelectMenuInput>
         <SelectMenuInput
           v-model="searchText"
-          disabled
+          :disabled="disabled"
         />
+        <SelectMenuItem :hover="false">
+          <button
+            class="btn btn-dark rounded-pill"
+            @click="disabled = !disabled"
+          >
+            Switch disabled
+          </button>
+        </SelectMenuItem>
       </SelectMenuBody>
 
       <SelectMenuBody class="border rounded-3 shadow-sm">
@@ -89,6 +97,7 @@ const list = [
 const items = ref(list)
 
 const searchText = ref('some text')
+const disabled = ref(true)
 
 function change (data) {
   console.log(data)

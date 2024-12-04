@@ -1,6 +1,6 @@
 import '../styles/input.sass'
 
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, watch, computed } from 'vue'
 
 import { useDebounce, getInputRoundedClass } from '../core/helper'
 import { ROUNDED_PILL } from '../constants'
@@ -24,6 +24,14 @@ export default defineComponent({
     const inputDebounce = useDebounce(props.debounce)
     const roundedClass = getInputRoundedClass(props.rounded)
 
+    const classes = computed(() => {
+      return ['select-menu-input', roundedClass, {
+        disabled: props.disabled
+      }]
+    })
+
+    watch(() => props.modelValue, setInputValue)
+
     const responseInput = value => {
       emit('change', value)
       emit('update:modelValue', value)
@@ -34,6 +42,7 @@ export default defineComponent({
       responseInput(input.value)
     }
     function clearInput () {
+      if (props.disabled) return
       if (!input.value) return
       setInputValue('')
     }
@@ -64,8 +73,9 @@ export default defineComponent({
       )
     }
     function InputAppend () {
+      if (!slots.append) return
       return (
-        <div class='select-menu-input-append'>{slots?.append?.()}</div>
+        <div class='select-menu-input-append'>{slots.append()}</div>
       )
     }
     function InputClear () {
@@ -81,20 +91,24 @@ export default defineComponent({
     }
 
     return () => (
-      <div class={['select-menu-input', roundedClass]}>
+      <div class={classes.value}>
         <InputPrepend />
         <div class="select-menu-input-body">
-          <input
-            type="text"
-            value={input.value}
-            placeholder={props.placeholder}
-            onInput={onInput}
-            onKeydown={onKeyDown}
-            onCompositionstart={onCompositionStart}
-            onCompositionend={onCompositionEnd}
-          />
+          <div>
+            <input
+              type="text"
+              autocomplete='off'
+              value={input.value}
+              placeholder={props.placeholder}
+              disabled={props.disabled}
+              onInput={onInput}
+              onKeydown={onKeyDown}
+              onCompositionstart={onCompositionStart}
+              onCompositionend={onCompositionEnd}
+            />
+          </div>
+          <InputClear />
         </div>
-        <InputClear />
         <InputAppend />
       </div>
     )

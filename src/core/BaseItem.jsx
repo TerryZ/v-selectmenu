@@ -8,10 +8,6 @@ export function useBaseMenuItem (props, slots) {
   const { hideOnTriggerClick } = inject(injectMultipleLevel, {})
   const { closeDropdown } = useSelectMenuDropdown()
 
-  const classes = computed(() => (
-    ['sm-item', { disabled: props.disabled }]
-  ))
-
   function ItemPrepend () {
     if (!slots.prepend) return null
     return <div class="sm-item-prepend">{slots.prepend()}</div>
@@ -30,10 +26,16 @@ export function useBaseMenuItem (props, slots) {
   function ItemContainer (
     {
       triggerAction = true,
+      hover = true,
       hideOnClick = hideOnItemClick?.value
     },
     { slots: containerSlots }
   ) {
+    const classes = computed(() => ({
+      'sm-item': true,
+      'sm-item--hover': !props.disabled && hover,
+      disabled: props.disabled
+    }))
     function onMenuItemTrigger () {
       if (props.disabled) return
 

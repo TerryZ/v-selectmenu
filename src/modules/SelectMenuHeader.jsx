@@ -18,6 +18,7 @@ export default defineComponent({
     return () => (
       <ItemContainer
         class="sm-header"
+        hover={false}
         hideOnClick={false}
       >
         <ItemPrepend />
