@@ -1,24 +1,33 @@
+import '../styles/input.sass'
+
 import { defineComponent, ref } from 'vue'
 
-import { useDebounce } from '../core/helper'
+import { useDebounce, getInputRoundedClass } from '../core/helper'
+import { ROUNDED_PILL } from '../constants'
 
 import IconSearch from '../icons/IconSearch.vue'
 import IconCloseCircle from '../icons/IconCloseCircle.vue'
 
 export default defineComponent({
-  name: 'SelectMenuSearch',
+  name: 'SelectMenuInput',
   props: {
+    modelValue: { type: String, default: '' },
+    disabled: { type: Boolean, default: false },
+    rounded: { type: String, default: ROUNDED_PILL },
+    placeholder: { type: String, default: '' },
     /** debounce delay when typing, in milliseconds */
     debounce: { type: Number, default: 300 }
   },
-  emits: ['search'],
-  setup (props, { emit }) {
-    const input = ref('')
-    const inputEl = ref(null)
+  emits: ['update:modelValue', 'change'],
+  setup (props, { emit, slots }) {
+    const input = ref(props.modelValue || '')
     const inputDebounce = useDebounce(props.debounce)
+    const roundedClass = getInputRoundedClass(props.rounded)
 
-    const setInputFocus = () => inputEl.value.focus()
-    const responseInput = value => emit('search', value)
+    const responseInput = value => {
+      emit('change', value)
+      emit('update:modelValue', value)
+    }
     function setInputValue (value) {
       if (value === input.value) return
       input.value = value
@@ -47,18 +56,20 @@ export default defineComponent({
       e.target.dispatchEvent(new Event('input'))
     }
 
-    function SearchPrepend () {
+    function InputPrepend () {
       return (
-        <div
-          class='sm-search-prepend'
-          onClick={setInputFocus}
-        >
-          <IconSearch />
+        <div class='select-menu-input-prepend'>
+          {slots.prepend ? slots.prepend() : <IconSearch />}
         </div>
       )
     }
-    function SearchAppend () {
-      const classes = ['sm-search-append', { active: input.value }]
+    function InputAppend () {
+      return (
+        <div class='select-menu-input-append'>{slots?.append?.()}</div>
+      )
+    }
+    function InputClear () {
+      const classes = ['select-menu-input-clear', { active: input.value }]
       return (
         <div
           class={classes}
@@ -70,20 +81,21 @@ export default defineComponent({
     }
 
     return () => (
-      <div class="sm-search">
-        <SearchPrepend />
-        <div class="sm-search-input">
+      <div class={['select-menu-input', roundedClass]}>
+        <InputPrepend />
+        <div class="select-menu-input-body">
           <input
             type="text"
-            ref={inputEl}
             value={input.value}
+            placeholder={props.placeholder}
             onInput={onInput}
             onKeydown={onKeyDown}
             onCompositionstart={onCompositionStart}
             onCompositionend={onCompositionEnd}
           />
         </div>
-        <SearchAppend />
+        <InputClear />
+        <InputAppend />
       </div>
     )
   }

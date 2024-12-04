@@ -1,0 +1,11 @@
+$header-font-size: 1.1rem
+$sub-header-font-size: 1rem
+$item-font-size: 14px
+$divider-color: #e6e6e6
+
+@mixin flex-center($inline: false, $horizontal-center: false, $vertical-center: true)
+  display: if($inline, inline-flex, flex)
+  @if $vertical-center
+    align-items: center
+  @if $horizontal-center
+    justify-content: center

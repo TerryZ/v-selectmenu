@@ -1,6 +1,6 @@
 import { inject } from 'vue'
 
-import { injectDropdown } from '../constants'
+import { injectDropdown, ROUNDED_PILL, inputRoundedList } from '../constants'
 
 export function useDebounce (time = 300) {
   let timer
@@ -32,4 +32,11 @@ export function cssValue (value, unit = 'px') {
     return `${value}${unit}`
   }
   return value // string value
+}
+
+export function getInputRoundedClass (value) {
+  const level = !value || !inputRoundedList.includes(value)
+    ? ROUNDED_PILL
+    : inputRoundedList.find(val => val === value)
+  return `select-menu--rounded-${level}`
 }

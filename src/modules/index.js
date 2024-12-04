@@ -15,7 +15,7 @@ export { default as SelectMenuRadioGroup } from './SelectMenuRadioGroup'
 export { default as SelectMenuRadioItem } from './SelectMenuRadioItem'
 export { default as SelectMenuCheckboxGroup } from './SelectMenuCheckboxGroup'
 export { default as SelectMenuCheckboxItem } from './SelectMenuCheckboxItem'
-export { default as SelectMenuSearch } from './SelectMenuSearch'
+export { default as SelectMenuInput } from './SelectMenuInput'
 export { default as SelectMenuChildLevel } from './SelectMenuChildLevel'
 
 export { default as SelectMenuTrigger } from './SelectMenuTrigger'

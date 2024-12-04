@@ -1,14 +1,4 @@
-$header-font-size: 1.1rem
-$sub-header-font-size: 1rem
-$item-font-size: 14px
-$divider-color: #e6e6e6
-
-@mixin flex-center($inline: false, $horizontal-center: false, $vertical-center: true)
-  display: if($inline, inline-flex, flex)
-  @if $vertical-center
-    align-items: center
-  @if $horizontal-center
-    justify-content: center
+@use 'base'
 
 .sm-container
   display: inline-flex
@@ -31,11 +21,11 @@ $divider-color: #e6e6e6
     flex-direction: column
     flex-grow: 1
   .sm-item
-    @include flex-center(false , false)
+    @include base.flex-center(false , false)
     cursor: pointer
     padding: .5rem .5rem
     margin: 0 .5rem
-    font-size: $item-font-size
+    font-size: base.$item-font-size
     color: #09090b
     border-radius: 8px
     &:not(.sm-header, .sm-sub-header, .disabled, .sm-child-header):hover
@@ -44,13 +34,13 @@ $divider-color: #e6e6e6
       cursor: default
       color: #ccc
     &-prepend
-      @include flex-center(true , false)
+      @include base.flex-center(true , false)
       margin-right: .5rem
     &-body
       flex-grow: 1
       line-height: 1.3
     &-append
-      @include flex-center(true , false)
+      @include base.flex-center(true , false)
       margin-left: .5rem
     &.sm-header,
     &.sm-sub-header
@@ -59,12 +49,12 @@ $divider-color: #e6e6e6
       padding: .5rem 1rem
       margin: 0
     &.sm-header
-      font-size: $header-font-size
+      font-size: base.$header-font-size
       // color: #666
       // color: #09090b
       // margin-bottom: .2rem
     &.sm-sub-header
-      font-size: $sub-header-font-size
+      font-size: base.$sub-header-font-size
       color: #aaa
   .sm-group
     display: flex
@@ -98,13 +88,13 @@ $divider-color: #e6e6e6
       display: flex
       flex-direction: column
   .sm-divider
-    border-top: 1px solid $divider-color
+    border-top: 1px solid base.$divider-color
     margin: .5rem 0
   .sm-divider-vertical
-    border-right: 1px solid $divider-color
+    border-right: 1px solid base.$divider-color
     margin: -.5rem .2rem
   .sm-radio-item-checked
-    @include flex-center(true , false)
+    @include base.flex-center(true , false)
     width: 1.5rem
     font-size: 10px
     height: 20px
@@ -115,41 +105,8 @@ $divider-color: #e6e6e6
     font-size: 1rem
     margin-right: .6rem
     height: 20px
-  .sm-search
-    @include flex-center(false , false)
-    margin: .5rem 1rem
-    padding: .35rem .7rem
-    background-color: #f7f7f7
-    border-radius: 50rem
-    &-input
-      margin: 0 .5rem
-      flex-grow: 1
-      input
-        border: 0
-        background-color: transparent
-        outline: 0
-        color: #666
-        font-size: 14px
-        line-height: 1.3
-        width: 100%
-    &-prepend,
-    &-append
-      @include flex-center(true , false)
-    &-prepend
-      color: #999
-      font-size: 0.9rem
-      padding: 0 .2rem
-      cursor: pointer
-    &-append
-      color: #ccc
-      transition: all .3s
-      font-size: 1.1rem
-      opacity: 0
-      &.active
-        opacity: 1
-        cursor: pointer
   .sm-child-level-trigger
-    @include flex-center(false , false)
+    @include base.flex-center(false , false)
     cursor: pointer
     // padding: .5rem .5rem
     margin: 0 .5rem
@@ -166,7 +123,7 @@ $divider-color: #e6e6e6
       font-size: .9rem
   .sm-container-child
     .sm-child-header
-      @include flex-center(false , false)
+      @include base.flex-center(false , false)
       .sm-item-body
         font-weight: 600
         font-size: 1rem
@@ -205,3 +162,17 @@ $divider-color: #e6e6e6
     width: 28px
     height: 28px
     font-size: 16px
+
+.select-menu--rounded-small
+  border-radius: .25rem
+.select-menu--rounded-medium
+  border-radius: .5rem
+.select-menu--rounded-large
+  border-radius: .75rem
+.select-menu--rounded-pill
+  border-radius: 50rem
+.select-menu--rounded-circle
+  border-radius: 50%
+
+.select-menu--size-small
+.select-menu--size-mini
