@@ -22,9 +22,9 @@ export const routers = [
     path: '/layout',
     component: () => import('./ExamplesLayout.vue')
   }, {
-    name: 'search',
-    path: '/search',
-    component: () => import('./ExamplesSearch.vue')
+    name: 'input',
+    path: '/input',
+    component: () => import('./ExamplesInput.vue')
   }, {
     name: 'multiple-level',
     path: '/multiple-level',
@@ -46,7 +46,7 @@ export const list = [
   { name: 'Radio', code: 'radio' },
   { name: 'Checkbox', code: 'checkbox' },
   { name: 'Layout', code: 'layout' },
-  { name: 'Search', code: 'search' },
+  { name: 'Input', code: 'input' },
   { name: 'Multiple level', code: 'multiple-level' },
   { name: 'Combination', code: 'combination' },
   { name: 'Complete form', code: 'complete' }
