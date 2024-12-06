@@ -26,6 +26,10 @@ export const routers = [
     path: '/input',
     component: () => import('./ExamplesInput.vue')
   }, {
+    name: 'button',
+    path: '/button',
+    component: () => import('./ExamplesButton.vue')
+  }, {
     name: 'multiple-level',
     path: '/multiple-level',
     component: () => import('./ExamplesMultipleLevel.vue')
@@ -47,6 +51,7 @@ export const list = [
   { name: 'Checkbox', code: 'checkbox' },
   { name: 'Layout', code: 'layout' },
   { name: 'Input', code: 'input' },
+  { name: 'Button', code: 'button' },
   { name: 'Multiple level', code: 'multiple-level' },
   { name: 'Combination', code: 'combination' },
   { name: 'Complete form', code: 'complete' }

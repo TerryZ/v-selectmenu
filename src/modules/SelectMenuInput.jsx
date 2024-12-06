@@ -66,14 +66,13 @@ export default defineComponent({
     }
 
     function InputPrepend () {
+      if (!slots.prepend) return null
       return (
-        <div class='select-menu-input-prepend'>
-          {slots.prepend ? slots.prepend() : <IconSearch />}
-        </div>
+        <div class='select-menu-input-prepend'>{slots.prepend()}</div>
       )
     }
     function InputAppend () {
-      if (!slots.append) return
+      if (!slots.append) return null
       return (
         <div class='select-menu-input-append'>{slots.append()}</div>
       )

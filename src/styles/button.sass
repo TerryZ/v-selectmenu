@@ -1,0 +1,15 @@
+@use 'base'
+
+.select-menu-btn
+  @include base.flex-center(false , false)
+  padding: .5rem 1rem
+  background-color: #6C757D
+  color: white
+  cursor: pointer
+  transition: all .3s
+  &.disabled
+    cursor: default
+    background-color: #eaeaea
+    color: #aaa
+  &.block
+    width: 100%

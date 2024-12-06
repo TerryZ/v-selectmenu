@@ -35,7 +35,7 @@
             sf
           </template>
           <template #append>
-            <div class="ms-2 d-flex align-items-center">
+            <div class="d-flex align-items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -57,12 +57,12 @@
           :disabled="disabled"
         />
         <SelectMenuItem :hover="false">
-          <button
-            class="btn btn-dark rounded-pill"
+          <SelectMenuButton
+            block
             @click="disabled = !disabled"
           >
             Switch disabled
-          </button>
+          </SelectMenuButton>
         </SelectMenuItem>
       </SelectMenuBody>
 
@@ -84,7 +84,8 @@ import {
   SelectMenuHeader,
   SelectMenuBody,
   SelectMenuDivider,
-  SelectMenuInput
+  SelectMenuInput,
+  SelectMenuButton
 } from '@/'
 
 const list = [
