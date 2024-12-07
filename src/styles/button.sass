@@ -1,15 +1,28 @@
 @use 'base'
 
 .select-menu-btn
-  @include base.flex-center(false , false)
+  @include base.flex-center(true, true)
   padding: .5rem 1rem
   background-color: #6C757D
   color: white
   cursor: pointer
   transition: all .3s
+  height: 40px
   &.disabled
     cursor: default
     background-color: #eaeaea
     color: #aaa
   &.block
-    width: 100%
+    display: flex
+  &.select-menu--rounded-circle
+    width: 40px
+    height: 40px
+    padding: 0
+  &.select-menu--btn-small
+    padding: .3rem .8rem
+    height: 32px
+    font-size: .875rem
+  &.select-menu--btn-mini
+    height: 24px
+    padding: .2rem .6rem
+    font-size: .75rem

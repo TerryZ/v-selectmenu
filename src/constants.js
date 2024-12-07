@@ -21,3 +21,4 @@ export const inputRoundedList = [
   ROUNDED_LARGE,
   ROUNDED_PILL
 ]
+export const buttonRoundedList = [...inputRoundedList, ROUNDED_CIRCLE]
