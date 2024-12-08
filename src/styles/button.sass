@@ -1,28 +1,46 @@
 @use 'base'
 
 .select-menu-btn
-  @include base.flex-center(true, true)
+  @include base.flex-center(true, false)
   padding: .5rem 1rem
-  background-color: #6C757D
-  color: white
+  background-color: #ddd
+  color: #0f0f0f
   cursor: pointer
   transition: all .3s
   height: 40px
+  gap: .5rem
+  &:hover
+    opacity: .8
+  &:active
+    opacity: .6
+  &-prepend,
+  &-body,
+  &-append
+    @include base.flex-center(true , false)
+  &-body
+    flex-grow: 1
+    line-height: 1.3
+    user-select: none
   &.disabled
     cursor: default
     background-color: #eaeaea
     color: #aaa
   &.block
     display: flex
+    flex-grow: 1
   &.select-menu--rounded-circle
     width: 40px
     height: 40px
     padding: 0
+    .select-menu-btn-body
+      justify-content: center
   &.select-menu--btn-small
-    padding: .3rem .8rem
-    height: 32px
+    padding: 0 .8rem
+    height: 30px
     font-size: .875rem
   &.select-menu--btn-mini
-    height: 24px
+    // height: 24px
+    height: auto
     padding: .2rem .6rem
-    font-size: .75rem
+    font-size: 12px
+    line-height: 1
