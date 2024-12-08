@@ -55,6 +55,7 @@
         <SelectMenuInput
           v-model="searchText"
           :disabled="disabled"
+          border
         />
         <SelectMenuItem :hover="false">
           <SelectMenuButton

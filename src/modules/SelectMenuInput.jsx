@@ -13,6 +13,7 @@ export default defineComponent({
   props: {
     modelValue: { type: String, default: '' },
     disabled: { type: Boolean, default: false },
+    border: { type: Boolean, default: false },
     rounded: { type: String, default: ROUNDED_PILL },
     placeholder: { type: String, default: '' },
     /** debounce delay when typing, in milliseconds */
@@ -26,7 +27,8 @@ export default defineComponent({
 
     const classes = computed(() => {
       return ['select-menu-input', roundedClass, {
-        disabled: props.disabled
+        disabled: props.disabled,
+        'select-menu-input--border': props.border
       }]
     })
 

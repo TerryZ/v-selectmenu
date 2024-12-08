@@ -5,8 +5,7 @@
   height: 40px
   margin: .5rem 1rem
   padding: .35rem .8rem
-  // background-color: base.$light-bg
-  border: 1px solid #ccc
+  background-color: base.$light-bg
   transition: background-color .3s
   gap: .5rem
   &.disabled
@@ -16,6 +15,11 @@
     .select-menu-input-clear
       color: #ccc !important
       cursor: default
+  &.select-menu-input--border
+    border: 1px solid #ccc
+    background-color: white
+    &.disabled
+      background-color: base.$light-bg
   &-body
     flex-grow: 1
     width: 0
