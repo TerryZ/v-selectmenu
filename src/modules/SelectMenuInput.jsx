@@ -5,7 +5,6 @@ import { defineComponent, ref, watch, computed } from 'vue'
 import { useDebounce, getInputRoundedClass } from '../core/helper'
 import { ROUNDED_PILL } from '../constants'
 
-import IconSearch from '../icons/IconSearch.vue'
 import IconCloseCircle from '../icons/IconCloseCircle.vue'
 
 export default defineComponent({

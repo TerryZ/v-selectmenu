@@ -97,16 +97,17 @@
     border-right: 1px solid base.$divider-color
     margin: -.5rem .2rem
   .sm-radio-item-checked
-    @include base.flex-center(true , false)
-    width: 1.5rem
-    font-size: 10px
+    @include base.flex-center(true , true)
+    width: 1.2rem
     height: 20px
+    .sm-icon
+      font-size: 10px
   .sm-checkbox-item-checked
     display: inline-flex
     align-items: flex-end
+    justify-content: center
     width: 1.2rem
     font-size: 1rem
-    margin-right: .6rem
     height: 20px
   .sm-child-level-trigger
     @include base.flex-center(false , false)
@@ -137,7 +138,6 @@
   display: inline-flex
   width: 1em
   height: 1em
-  fill: currentcolor
 .sm-circle-btn
   width: 20px
   height: 20px

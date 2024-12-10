@@ -1,6 +1,6 @@
 import '../styles/button.sass'
 
-import { defineComponent, ref, watch, computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 
 import { ROUNDED_PILL, ROUNDED_CIRCLE } from '../constants'
 import { getButtonRoundedClass } from '../core/helper'
