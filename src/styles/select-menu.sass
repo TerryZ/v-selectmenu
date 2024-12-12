@@ -22,6 +22,21 @@
     flex-grow: 1
   .sm-item--hover:hover
     background-color: #f7f7f7
+  .sm-block
+    @include base.flex-center(false , false)
+    padding: .5rem .5rem
+    margin: 0 .5rem
+    font-size: base.$item-font-size
+    gap: .5rem
+    &__prepend,
+    &__body,
+    &__append
+      @include base.flex-center(true , false)
+    &__body
+      flex-grow: 1
+      line-height: 1.3
+    .select-menu-input
+      margin: 0
   .sm-item
     @include base.flex-center(false , false)
     cursor: pointer
