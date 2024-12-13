@@ -10,7 +10,11 @@
           </SelectMenuButton>
         </SelectMenuItem>
         <SelectMenuItem>
-          <SelectMenuButton rounded="medium">
+          <SelectMenuButton
+            rounded="medium"
+            :loading="loading"
+            @click="handleClick"
+          >
             button
             <template #append>
               <svg
@@ -52,7 +56,9 @@
         </SelectMenuItem>
 
         <SelectMenuItem>
-          <SelectMenuButton rounded="pill">
+          <SelectMenuButton
+            rounded="pill"
+          >
             <template #prepend>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +94,11 @@
         </SelectMenuItem>
 
         <SelectMenuItem>
-          <SelectMenuButton rounded="circle">
+          <SelectMenuButton
+            rounded="circle"
+            :loading="loading"
+            @click="handleClick"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -109,7 +119,11 @@
       <SelectMenuBody class="border rounded-3 shadow-sm">
         <SelectMenuHeader>Size</SelectMenuHeader>
         <SelectMenuItem>
-          <SelectMenuButton :block="false">
+          <SelectMenuButton
+            :block="false"
+            :loading="true"
+            @click="showClickLog"
+          >
             button
           </SelectMenuButton>
         </SelectMenuItem>
@@ -136,11 +150,25 @@
 </template>
 
 <script setup>
-// import { ref } from 'vue'
+import { ref } from 'vue'
 import {
   SelectMenuItem,
   SelectMenuHeader,
   SelectMenuBody,
   SelectMenuButton
 } from '@/'
+
+const loading = ref(false)
+
+function handleClick () {
+  if (loading.value) return
+
+  loading.value = true
+  setTimeout(() => {
+    loading.value = false
+  }, 3000)
+}
+function showClickLog () {
+  console.log('clicked')
+}
 </script>

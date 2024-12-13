@@ -37,6 +37,7 @@
       line-height: 1.3
     .select-menu-input
       margin: 0
+      flex-grow: 1
   .sm-item
     @include base.flex-center(false , false)
     cursor: pointer
@@ -71,9 +72,7 @@
       // margin-bottom: .2rem
     &.sm-sub-header
       font-size: base.$sub-header-font-size
-      color: #aaa
-    .sm-icon
-      font-size: 1rem
+      color: #999
   .sm-group
     display: flex
     flex-direction: column
@@ -153,6 +152,7 @@
   display: inline-flex
   width: 1em
   height: 1em
+  font-size: 1rem
 .sm-circle-btn
   width: 20px
   height: 20px

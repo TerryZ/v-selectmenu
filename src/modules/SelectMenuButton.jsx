@@ -5,6 +5,8 @@ import { defineComponent, computed } from 'vue'
 import { ROUNDED_PILL, ROUNDED_CIRCLE } from '../constants'
 import { getButtonRoundedClass } from '../core/helper'
 
+import IconLoading from '../icons/IconLoading.vue'
+
 export default defineComponent({
   name: 'SelectMenuButton',
   props: {
@@ -24,7 +26,7 @@ export default defineComponent({
     const classes = computed(() => {
       const classProps = {
         block: props.block && !isCircle.value,
-        disabled: props.disabled
+        disabled: props.disabled || props.loading
       }
       return [
         'select-menu-btn', classProps,
@@ -32,28 +34,52 @@ export default defineComponent({
         getButtonRoundedClass(props.rounded)
       ]
     })
+    function handleClick (e) {
+      if (props.disabled || props.loading) {
+        // e.preventDefault()
+        // e.stopPropagation()
+        e.stopImmediatePropagation()
+      }
+    }
 
     function ButtonPrepend () {
-      if (!slots.prepend) return null
       if (isCircle.value) return null
+      if (!slots.prepend) {
+        return props.loading
+          ? <div class='select-menu-btn-prepend'><IconLoading /></div>
+          : null
+      }
       return (
         <div class='select-menu-btn-prepend'>{slots.prepend()}</div>
       )
     }
+    function ButtonBody () {
+      function BodyContent () {
+        if (isCircle.value && props.loading) {
+          return <IconLoading />
+        }
+        return slots?.default?.()
+      }
+      return (
+        <div class='select-menu-btn-body'>
+          <BodyContent />
+        </div>
+      )
+    }
     function ButtonAppend () {
-      if (!slots.append) return null
-      if (isCircle.value) return null
+      if (!slots.append || isCircle.value) return null
       return (
         <div class='select-menu-btn-append'>{slots.append()}</div>
       )
     }
 
     return () => (
-      <div class={classes.value}>
+      <div
+        class={classes.value}
+        onClick={handleClick}
+      >
         <ButtonPrepend />
-        <div class='select-menu-btn-body'>
-          {slots?.default?.()}
-        </div>
+        <ButtonBody />
         <ButtonAppend />
       </div>
     )

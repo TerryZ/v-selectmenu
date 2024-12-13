@@ -80,12 +80,13 @@
         <SelectMenuBlock>
           <SelectMenuInput
             v-model="searchText"
-            :disabled="disabled"
+            :disabled="loading"
           />
           <template #append>
             <SelectMenuButton
               rounded="circle"
-              @click="disabled = !disabled"
+              :loading="loading"
+              @click="handleClick"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,6 +130,7 @@ const list = [
   { key: '5', name: '我是菜单标题项5' }
 ]
 const items = ref(list)
+const loading = ref(false)
 
 const searchText = ref('some text')
 const disabled = ref(true)
@@ -136,5 +138,11 @@ const disabled = ref(true)
 function change (data) {
   console.log(data)
   items.value = list.filter(item => item.name.includes(data))
+}
+function handleClick () {
+  loading.value = true
+  setTimeout(() => {
+    loading.value = false
+  }, 2000)
 }
 </script>
