@@ -10,7 +10,7 @@ import IconLoading from '../icons/IconLoading.vue'
 export default defineComponent({
   name: 'SelectMenuButton',
   props: {
-    block: { type: Boolean, default: true },
+    block: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     loading: { type: Boolean, default: false },
     rounded: { type: String, default: ROUNDED_PILL },
