@@ -57,14 +57,14 @@
           :disabled="disabled"
           border
         />
-        <SelectMenuItem :hover="false">
+        <SelectMenuBlock>
           <SelectMenuButton
             block
             @click="disabled = !disabled"
           >
             Switch disabled
           </SelectMenuButton>
-        </SelectMenuItem>
+        </SelectMenuBlock>
       </SelectMenuBody>
 
       <SelectMenuBody class="border rounded-3 shadow-sm">

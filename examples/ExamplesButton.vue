@@ -119,17 +119,31 @@
         >
           button
         </SelectMenuButton>
-        <SelectMenuButton
-          size="small"
-        >
+        <SelectMenuButton size="small">
           small button
         </SelectMenuButton>
 
-        <SelectMenuButton
-          size="mini"
-        >
+        <SelectMenuButton size="mini">
           mini button
         </SelectMenuButton>
+        <SelectMenuBlock>
+          <SelectMenuButton
+            :loading="true"
+            @click="showClickLog"
+          >
+            button
+          </SelectMenuButton>
+        </SelectMenuBlock>
+        <SelectMenuBlock>
+          <SelectMenuButton size="small">
+            small button
+          </SelectMenuButton>
+        </SelectMenuBlock>
+        <SelectMenuBlock>
+          <SelectMenuButton size="mini">
+            mini button
+          </SelectMenuButton>
+        </SelectMenuBlock>
       </SelectMenuBody>
 
       <SelectMenuBody class="border rounded-3 shadow-sm">

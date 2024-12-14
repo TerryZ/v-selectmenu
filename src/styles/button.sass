@@ -4,11 +4,11 @@
   @include base.flex-center(true, false)
   // margin: .5rem 1rem
   padding: .5rem 1rem
-  background-color: #e3e3e3
+  background-color: #e9e9e9
   color: #0f0f0f
   cursor: pointer
   transition: all .3s
-  height: 40px
+  height: base.$input-height
   gap: .5rem
   font-weight: 500
   width: fit-content
@@ -25,6 +25,7 @@
     flex-grow: 1
     line-height: 1.3
     user-select: none
+    justify-content: center
   &.disabled
     cursor: default
     background-color: #eaeaea
@@ -33,6 +34,7 @@
     display: flex
     flex-grow: 1
     width: auto
+    margin: .5rem 1rem
   &.select-menu--rounded-circle
     width: 40px
     height: 40px
