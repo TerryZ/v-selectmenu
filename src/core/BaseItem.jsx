@@ -10,15 +10,15 @@ export function useBaseMenuItem (props, slots) {
 
   function ItemPrepend () {
     if (!slots.prepend) return null
-    return <div class="sm-item-prepend">{slots.prepend()}</div>
+    return <div class="sm-block__prepend">{slots.prepend()}</div>
   }
   function ItemAppend () {
     if (!slots.append) return null
-    return <div class="sm-item-append">{slots.append()}</div>
+    return <div class="sm-block__append">{slots.append()}</div>
   }
   function ItemBody () {
     return (
-      <div class="sm-item-body">
+      <div class="sm-block__body">
         {slots?.default?.()}
       </div>
     )
@@ -32,7 +32,7 @@ export function useBaseMenuItem (props, slots) {
     { slots: containerSlots }
   ) {
     const classes = computed(() => ({
-      'sm-item': true,
+      'sm-block': true,
       'sm-item--hover': !props.disabled && hover,
       disabled: props.disabled
     }))

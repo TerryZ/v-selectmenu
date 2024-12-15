@@ -43,24 +43,11 @@
   .sm-item
     @include base.flex-center(false , false)
     cursor: pointer
-    padding: .5rem .5rem
-    margin: 0 .5rem
-    font-size: base.$item-font-size
     color: #09090b
     border-radius: 8px
-    gap: .5rem
-    &:not(.sm-header, .sm-sub-header, .disabled, .sm-child-header):hover
-      // background-color: #f7f7f7
     &.disabled
       cursor: default
       color: #ccc
-    &-prepend,
-    &-body,
-    &-append
-      @include base.flex-center(true , false)
-    &-body
-      flex-grow: 1
-      line-height: 1.3
     &.sm-header,
     &.sm-sub-header
       cursor: default
