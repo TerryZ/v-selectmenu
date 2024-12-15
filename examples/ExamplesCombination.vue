@@ -35,9 +35,21 @@
         <h6>表单</h6>
         <div>
           <SelectMenuBody class="border rounded-3 shadow-sm">
-            <SelectMenuSubHeader>Header</SelectMenuSubHeader>
-            <SelectMenuInput placeholder="user name" />
-            <SelectMenuInput placeholder="user age" />
+            <!-- <SelectMenuDivider /> -->
+            <SelectMenuRow>
+              <SelectMenuColumn>
+                <SelectMenuSubHeader>Base</SelectMenuSubHeader>
+                <SelectMenuInput placeholder="User name" />
+                <SelectMenuInput placeholder="User age" />
+              </SelectMenuColumn>
+              <SelectMenuDivider :horizontal="false" />
+              <SelectMenuColumn>
+                <SelectMenuSubHeader>Extend</SelectMenuSubHeader>
+                <SelectMenuInput placeholder="Mail" />
+                <SelectMenuInput placeholder="Address" />
+              </SelectMenuColumn>
+            </SelectMenuRow>
+
             <SelectMenuDivider />
             <SelectMenuBlock>
               <SelectMenuButton>
@@ -77,8 +89,10 @@ import {
   SelectMenuGroupItem,
   SelectMenuBlock,
   SelectMenuInput,
-  SelectMenuButton
-} from '@/'
+  SelectMenuButton,
+  SelectMenuRow,
+  SelectMenuColumn
+} from '../src'
 
 import { groupItems } from './data'
 

@@ -20,7 +20,10 @@
 
       <SelectMenuBody class="border rounded-3 shadow-sm">
         <SelectMenuHeader>搜索</SelectMenuHeader>
-        <SelectMenuInput @change="change" />
+        <SelectMenuInput
+          @change="change"
+          :loading="searching"
+        />
         <SelectMenuItem
           v-for="item in items"
           :key="item.key"
@@ -120,7 +123,7 @@ import {
   SelectMenuInput,
   SelectMenuButton,
   SelectMenuBlock
-} from '@/'
+} from '../src'
 
 const list = [
   { key: '1', name: '我是菜单项1' },
@@ -131,13 +134,20 @@ const list = [
 ]
 const items = ref(list)
 const loading = ref(false)
+const searching = ref(false)
 
 const searchText = ref('some text')
 const disabled = ref(true)
 
 function change (data) {
   console.log(data)
-  items.value = list.filter(item => item.name.includes(data))
+  if (searching.value) return
+
+  searching.value = true
+  setTimeout(() => {
+    items.value = list.filter(item => item.name.includes(data))
+    searching.value = false
+  }, 2000)
 }
 function handleClick () {
   loading.value = true

@@ -55,12 +55,12 @@
                 <SelectMenuSubHeader>
                   单选
                   <template #append>
-                    <button
-                      class="btn btn-sm btn-outline-dark rounded-pill"
+                    <SelectMenuButton
                       @click.stop="clearRadio"
+                      size="small"
                     >
                       清除选择
-                    </button>
+                    </SelectMenuButton>
                   </template>
                 </SelectMenuSubHeader>
                 <SelectMenuRadioGroup
@@ -219,8 +219,9 @@ import {
   SelectMenuRadioItem,
   SelectMenuCheckboxGroup,
   SelectMenuCheckboxItem,
-  SelectMenuDivider
-} from '@/'
+  SelectMenuDivider,
+  SelectMenuButton
+} from '../src'
 import CustomDropdownContent from './CustomDropdownContent.vue'
 
 const align = ref('left')

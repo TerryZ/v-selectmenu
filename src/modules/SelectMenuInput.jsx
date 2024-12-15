@@ -6,6 +6,7 @@ import { useDebounce, getInputRoundedClass } from '../core/helper'
 import { ROUNDED_PILL } from '../constants'
 
 import IconCloseCircle from '../icons/IconCloseCircle.vue'
+import IconLoading from '../icons/IconLoading.vue'
 
 export default defineComponent({
   name: 'SelectMenuInput',
@@ -16,7 +17,8 @@ export default defineComponent({
     rounded: { type: String, default: ROUNDED_PILL },
     placeholder: { type: String, default: '' },
     /** debounce delay when typing, in milliseconds */
-    debounce: { type: Number, default: 300 }
+    debounce: { type: Number, default: 300 },
+    loading: { type: Boolean, default: false }
   },
   emits: ['update:modelValue', 'change'],
   setup (props, { emit, slots }) {
@@ -26,7 +28,7 @@ export default defineComponent({
 
     const classes = computed(() => {
       return ['select-menu-input', roundedClass, {
-        disabled: props.disabled,
+        disabled: props.disabled || props.loading,
         'select-menu-input--border': props.border
       }]
     })
@@ -67,16 +69,16 @@ export default defineComponent({
     }
 
     function InputPrepend () {
-      if (!slots.prepend) return null
-      return (
-        <div class='select-menu-input-prepend'>{slots.prepend()}</div>
-      )
+      if (!slots.prepend) {
+        return props.loading
+          ? <div class='select-menu-input-prepend'><IconLoading /></div>
+          : null
+      }
+      return <div class='select-menu-input-prepend'>{slots.prepend()}</div>
     }
     function InputAppend () {
       if (!slots.append) return null
-      return (
-        <div class='select-menu-input-append'>{slots.append()}</div>
-      )
+      return <div class='select-menu-input-append'>{slots.append()}</div>
     }
     function InputClear () {
       const classes = ['select-menu-input-clear', { active: input.value }]
