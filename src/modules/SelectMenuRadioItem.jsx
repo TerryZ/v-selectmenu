@@ -38,7 +38,7 @@ export default defineComponent({
 
     return () => (
       <ItemContainer
-        class="sm-radio-item"
+        class="sm-item sm-radio-item"
         hideOnClick={hideOnSelection.value}
         triggerAction={false}
         onClick={selectItem}

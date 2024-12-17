@@ -39,7 +39,7 @@ export default defineComponent({
     return () => {
       return (
         <ItemContainer
-          class="sm-checkbox-item"
+          class="sm-item sm-checkbox-item"
           hideOnClick={hideOnSelection.value}
           triggerAction={false}
           onClick={selectItem}
