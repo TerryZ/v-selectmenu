@@ -21,7 +21,7 @@ export default defineComponent({
 
     function getSizeClass () {
       if (!['small', 'mini'].includes(props.size)) return ''
-      return `select-menu--btn-${props.size}`
+      return `sm-button--${props.size}`
     }
     const classes = computed(() => {
       const classProps = {
@@ -29,7 +29,7 @@ export default defineComponent({
         disabled: props.disabled || props.loading
       }
       return [
-        'select-menu-btn', classProps,
+        'sm-button', classProps,
         getSizeClass(),
         getButtonRoundedClass(props.rounded)
       ]
@@ -46,11 +46,11 @@ export default defineComponent({
       if (isCircle.value) return null
       if (!slots.prepend) {
         return props.loading
-          ? <div class='select-menu-btn-prepend'><IconLoading /></div>
+          ? <div class='sm-button__prepend'><IconLoading /></div>
           : null
       }
       return (
-        <div class='select-menu-btn-prepend'>{slots.prepend()}</div>
+        <div class='sm-button__prepend'>{slots.prepend()}</div>
       )
     }
     function ButtonBody () {
@@ -61,7 +61,7 @@ export default defineComponent({
         return slots?.default?.()
       }
       return (
-        <div class='select-menu-btn-body'>
+        <div class='sm-button__body'>
           <BodyContent />
         </div>
       )
@@ -69,7 +69,7 @@ export default defineComponent({
     function ButtonAppend () {
       if (!slots.append || isCircle.value) return null
       return (
-        <div class='select-menu-btn-append'>{slots.append()}</div>
+        <div class='sm-button__append'>{slots.append()}</div>
       )
     }
 

@@ -24,13 +24,15 @@ export default defineComponent({
   setup (props, { emit, slots }) {
     const input = ref(props.modelValue || '')
     const inputDebounce = useDebounce(props.debounce)
-    const roundedClass = getInputRoundedClass(props.rounded)
 
     const classes = computed(() => {
-      return ['select-menu-input', roundedClass, {
-        disabled: props.disabled || props.loading,
-        'select-menu-input--border': props.border
-      }]
+      return [
+        'sm-input', getInputRoundedClass(props.rounded),
+        {
+          disabled: props.disabled || props.loading,
+          'sm-input--border': props.border
+        }
+      ]
     })
 
     watch(() => props.modelValue, setInputValue)
@@ -71,17 +73,17 @@ export default defineComponent({
     function InputPrepend () {
       if (!slots.prepend) {
         return props.loading
-          ? <div class='select-menu-input-prepend'><IconLoading /></div>
+          ? <div class='sm-input__prepend'><IconLoading /></div>
           : null
       }
-      return <div class='select-menu-input-prepend'>{slots.prepend()}</div>
+      return <div class='sm-input__prepend'>{slots.prepend()}</div>
     }
     function InputAppend () {
       if (!slots.append) return null
-      return <div class='select-menu-input-append'>{slots.append()}</div>
+      return <div class='sm-input__append'>{slots.append()}</div>
     }
     function InputClear () {
-      const classes = ['select-menu-input-clear', { active: input.value }]
+      const classes = ['sm-input__clear', { active: input.value }]
       return (
         <div
           class={classes}
@@ -95,7 +97,7 @@ export default defineComponent({
     return () => (
       <div class={classes.value}>
         <InputPrepend />
-        <div class="select-menu-input-body">
+        <div class="sm-input__body">
           <input
             type="text"
             autocomplete='off'

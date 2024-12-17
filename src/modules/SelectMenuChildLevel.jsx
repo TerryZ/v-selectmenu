@@ -12,7 +12,7 @@ export default defineComponent({
     const root = ref(null)
 
     function openChildMenus () {
-      const body = root.value.querySelector('.sm-child-level-trigger .sm-item-body')
+      const body = root.value.querySelector('.sm-child-level-trigger .sm-block__body')
       const title = body.textContent?.trim()
 
       if (!title) return

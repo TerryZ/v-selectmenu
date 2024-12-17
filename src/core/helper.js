@@ -38,11 +38,11 @@ export function getInputRoundedClass (value) {
   const level = !value || !inputRoundedList.includes(value)
     ? ROUNDED_PILL
     : inputRoundedList.find(val => val === value)
-  return `select-menu--rounded-${level}`
+  return `sm-rounded--${level}`
 }
 export function getButtonRoundedClass (value) {
   const level = !value || !buttonRoundedList.includes(value)
     ? ROUNDED_PILL
     : buttonRoundedList.find(val => val === value)
-  return `select-menu--rounded-${level}`
+  return `sm-rounded--${level}`
 }

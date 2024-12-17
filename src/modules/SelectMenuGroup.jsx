@@ -35,7 +35,7 @@ export default defineComponent({
       return tabs.value.map(tab => (
         <div
           key={tab.name}
-          class={['sm-group-tab', { active: tab.name === active.value }]}
+          class={['sm-group__tab', { active: tab.name === active.value }]}
           onClick={() => switchGroup(tab.name)}
         >
           {tab.title}
@@ -57,12 +57,12 @@ export default defineComponent({
 
     return () => (
       <div class="sm-group">
-        <div class="sm-group-tabs">
+        <div class="sm-group__tabs">
           <GroupTabs />
         </div>
 
         <div
-          class="sm-group-body"
+          class="sm-group__body"
           style={groupBodyStyles.value}
         >
           {slots?.default?.()}

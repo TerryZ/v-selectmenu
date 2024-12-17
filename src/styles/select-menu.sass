@@ -35,10 +35,10 @@
     &__body
       flex-grow: 1
       line-height: 1.3
-    .select-menu-input
+    .sm-input
       margin: 0
       flex-grow: 1
-    .select-menu-btn
+    .sm-button
       margin: 0
   .sm-item
     @include base.flex-center(false , false)
@@ -67,13 +67,13 @@
     flex-direction: column
     // background-color: #f7f7f7
     // padding: .5rem 0 0
-    &-tabs
+    &__tabs
       display: flex
       margin: .5rem 1rem .2rem
       background-color: base.$light-bg
       border-radius: 50rem
       padding: .3rem
-    &-tab
+    &__tab
       font-size: 14px
       padding: .2rem 1rem
       cursor: pointer
@@ -88,7 +88,7 @@
         color: black
         box-shadow: 0 1px 3px rgb(0, 0, 0, .4)
         cursor: default
-    &-body
+    &__body
       padding-top: .5rem
       // row-gap: .3rem
       display: flex
@@ -98,7 +98,7 @@
     margin: .5rem 0
   .sm-divider-vertical
     border-right: 1px solid base.$divider-color
-    margin: -.5rem .2rem
+    margin: -.5rem 0
   .sm-radio-item-checked
     @include base.flex-center(true , true)
     width: 1.2rem
@@ -131,7 +131,7 @@
   .sm-container-child
     .sm-child-header
       @include base.flex-center(false , false)
-      .sm-item-body
+      .sm-block__body
         font-weight: 600
         font-size: 1rem
 
@@ -171,13 +171,13 @@
     height: 28px
     font-size: 16px
 
-.select-menu--rounded-small
-  border-radius: .25rem
-.select-menu--rounded-medium
-  border-radius: .5rem
-.select-menu--rounded-large
-  border-radius: .75rem
-.select-menu--rounded-pill
-  border-radius: 50rem
-.select-menu--rounded-circle
-  border-radius: 50%
+.sm-rounded--small
+  border-radius: .25rem !important
+.sm-rounded--medium
+  border-radius: .5rem !important
+.sm-rounded--large
+  border-radius: .75rem !important
+.sm-rounded--pill
+  border-radius: 50rem !important
+.sm-rounded--circle
+  border-radius: 50% !important

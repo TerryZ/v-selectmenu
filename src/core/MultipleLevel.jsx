@@ -32,16 +32,16 @@ export function useMultipleLevel (props) {
 
   function LevelHeader ({ title }) {
     return (
-      <div class="sm-item sm-child-header">
+      <div class="sm-block sm-item sm-child-header">
         <div
-          class="sm-item-prepend"
+          class="sm-block__prepend"
           onClick={backToPreviousLevel}
         >
           <CircleButton size="large">
             <IconChevronLeft />
           </CircleButton>
         </div>
-        <div class="sm-item-body">
+        <div class="sm-block__body">
           {title}
         </div>
       </div>

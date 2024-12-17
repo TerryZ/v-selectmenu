@@ -17,7 +17,7 @@ export default defineComponent({
       // if (!isActive.value) return null
       return (
         <div
-          class="sm-group-content"
+          class="sm-group__content"
           v-show={isActive.value}
         >
           {slots?.default?.()}

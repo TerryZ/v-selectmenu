@@ -1,6 +1,6 @@
 @use 'base'
 
-.select-menu-input
+.sm-input
   @include base.flex-center(false , false)
   height: base.$input-height
   margin: .5rem 1rem
@@ -11,17 +11,17 @@
   gap: .5rem
   &.disabled
     background-color: #eaeaea
-    .select-menu-input-body input
+    .sm-input__body input
       color: #bbb
-    .select-menu-input-clear
+    .sm-input__clear
       color: #d3d3d3 !important
       cursor: default
-  &.select-menu-input--border
+  &.sm-input--border
     border: 1px solid #ccc
     background-color: white
     &.disabled
       background-color: base.$light-bg
-  &-body
+  &__body
     flex-grow: 1
     width: 0
     @include base.flex-center(false , false)
@@ -36,16 +36,16 @@
       transition: all .3s
       &::placeholder
         color: #bbb
-  &-prepend,
-  &-clear,
-  &-append
+  &__prepend,
+  &__clear,
+  &__append
     @include base.flex-center(true , false)
-  &-prepend
+  &__prepend
     color: #999
     font-size: 0.9rem
     padding: 0 .2rem
     cursor: pointer
-  &-clear
+  &__clear
     color: #ccc
     transition: all .3s
     // font-size: 1.1rem
