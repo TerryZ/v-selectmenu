@@ -4,7 +4,7 @@
     <div class="mb-3">
       <SelectMenuBody
         class="border rounded-3 shadow-sm"
-        max-height="300px"
+        style="max-height: 400px;"
         @action="menuAction"
       >
         <SelectMenuHeader>我是菜单标题</SelectMenuHeader>
@@ -99,7 +99,7 @@
 
         <SelectMenuBody
           class="border rounded-3 shadow-sm"
-          max-height="300px"
+          style="max-height: 400px;"
           @action="menuAction"
         >
           <SelectMenuHeader>我是菜单标题</SelectMenuHeader>

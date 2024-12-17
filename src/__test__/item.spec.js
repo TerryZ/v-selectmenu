@@ -13,7 +13,7 @@ describe('Menu item', function () {
     const wrapper = mount(SelectMenuItem)
 
     expect(wrapper.find('.sm-item').findAll('div')).toHaveLength(1)
-    expect(wrapper.find('.sm-item-body').exists()).toBeTruthy()
+    expect(wrapper.find('.sm-block__body').exists()).toBeTruthy()
   })
   test('完整设置三个插槽，内容应显示于对应位置', () => {
     const wrapper = mount(SelectMenuItem, {
@@ -24,9 +24,9 @@ describe('Menu item', function () {
       }
     })
     expect(wrapper.find('.sm-item').findAll('div')).toHaveLength(3)
-    expect(wrapper.find('.sm-item-prepend').text()).toBe('Prepend')
-    expect(wrapper.find('.sm-item-body').text()).toBe('Body')
-    expect(wrapper.find('.sm-item-append').text()).toBe('Append')
+    expect(wrapper.find('.sm-block__prepend').text()).toBe('Prepend')
+    expect(wrapper.find('.sm-block__body').text()).toBe('Body')
+    expect(wrapper.find('.sm-block__append').text()).toBe('Append')
   })
   describe('应用 SelectMenuBody 模块', () => {
     const wrapper = mount(ItemWithBody)
@@ -52,7 +52,7 @@ describe('Menu header', () => {
     const wrapper = mount(SelectMenuHeader)
 
     expect(wrapper.find('.sm-item').findAll('div')).toHaveLength(1)
-    expect(wrapper.find('.sm-item-body').exists()).toBeTruthy()
+    expect(wrapper.find('.sm-block__body').exists()).toBeTruthy()
   })
   test('完整设置三个插槽，内容应显示于对应位置', () => {
     const wrapper = mount(SelectMenuHeader, {
@@ -63,9 +63,9 @@ describe('Menu header', () => {
       }
     })
     expect(wrapper.find('.sm-item').findAll('div')).toHaveLength(3)
-    expect(wrapper.find('.sm-item-prepend').text()).toBe('Prepend')
-    expect(wrapper.find('.sm-item-body').text()).toBe('Body')
-    expect(wrapper.find('.sm-item-append').text()).toBe('Append')
+    expect(wrapper.find('.sm-block__prepend').text()).toBe('Prepend')
+    expect(wrapper.find('.sm-block__body').text()).toBe('Body')
+    expect(wrapper.find('.sm-block__append').text()).toBe('Append')
   })
 })
 
@@ -74,7 +74,7 @@ describe('Menu sub header', () => {
     const wrapper = mount(SelectMenuSubHeader)
 
     expect(wrapper.find('.sm-item').findAll('div')).toHaveLength(1)
-    expect(wrapper.find('.sm-item-body').exists()).toBeTruthy()
+    expect(wrapper.find('.sm-block__body').exists()).toBeTruthy()
   })
   test('完整设置三个插槽，内容应显示于对应位置', () => {
     const wrapper = mount(SelectMenuSubHeader, {
@@ -85,9 +85,9 @@ describe('Menu sub header', () => {
       }
     })
     expect(wrapper.find('.sm-item').findAll('div')).toHaveLength(3)
-    expect(wrapper.find('.sm-item-prepend').text()).toBe('Prepend')
-    expect(wrapper.find('.sm-item-body').text()).toBe('Body')
-    expect(wrapper.find('.sm-item-append').text()).toBe('Append')
+    expect(wrapper.find('.sm-block__prepend').text()).toBe('Prepend')
+    expect(wrapper.find('.sm-block__body').text()).toBe('Body')
+    expect(wrapper.find('.sm-block__append').text()).toBe('Append')
   })
 })
 

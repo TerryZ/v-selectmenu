@@ -35,7 +35,9 @@
             :disabled="disabled"
           >
             <template #trigger>
-              <SelectMenuTrigger>{{ radio || '打开' }}</SelectMenuTrigger>
+              <SelectMenuTrigger rounded="pill">
+                {{ radio || '打开' }}
+              </SelectMenuTrigger>
             </template>
             <SelectMenuBody @action="handleAction">
               <SelectMenuHeader>SelectMenu</SelectMenuHeader>
@@ -80,7 +82,17 @@
               </SelectMenuSection>
               <SelectMenuDivider />
               <SelectMenuSection>
-                <SelectMenuSubHeader>多选</SelectMenuSubHeader>
+                <SelectMenuSubHeader>
+                  多选
+                  <template #append>
+                    <SelectMenuButton
+                      @click.stop="clearCheckboxes"
+                      size="mini"
+                    >
+                      清除选择
+                    </SelectMenuButton>
+                  </template>
+                </SelectMenuSubHeader>
                 <SelectMenuCheckboxGroup
                   v-model="checkbox"
                   :hide-on-selection="hideOnCheckboxSelection"
@@ -236,5 +248,8 @@ function handleAction (action) {
 }
 function clearRadio () {
   radio.value = ''
+}
+function clearCheckboxes () {
+  checkbox.value = []
 }
 </script>

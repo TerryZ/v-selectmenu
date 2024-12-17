@@ -30,7 +30,7 @@ describe('Menu multiple level', () => {
   test('子菜单界面中，应存在标题栏，并以上级菜单的触发元素内容作为标题内容("我是菜单项3")', () => {
     const header = wrapper.find('.sm-child-header')
     expect(header.exists()).toBeTruthy()
-    expect(header.find('.sm-item-body').text()).toBe('我是菜单项3')
+    expect(header.find('.sm-block__body').text()).toBe('我是菜单项3')
   })
   test('标题栏中存在返回按钮', () => {
     expect(wrapper.find('.bi-chevron-left').exists()).toBeTruthy()
@@ -48,7 +48,7 @@ describe('Menu multiple level', () => {
     const grandson = wrapper.findAll('.sm-container-child').at(1)
     const header = grandson.find('.sm-child-header')
     expect(header.exists()).toBeTruthy()
-    expect(header.find('.sm-item-body').text()).toBe('我是子菜单项2')
+    expect(header.find('.sm-block__body').text()).toBe('我是子菜单项2')
   })
   test('孙菜单标题栏中存在返回按钮', () => {
     const grandson = wrapper.findAll('.sm-container-child').at(1)
@@ -60,16 +60,16 @@ describe('Menu multiple level', () => {
   })
   test('点击孙菜单的返回按钮，界面切换回子菜单', async () => {
     const grandson = wrapper.findAll('.sm-container-child').at(1)
-    await grandson.find('.sm-child-header .sm-item-prepend').trigger('click')
+    await grandson.find('.sm-child-header .sm-block__prepend').trigger('click')
     expect(wrapper.find('.sm-container-root').element.style.display).toBe('none')
     expect(wrapper.findAll('.sm-container-child')).toHaveLength(1)
     expect(wrapper.findAll('.sm-child-body .sm-item')).toHaveLength(4)
   })
   test('子菜单标题栏应显示 "我是菜单项3"', () => {
-    expect(wrapper.find('.sm-child-header .sm-item-body').text()).toBe('我是菜单项3')
+    expect(wrapper.find('.sm-child-header .sm-block__body').text()).toBe('我是菜单项3')
   })
   test('点击子菜单的返回按钮，界面切换回主菜单', async () => {
-    await wrapper.find('.sm-child-header .sm-item-prepend').trigger('click')
+    await wrapper.find('.sm-child-header .sm-block__prepend').trigger('click')
     expect(wrapper.find('.sm-container-root').element.style.display).toBe('')
     expect(wrapper.find('.sm-container-child').exists()).toBeFalsy()
   })
