@@ -10,7 +10,7 @@
   .sm-default-trigger
     display: inline-flex
     align-items: center
-    padding: 6px 12px
+    padding: .5rem 1rem
     background-color: white
     border: 1px solid #ddd
     border-radius: .3rem
@@ -18,6 +18,7 @@
     line-height: 1.42857143
     outline: 0 !important
     color: #666
+    gap: .5rem
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
     &:hover
       border: 1px solid #aaa
@@ -25,8 +26,8 @@
     .sm-caret-down
       transition: transform .2s ease
     &.sm-opened
-      // box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08)
-      box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.3)
+      // box-shadow: 0 0 0 3px rgb(0, 0, 0, 0.08)
+      box-shadow: 3px 2px 6px rgb(0, 0, 0, 0.3)
       border: 1px solid #666
       color: black
       .sm-caret-down
@@ -37,7 +38,6 @@
   display: inline-block
   width: 0
   height: 0
-  margin-left: 10px
   border-top: 4px solid
   border-left: 4px solid transparent
   border-right: 4px solid transparent

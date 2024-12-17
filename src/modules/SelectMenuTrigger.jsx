@@ -1,18 +1,23 @@
 import { computed } from 'vue'
 
-import { useSelectMenuDropdown } from '../core/helper'
+import { ROUNDED_SMALL } from '../constants'
+import { useSelectMenuDropdown, getInputRoundedClass } from '../core/helper'
 
 export default {
   name: 'SelectMenuDropdownTrigger',
   props: {
+    rounded: { type: String, default: ROUNDED_SMALL }
   },
   setup (props, { slots }) {
     const dropdown = useSelectMenuDropdown()
 
-    const buttonClasses = computed(() => ({
-      'sm-default-trigger': true,
-      'sm-opened': dropdown?.visible?.value
-    }))
+    const buttonClasses = computed(() => ([
+      {
+        'sm-default-trigger': true,
+        'sm-opened': dropdown?.visible?.value
+      },
+      getInputRoundedClass(props.rounded)
+    ]))
     const containerClasses = computed(() => ({
       'sm-trigger-container': true,
       'sm-disabled': dropdown?.disabled?.value
