@@ -2,6 +2,20 @@
 
 Please refer to [CHANGELOG-CN](CHANGELOG-CN.md) for Chinese changelog
 
+## [3.1.0](https://github.com/TerryZ/v-selectmenu/compare/v3.0.3...v3.1.0) (2024-12-18)
+
+### Features
+
+- Added `SelectMenuInput` input box component
+- Added `SelectMenuButton` button component
+- Added `SelectMenuBlock` component as an inline pure layout component
+- Removed `SelectMenuSearch` component
+
+### Improvements
+
+- `SelectMenuGroup` group switching method optimization
+- `SelectMenuColumn` automatically adapts and evenly distributes width
+
 ## [3.0.3](https://github.com/TerryZ/v-selectmenu/compare/v3.0.2...v3.0.3) (2024-12-02)
 
 ### Improvements

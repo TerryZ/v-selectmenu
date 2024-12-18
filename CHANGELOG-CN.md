@@ -2,6 +2,20 @@
 
 英文 changelog 内容请访问 [CHANGELOG](CHANGELOG.md)
 
+## [3.1.0](https://github.com/TerryZ/v-selectmenu/compare/v3.0.3...v3.1.0) (2024-12-18)
+
+### 新特性
+
+- 新增 `SelectMenuInput` 输入框组件
+- 新增 `SelectMenuButton` 按钮组件
+- 新增 `SelectMenuBlock` 组件，作为行内纯布局组件
+- 移除 `SelectMenuSearch` 组件
+
+### 功能改进
+
+- `SelectMenuGroup` 分组切换方式优化
+- `SelectMenuColumn` 自动适应并平均分配宽度
+
 ## [3.0.3](https://github.com/TerryZ/v-selectmenu/compare/v3.0.2...v3.0.3) (2024-12-02)
 
 ### 功能改进
