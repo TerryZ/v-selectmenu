@@ -15,6 +15,10 @@ export const ROUNDED_LARGE = 'large'
 export const ROUNDED_PILL = 'pill'
 export const ROUNDED_CIRCLE = 'circle'
 
+export const SIZE_MEDIUM = 'medium'
+export const SIZE_SMALL = 'small'
+export const SIZE_MINI = 'mini'
+
 export const inputRoundedList = [
   ROUNDED_SMALL,
   ROUNDED_MEDIUM,
@@ -22,3 +26,4 @@ export const inputRoundedList = [
   ROUNDED_PILL
 ]
 export const buttonRoundedList = [...inputRoundedList, ROUNDED_CIRCLE]
+export const sizeList = [SIZE_MEDIUM, SIZE_SMALL, SIZE_MINI]

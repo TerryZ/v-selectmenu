@@ -2,7 +2,7 @@ import '../styles/button.sass'
 
 import { defineComponent, computed } from 'vue'
 
-import { ROUNDED_PILL, ROUNDED_CIRCLE } from '../constants'
+import { ROUNDED_PILL, ROUNDED_CIRCLE, SIZE_MEDIUM, sizeList } from '../constants'
 import { getButtonRoundedClass } from '../core/helper'
 
 import IconLoading from '../icons/IconLoading.vue'
@@ -14,13 +14,13 @@ export default defineComponent({
     disabled: { type: Boolean, default: false },
     loading: { type: Boolean, default: false },
     rounded: { type: String, default: ROUNDED_PILL },
-    size: { type: String, default: '' }
+    size: { type: String, default: SIZE_MEDIUM }
   },
   setup (props, { emit, slots }) {
     const isCircle = computed(() => props.rounded === ROUNDED_CIRCLE)
 
     function getSizeClass () {
-      if (!['small', 'mini'].includes(props.size)) return ''
+      if (!sizeList.includes(props.size)) return ''
       return `sm-button--${props.size}`
     }
     const classes = computed(() => {
