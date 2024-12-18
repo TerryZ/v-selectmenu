@@ -20,9 +20,17 @@ export interface SelectMenuDropdownUtilities {
   adjustDropdown: () => void
 }
 
+interface DropdownTriggerProps extends ComponentProps {
+  /**
+   * The rounded size of built-in dropdown trigger button
+   * @default `small`
+   */
+  rounded?: string
+}
+
 declare interface DropdownTrigger {
   new (): {
-    $props: ComponentProps
+    $props: DropdownTriggerProps
     $slots: DefaultSlot & AppendSlot
   }
 }

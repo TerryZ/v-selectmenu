@@ -31,6 +31,12 @@ declare interface SelectMenuItem {
     $slots: BaseMenuItemSlots
   }
 }
+declare interface SelectMenuBlock {
+  new (): {
+    $props: ComponentProps
+    $slots: BaseMenuItemSlots
+  }
+}
 declare interface BodyProps {
   /**
    * Whether to hide the menu when clicking on the menu item
@@ -66,6 +72,7 @@ declare interface Header {
 }
 
 declare const SelectMenuItem: SelectMenuItem
+declare const SelectMenuBlock: SelectMenuBlock
 declare const SelectMenuBody: SelectMenuBody
 declare const SelectMenuChildLevel: ChildLevelItem
 declare const SelectMenuDivider: Divider
@@ -77,6 +84,7 @@ export {
   SelectMenuRow,
   SelectMenuColumn,
   SelectMenuItem,
+  SelectMenuBlock,
   SelectMenuBody,
   SelectMenuChildLevel,
   SelectMenuDivider,
