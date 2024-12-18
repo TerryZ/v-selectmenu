@@ -30,7 +30,7 @@ export default defineComponent({
     }
     function RadioSelection () {
       return (
-        <div class='sm-radio-item-checked'>
+        <div class='sm-radio-item--checked'>
           { isItemChecked(props.value) ? <IconDot /> : '' }
         </div>
       )

@@ -30,7 +30,7 @@ export default defineComponent({
     }
     function CheckboxSelection () {
       return (
-        <div class='sm-checkbox-item-checked'>
+        <div class='sm-checkbox-item--checked'>
           { isItemChecked(props.value) ? <IconCheck /> : '' }
         </div>
       )
