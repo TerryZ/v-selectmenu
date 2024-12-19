@@ -25,11 +25,12 @@ export default defineComponent({
     const input = ref(props.modelValue || '')
     const inputDebounce = useDebounce(props.debounce)
 
+    const isDisabled = computed(() => props.disabled || props.loading)
     const classes = computed(() => {
       return [
         'sm-input', getInputRoundedClass(props.rounded),
         {
-          disabled: props.disabled || props.loading,
+          disabled: isDisabled.value,
           'sm-input--border': props.border
         }
       ]
@@ -47,7 +48,7 @@ export default defineComponent({
       responseInput(input.value)
     }
     function clearInput () {
-      if (props.disabled) return
+      if (isDisabled.value) return
       if (!input.value) return
       setInputValue('')
     }
@@ -103,7 +104,7 @@ export default defineComponent({
             autocomplete='off'
             value={input.value}
             placeholder={props.placeholder}
-            disabled={props.disabled}
+            disabled={isDisabled.value}
             onInput={onInput}
             onKeydown={onKeyDown}
             onCompositionstart={onCompositionStart}
