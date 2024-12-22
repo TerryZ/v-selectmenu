@@ -22,6 +22,7 @@
         <SelectMenuHeader>搜索</SelectMenuHeader>
         <SelectMenuInput
           @change="change"
+          :debounce="300"
           :loading="searching"
         />
         <SelectMenuItem

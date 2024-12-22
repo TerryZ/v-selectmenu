@@ -17,13 +17,13 @@ export default defineComponent({
     rounded: { type: String, default: ROUNDED_PILL },
     placeholder: { type: String, default: '' },
     /** debounce delay when typing, in milliseconds */
-    debounce: { type: Number, default: 300 },
+    debounce: { type: Number, default: 0 },
     loading: { type: Boolean, default: false }
   },
   emits: ['update:modelValue', 'change'],
   setup (props, { emit, slots }) {
     const input = ref(props.modelValue || '')
-    const inputDebounce = useDebounce(props.debounce)
+    const inputDebounce = props.debounce ? useDebounce(props.debounce) : undefined
 
     const isDisabled = computed(() => props.disabled || props.loading)
     const classes = computed(() => {
@@ -54,6 +54,9 @@ export default defineComponent({
     }
     function onInput (e) {
       if (e.target.composing) return
+      if (!props.debounce) {
+        return setInputValue(e.target.value.trim())
+      }
       inputDebounce(() => setInputValue(e.target.value.trim()))
     }
     function onKeyDown (e) {
