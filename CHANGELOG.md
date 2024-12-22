@@ -2,6 +2,15 @@
 
 Please refer to [CHANGELOG-CN](CHANGELOG-CN.md) for Chinese changelog
 
+## [3.1.1](https://github.com/TerryZ/v-selectmenu/compare/v3.1.0...v3.1.1) (2024-12-22)
+
+### Improvements
+
+- `SelectMenuInput`'s `loading` uses `disabled` control
+- `SelectMenuInput`'s `debounce` prop default value changed to 0
+- Container root adaptive width
+- `SelectMenuButton` mini mode style optimization
+
 ## [3.1.0](https://github.com/TerryZ/v-selectmenu/compare/v3.0.3...v3.1.0) (2024-12-18)
 
 ### Features

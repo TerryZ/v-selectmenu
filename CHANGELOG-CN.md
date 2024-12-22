@@ -2,6 +2,15 @@
 
 英文 changelog 内容请访问 [CHANGELOG](CHANGELOG.md)
 
+## [3.1.1](https://github.com/TerryZ/v-selectmenu/compare/v3.1.0...v3.1.1) (2024-12-22)
+
+### 功能改进
+
+- `SelectMenuInput` 的 `loading` 应用 `disabled` 控制
+- `SelectMenuInput` 的 `debounce` prop 默认值修改为 0
+- Container root 自适应宽度
+- `SelectMenuButton` mini 模式样式优化
+
 ## [3.1.0](https://github.com/TerryZ/v-selectmenu/compare/v3.0.3...v3.1.0) (2024-12-18)
 
 ### 新特性
