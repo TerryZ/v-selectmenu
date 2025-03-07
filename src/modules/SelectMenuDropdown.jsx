@@ -1,41 +1,27 @@
-import { ref, defineComponent, provide, toRef } from 'vue'
+import { ref, defineComponent, provide } from 'vue'
 
-import Dropdown from 'v-dropdown'
+import { Dropdown } from 'v-dropdown'
 
 import { injectDropdown } from '../constants'
 
 export default defineComponent({
   name: 'SelectMenuDropdown',
-  setup (props, { slots, attrs }) {
-    const visible = ref(false)
-    const dropdownEl = ref()
+  setup (props, { slots }) {
+    const dropdownClosed = ref()
 
-    function closeDropdown () {
-      dropdownEl.value && dropdownEl.value.close()
+    const registerDropdownClosed = fn => { dropdownClosed.value = fn }
+    const onClosed = () => dropdownClosed.value?.()
+
+    provide(injectDropdown, {
+      registerDropdownClosed
+    })
+
+    return () => {
+      const dropdownSlots = {
+        trigger: data => slots.trigger?.(data),
+        default: data => slots.default?.(data)
+      }
+      return <Dropdown onClosed={onClosed} v-slots={dropdownSlots} />
     }
-    function adjustDropdown () {
-      dropdownEl.value && dropdownEl.value.adjust()
-    }
-
-    const provideData = {
-      visible,
-      disabled: toRef(attrs, 'disabled', false),
-      closeDropdown,
-      adjustDropdown
-    }
-
-    provide(injectDropdown, provideData)
-
-    // dropdown 参数直接应用透传
-    return () => (
-      <Dropdown
-        customContainerClass="sm-dropdown-container"
-        ref={dropdownEl}
-        onVisibleChange={val => { visible.value = val }}
-      >{{
-        trigger: () => slots.trigger?.(provideData),
-        default: () => slots.default?.(provideData)
-      }}</Dropdown>
-    )
   }
 })

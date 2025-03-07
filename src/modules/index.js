@@ -1,4 +1,3 @@
-import '../styles/trigger.sass'
 import '../styles/select-menu.sass'
 
 export { default as SelectMenuBody } from './SelectMenuBody'
@@ -20,5 +19,4 @@ export { default as SelectMenuInput } from './SelectMenuInput'
 export { default as SelectMenuButton } from './SelectMenuButton'
 export { default as SelectMenuChildLevel } from './SelectMenuChildLevel'
 
-export { default as SelectMenuTrigger } from './SelectMenuTrigger'
 export { default as SelectMenuDropdown } from './SelectMenuDropdown'

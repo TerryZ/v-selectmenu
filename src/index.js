@@ -1,3 +1,2 @@
 export * from './modules'
-
-export { useSelectMenuDropdown } from './core/helper'
+export { useDropdown, DropdownTrigger as SelectMenuTrigger } from 'v-dropdown'

@@ -1,14 +1,10 @@
-import { ref, computed, nextTick } from 'vue'
-
-import { useSelectMenuDropdown } from './helper'
+import { ref, computed } from 'vue'
 
 import SelectMenuDivider from '../modules/SelectMenuDivider'
 import CircleButton from '../components/CircleButton'
 import IconChevronLeft from '../icons/IconChevronLeft.vue'
 
 export function useMultipleLevel (props) {
-  const { adjustDropdown } = useSelectMenuDropdown()
-
   const levels = ref([])
 
   const hasLevels = computed(() => levels.value.length)
@@ -17,17 +13,11 @@ export function useMultipleLevel (props) {
     overflow: 'auto'
   }))
 
-  function addChildLevel (data) {
-    levels.value.push(data)
-    nextTick(() => adjustDropdown?.())
-  }
+  const addChildLevel = data => levels.value.push(data)
+  const resetLevel = () => { levels.value = [] }
   function backToPreviousLevel () {
     if (!levels.value.length) return
     levels.value.pop()
-    nextTick(() => adjustDropdown?.())
-  }
-  function resetLevel () {
-    levels.value = []
   }
 
   function LevelHeader ({ title }) {

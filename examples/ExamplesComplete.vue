@@ -149,29 +149,31 @@
               <SelectMenuTrigger />
             </template>
 
-            <template #default="{ visible, closeDropdown }">
-              <div class="d-flex flex-column">
-                <div class="d-flex flex-column p-3">
-                  <h4>Component</h4>
-                  <CustomDropdownContent />
-                </div>
+            <template #default="{ visible, close }">
+              <SelectMenuBody>
+                <div class="d-flex flex-column">
+                  <div class="d-flex flex-column p-3">
+                    <h4>Component</h4>
+                    <CustomDropdownContent />
+                  </div>
 
-                <div class="mt-3 border-top d-flex flex-column p-3">
-                  <h4>html dom</h4>
-                  <div>
-                    visible: {{ visible }}
-                  </div>
-                  <div class="mt-3">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      @click="closeDropdown"
-                    >
-                      OK
-                    </button>
+                  <div class="mt-3 border-top d-flex flex-column p-3">
+                    <h4>html dom</h4>
+                    <div>
+                      visible: {{ visible }}
+                    </div>
+                    <div class="mt-3">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        @click="close"
+                      >
+                        Close
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </SelectMenuBody>
             </template>
           </SelectMenuDropdown>
         </div>

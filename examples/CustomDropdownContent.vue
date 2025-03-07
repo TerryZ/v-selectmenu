@@ -12,7 +12,7 @@
         class="btn btn-primary"
         @click="close"
       >
-        OK
+        Close
       </button>
     </div>
   </div>
@@ -20,15 +20,10 @@
 
 <script setup>
 // import { ref } from 'vue'
-import { useSelectMenuDropdown } from '@/'
+import { useDropdown } from '../src'
 
 const {
   visible,
-  closeDropdown
-} = useSelectMenuDropdown()
-
-function close () {
-  console.log(visible.value)
-  closeDropdown()
-}
+  close
+} = useDropdown()
 </script>
