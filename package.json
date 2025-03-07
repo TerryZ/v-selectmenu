@@ -1,7 +1,7 @@
 {
   "name": "v-selectmenu",
   "description": "SelectMenu for Vue3, A simple, easier and highly customized menu solution",
-  "version": "3.1.1",
+  "version": "3.0.3",
   "author": "TerryZ <terry5@foxmail.com>",
   "license": "MIT",
   "type": "module",
@@ -51,28 +51,28 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
-    "v-dropdown": "3.0.0",
+    "v-dropdown": "3.2.1",
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.10.4",
+    "@rushstack/eslint-patch": "^1.10.5",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
-    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/coverage-v8": "^3.0.8",
     "@vue/eslint-config-standard": "^8.0.1",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.3",
     "eslint": "^8.57.1",
-    "eslint-plugin-vue": "^9.32.0",
-    "jsdom": "^25.0.1",
-    "postcss": "^8.4.49",
-    "sass": "^1.83.0",
-    "typescript": "^5.7.2",
-    "vite": "^6.0.3",
+    "eslint-plugin-vue": "^9.30.0",
+    "jsdom": "^26.0.0",
+    "postcss": "^8.5.3",
+    "sass": "^1.85.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.1",
     "vite-plugin-css-injected-by-js": "^3.5.2",
-    "vitest": "^2.1.8",
-    "vue-router": "^4.4.5",
-    "vue-tsc": "^2.1.10"
+    "vitest": "^3.0.8",
+    "vue-router": "^4.5.0",
+    "vue-tsc": "^2.2.8"
   }
 }
