@@ -51,7 +51,7 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
-    "v-dropdown": "3.2.1",
+    "v-dropdown": "3.3.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
