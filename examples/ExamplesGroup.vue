@@ -6,7 +6,7 @@
         <template #trigger>
           <SelectMenuTrigger />
         </template>
-        <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuBody>
           <SelectMenuHeader>我是菜单标题</SelectMenuHeader>
           <SelectMenuGroup
             v-model="activeGroup"

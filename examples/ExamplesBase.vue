@@ -2,7 +2,12 @@
   <div class="">
     <h5>基础菜单</h5>
     <div class="my-3">
-      <SelectMenuDropdown>
+      <SelectMenuDropdown
+        @open="open"
+        @opened="opened"
+        @close="close"
+        @closed="closed"
+      >
         <template #trigger>
           <SelectMenuTrigger />
         </template>
@@ -83,7 +88,7 @@
     <div class="my-3">
       <SelectMenuDropdown>
         <template #trigger>
-          <SelectMenuTrigger />
+          <SelectMenuTrigger rounded="pill" />
         </template>
         <SelectMenuBody>
           <SelectMenuHeader>Header</SelectMenuHeader>
@@ -125,7 +130,6 @@
 
 <script setup>
 // import { ref } from 'vue'
-
 import {
   SelectMenuDropdown,
   SelectMenuTrigger,
@@ -143,5 +147,17 @@ function menuAction (key) {
 function itemClick (e) {
   console.log(e)
   alert('你点击了 "我是菜单项2" 项目')
+}
+function open () {
+  console.log('open')
+}
+function opened () {
+  console.log('opened')
+}
+function close () {
+  console.log('close')
+}
+function closed () {
+  console.log('closed')
 }
 </script>

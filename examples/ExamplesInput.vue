@@ -6,7 +6,7 @@
         <template #trigger>
           <SelectMenuTrigger />
         </template>
-        <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuBody>
           <SelectMenuHeader>搜索</SelectMenuHeader>
           <SelectMenuDivider />
           <SelectMenuInput
@@ -27,7 +27,7 @@
         <template #trigger>
           <SelectMenuTrigger />
         </template>
-        <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuBody>
           <SelectMenuHeader>搜索</SelectMenuHeader>
           <SelectMenuInput
             @change="change"
@@ -47,7 +47,7 @@
         <template #trigger>
           <SelectMenuTrigger />
         </template>
-        <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuBody>
           <SelectMenuInput>
             <template #prepend>
               sf
@@ -90,7 +90,7 @@
         <template #trigger>
           <SelectMenuTrigger />
         </template>
-        <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuBody>
           <SelectMenuHeader>圆角弧度</SelectMenuHeader>
           <SelectMenuInput rounded="small" />
           <SelectMenuInput rounded="medium" />
@@ -103,7 +103,7 @@
         <template #trigger>
           <SelectMenuTrigger />
         </template>
-        <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuBody>
           <SelectMenuSubHeader>Form</SelectMenuSubHeader>
           <SelectMenuBlock>
             <SelectMenuInput

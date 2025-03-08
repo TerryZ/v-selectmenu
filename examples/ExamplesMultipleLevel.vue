@@ -7,7 +7,6 @@
           <SelectMenuTrigger />
         </template>
         <SelectMenuBody
-          class="border rounded-3 shadow-sm"
           style="max-height: 400px;"
           @action="menuAction"
         >

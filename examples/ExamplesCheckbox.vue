@@ -54,7 +54,7 @@
         class="btn btn-dark me-3"
         @click="checked = ['checkbox3', 'checkbox3', 'checkbox3']"
       >
-        clear
+        reset to only `checkbox3`
       </button>
       <button
         type="button"

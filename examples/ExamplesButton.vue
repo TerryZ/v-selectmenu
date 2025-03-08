@@ -159,7 +159,7 @@
         <template #trigger>
           <SelectMenuTrigger />
         </template>
-        <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuBody>
           <SelectMenuHeader>Size</SelectMenuHeader>
           <SelectMenuButton
             :loading="true"
@@ -199,7 +199,7 @@
         <template #trigger>
           <SelectMenuTrigger />
         </template>
-        <SelectMenuBody class="border rounded-3 shadow-sm">
+        <SelectMenuBody>
           <SelectMenuHeader>
             Header
             <template #append>
