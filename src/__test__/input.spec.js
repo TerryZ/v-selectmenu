@@ -63,14 +63,14 @@ describe('Menu input', () => {
     await input.setValue('123')
 
     vi.runAllTimers()
-    await nextTick()
+    // await nextTick()
 
     expect(wrapper.find('.sm-input__clear').classes()).toContain('active')
 
     await input.setValue('')
 
     vi.runAllTimers()
-    await nextTick()
+    // await nextTick()
 
     expect(wrapper.find('.sm-input__clear').classes('active')).toBeFalsy()
 
