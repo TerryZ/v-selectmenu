@@ -1,5 +1,4 @@
 import { defineComponent, provide, inject, computed, toRef } from 'vue'
-import { DropdownContent } from 'v-dropdown'
 
 import { injectMenu, injectDropdown } from '../constants'
 import { useMultipleLevel } from '../core/MultipleLevel'
@@ -39,18 +38,16 @@ export default defineComponent({
     })
 
     return () => (
-      <DropdownContent rounded="medium">
-        <div class="sm-container">
-          <MenuLevelGroup />
-          <div
-            class="sm-container-root"
-            style={rootContainerStyles.value}
-            v-show={!hasLevels.value}
-          >
-            {slots?.default?.()}
-          </div>
+      <div class="sm-container">
+        <MenuLevelGroup />
+        <div
+          class="sm-container-root"
+          style={rootContainerStyles.value}
+          v-show={!hasLevels.value}
+        >
+          {slots?.default?.()}
         </div>
-      </DropdownContent>
+      </div>
     )
   }
 })

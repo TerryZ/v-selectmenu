@@ -1,6 +1,6 @@
 import { ref, defineComponent, provide } from 'vue'
 
-import { Dropdown } from 'v-dropdown'
+import { Dropdown, DropdownContent } from 'v-dropdown'
 
 import { injectDropdown } from '../constants'
 
@@ -19,7 +19,11 @@ export default defineComponent({
     return () => {
       const dropdownSlots = {
         trigger: data => slots.trigger?.(data),
-        default: data => slots.default?.(data)
+        default: data => (
+          <DropdownContent rounded="medium">
+            {slots.default?.(data)}
+          </DropdownContent>
+        )
       }
       return <Dropdown onClosed={onClosed} v-slots={dropdownSlots} />
     }
