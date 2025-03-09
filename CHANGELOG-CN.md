@@ -2,6 +2,13 @@
 
 英文 changelog 内容请访问 [CHANGELOG](CHANGELOG.md)
 
+## [3.1.2](https://github.com/TerryZ/v-selectmenu/compare/v3.1.1...v3.1.2) (2025-03-09)
+
+### 新特性
+
+- `v-dropdown` 组件升级至 `v3.3.0`
+- `SelectMenuTrigger` 默认 `rounded` 为 `medium`
+
 ## [3.1.1](https://github.com/TerryZ/v-selectmenu/compare/v3.1.0...v3.1.1) (2024-12-22)
 
 ### 功能改进
