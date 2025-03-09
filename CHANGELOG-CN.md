@@ -8,6 +8,8 @@
 
 - `v-dropdown` 组件升级至 `v3.3.0`
 - `SelectMenuTrigger` 默认 `rounded` 为 `medium`
+- 类型 `SelectMenuDropdownUtilities` 更名为 `DropdownUtilities`
+- `useSelectMenuDropdown` 更名为 `useDropdown`
 
 ## [3.1.1](https://github.com/TerryZ/v-selectmenu/compare/v3.1.0...v3.1.1) (2024-12-22)
 

@@ -8,6 +8,8 @@ Please refer to [CHANGELOG-CN](CHANGELOG-CN.md) for Chinese changelog
 
 - `v-dropdown` component upgrade to `v3.3.0`
 - `SelectMenuTrigger` 's `rounded` prop use `medium` by default
+- Type `SelectMenuDropdownUtilities` rename to `DropdownUtilities`
+- `useSelectMenuDropdown` rename to `useDropdown`
 
 ## [3.1.1](https://github.com/TerryZ/v-selectmenu/compare/v3.1.0...v3.1.1) (2024-12-22)
 
